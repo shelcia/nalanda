@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./components/landingPage/Header";
+import MainPage from "./components/landingPage/MainPage";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
+      <MainPage />
     </div>
   );
 };

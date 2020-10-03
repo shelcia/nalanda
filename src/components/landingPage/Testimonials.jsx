@@ -1,8 +1,9 @@
 import React from "react";
 
-const Counters = () => {
+const Testimonials = () => {
   return (
     <React.Fragment>
+      <div className="title text-center">Testimonials</div>
       <div className="container">
         <div className="card-deck border">
           <div className="card" style={{ height: "100px" }}>
@@ -20,4 +21,4 @@ const Counters = () => {
   );
 };
 
-export default Counters;
+export default Testimonials;
