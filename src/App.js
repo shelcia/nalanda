@@ -1,10 +1,10 @@
 import React from "react";
-import bg from "./assets/background.png";
+import Header from "./components/landingPage/Header";
 
 const App = () => {
   return (
     <div className="App">
-      <img src={bg} alt="" />
+      <Header />
     </div>
   );
 };
