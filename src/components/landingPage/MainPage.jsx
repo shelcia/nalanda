@@ -4,6 +4,7 @@ import Counter from "./Counters";
 import DirectorMessage from "./DirectorsMessage";
 import Announcements from "./Announcements";
 import Testimonials from "./Testimonials";
+import Footer from "./Footer";
 
 const MainPage = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage = () => {
       <DirectorMessage />
       <Announcements />
       <Testimonials />
+      <Footer />
     </React.Fragment>
   );
 };
