@@ -8,8 +8,13 @@ $primaryColor: #404040;
 $backgroundColor: #fff;
 $borderColor: #707070;
 
+$shadow: 0px 3px 6px #00000015;
+
 * {
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
+}
+@mixin border($color) {
+  border: 1.2px solid $color;
 }
 
 @mixin buttonStyle {
@@ -20,8 +25,15 @@ $borderColor: #707070;
   padding: 0.4rem 2.2rem !important;
 }
 
+@mixin displaFlex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 .navbar {
   background-color: $backgroundColor !important;
+  box-shadow: $shadow;
   div ul li a {
     color: $borderColor !important;
     font-weight: 300;
@@ -35,7 +47,33 @@ $borderColor: #707070;
 
 .header {
   position: relative;
-  .overlay {
-    z-index: 10;
+  background-image: url("background.png");
+  background-color: $backgroundColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  margin-top: 9vh;
+
+  .row {
+    height: 100%;
+    .col-sm-7 {
+      padding-left: 5rem;
+      @include displaFlex(center, left);
+      flex-direction: column;
+      @include border(cyan);
+      h2.title {
+        color: $headerColor;
+        font-weight: bold;
+      }
+      p.catchline {
+        padding-top: 2rem;
+        color: $backgroundColor;
+        .highlight {
+          color: $blobColor;
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 }
