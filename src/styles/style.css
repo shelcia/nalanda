@@ -1,4 +1,30 @@
 * {
-  font-family: "futura", sans-serif;
+  font-family: "Futura", "Mulish", "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #fff !important;
+}
+
+.navbar div ul li a {
+  color: #707070 !important;
+  font-weight: 300;
+}
+
+.navbar div ul .login {
+  color: #fff !important;
+  background-color: #00b5eb;
+  border-radius: 50em;
+  cursor: pointer;
+  padding: 0.4rem 2.2rem !important;
+  margin-left: 1rem;
+}
+
+.header {
+  position: relative;
+}
+
+.header .overlay {
+  z-index: 10;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,41 @@
+$primaryFont: "Mulish", sans-serif;
+$secondaryFont: "Poppins", sans-serif;
+
+$headerColor: #022f93;
+$blobColor: #fff500;
+$secondaryColor: #00b5eb;
+$primaryColor: #404040;
+$backgroundColor: #fff;
+$borderColor: #707070;
+
 * {
-  font-family: "futura", sans-serif;
+  font-family: "Futura", "Mulish", "Poppins", sans-serif;
+}
+
+@mixin buttonStyle {
+  color: $backgroundColor !important;
+  background-color: $secondaryColor;
+  border-radius: 50em;
+  cursor: pointer;
+  padding: 0.4rem 2.2rem !important;
+}
+
+.navbar {
+  background-color: $backgroundColor !important;
+  div ul li a {
+    color: $borderColor !important;
+    font-weight: 300;
+  }
+  div ul .login {
+    @include buttonStyle();
+    // border-left: 1px solid $borderColor;
+    margin-left: 1rem;
+  }
+}
+
+.header {
+  position: relative;
+  .overlay {
+    z-index: 10;
+  }
 }
