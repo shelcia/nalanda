@@ -16,13 +16,44 @@ const Header = () => {
               in competitive exam
             </p>
           </div>
-          <div className="col-sm-5"></div>
+          <div className="col-sm-5">
+            <div className="sideline">
+              <button data-toggle="modal" data-target="#admissionModal">
+                Admission Enquiry
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
+      <Modal />
       <Navbar />
     </React.Fragment>
   );
 };
 
 export default Header;
+
+const Modal = () => {
+  return (
+    <div className="modal fade" id="admissionModal">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h4 className="modal-title">Modal Heading</h4>
+            <button type="button" className="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div className="modal-body">Modal body..</div>
+
+          <div className="modal-footer">
+            <button type="button" className="button" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

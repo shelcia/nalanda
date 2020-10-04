@@ -23,6 +23,7 @@ $shadow: 0px 3px 6px #00000015;
   border-radius: 50em;
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
+  border: none;
 }
 
 @mixin displaFlex($justify, $align) {
@@ -37,6 +38,17 @@ $shadow: 0px 3px 6px #00000015;
   div ul li a {
     color: $borderColor !important;
     font-weight: 300;
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1.8px;
+      background: $secondaryColor;
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
   }
   div ul .login {
     @include buttonStyle();
@@ -61,7 +73,7 @@ $shadow: 0px 3px 6px #00000015;
       padding-left: 5rem;
       @include displaFlex(center, left);
       flex-direction: column;
-      @include border(cyan);
+      // @include border(cyan);
       h2.title {
         color: $headerColor;
         font-weight: bold;
@@ -75,5 +87,28 @@ $shadow: 0px 3px 6px #00000015;
         }
       }
     }
+    .col-sm-5 {
+      button {
+        margin-top: 40%;
+        transform: rotateZ(270deg);
+        position: absolute;
+        padding: 0.5rem;
+        right: -40px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        background-color: $secondaryColor;
+        border: none;
+        color: $backgroundColor;
+      }
+    }
   }
+}
+@media (max-width: 766px) {
+  .header .row .col-sm-5 button {
+    display: none;
+  }
+}
+
+.modal-dialog .modal-content .modal-footer button.button {
+  @include buttonStyle();
 }
