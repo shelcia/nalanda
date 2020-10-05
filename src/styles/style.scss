@@ -32,6 +32,10 @@ $shadow: 0px 3px 6px #00000015;
   align-items: $align;
 }
 
+#bar {
+  max-width: 50%;
+}
+
 .navbar {
   background-color: $backgroundColor !important;
   box-shadow: $shadow;
@@ -115,7 +119,7 @@ $shadow: 0px 3px 6px #00000015;
 
 #counters {
   .card-deck {
-    @include border(red);
+    // @include border(red);
     padding-left: 2rem;
     padding-right: 2rem;
     .card {
@@ -125,6 +129,7 @@ $shadow: 0px 3px 6px #00000015;
       margin-left: 5px;
       margin-right: 5px;
       @include displaFlex(center, center);
+      box-shadow: $shadow;
       text-align: center;
       h2.title {
         font-size: 4rem;
@@ -142,5 +147,45 @@ $shadow: 0px 3px 6px #00000015;
       background-color: $headerColor;
       color: $blobColor;
     }
+  }
+}
+
+#directorMessage {
+  @include border(red);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  .row .col-sm-6 {
+    h2.title {
+      color: $headerColor;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    p.content {
+      margin-top: 1rem;
+      font-family: $secondaryFont;
+      color: $primaryColor;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+#announcement {
+  @include border(blue);
+  h2.title {
+    color: $headerColor;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  .text-center {
+    margin-top: 0px;
+    padding-top: 0px;
+    #bar {
+      max-width: 20%;
+    }
+  }
+  .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

@@ -2,6 +2,10 @@
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
 }
 
+#bar {
+  max-width: 50%;
+}
+
 .navbar {
   background-color: #fff !important;
   -webkit-box-shadow: 0px 3px 6px #00000015;
@@ -114,7 +118,6 @@
 }
 
 #counters .card-deck {
-  border: 1.2px solid red;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -134,6 +137,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0px 3px 6px #00000015;
+          box-shadow: 0px 3px 6px #00000015;
   text-align: center;
 }
 
@@ -154,5 +159,49 @@
 #counters .card-deck #trb {
   background-color: #022f93;
   color: #fff500;
+}
+
+#directorMessage {
+  border: 1.2px solid red;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#directorMessage .row .col-sm-6 h2.title {
+  color: #022f93;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#directorMessage .row .col-sm-6 p.content {
+  margin-top: 1rem;
+  font-family: "Poppins", sans-serif;
+  color: #404040;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+#announcement {
+  border: 1.2px solid blue;
+}
+
+#announcement h2.title {
+  color: #022f93;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#announcement .text-center {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#announcement .text-center #bar {
+  max-width: 20%;
+}
+
+#announcement .container-fluid {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
