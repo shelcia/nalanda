@@ -112,4 +112,47 @@
   padding: 0.4rem 2.2rem !important;
   border: none;
 }
+
+#counters .card-deck {
+  border: 1.2px solid red;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#counters .card-deck .card {
+  height: 200px;
+  border: none;
+  border-radius: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#counters .card-deck .card h2.title {
+  font-size: 4rem;
+}
+
+#counters .card-deck #tnpsc {
+  background-color: #00b5eb;
+  color: #fff;
+}
+
+#counters .card-deck #tneb {
+  background-color: #fff500;
+  color: #022f93;
+}
+
+#counters .card-deck #trb {
+  background-color: #022f93;
+  color: #fff500;
+}
 /*# sourceMappingURL=style.css.map */
