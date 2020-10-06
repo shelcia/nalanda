@@ -17,8 +17,8 @@ const Testimonials = () => {
 
   return (
     <React.Fragment>
-      <div id="testimonials">
-        <div className="title text-center">Testimonials</div>
+      <div className="mt-5" id="testimonials">
+        <h2 className="title text-center">Here it from our students !</h2>
         <div className="text-center">
           <img src={Bar} alt="bar" id="bar" />
         </div>

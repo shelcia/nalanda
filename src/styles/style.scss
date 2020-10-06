@@ -8,10 +8,28 @@ $primaryColor: #404040;
 $backgroundColor: #fff;
 $borderColor: #707070;
 
-$shadow: 0px 3px 6px #00000015;
+$shadow: 0px 3px 6px #00000000;
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background: $secondaryColor;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $headerColor;
+}
 
 * {
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
+}
+body {
+  overflow-x: hidden;
 }
 @mixin border($color) {
   border: 1.2px solid $color;
@@ -30,6 +48,20 @@ $shadow: 0px 3px 6px #00000015;
   display: flex;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin transition() {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin bgImage($url, $height) {
+  position: relative;
+  background-image: url($url);
+  background-color: $backgroundColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: $height;
 }
 
 #bar {
@@ -62,15 +94,8 @@ $shadow: 0px 3px 6px #00000015;
 }
 
 .header {
-  position: relative;
-  background-image: url("background.png");
-  background-color: $backgroundColor;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
+  @include bgImage("background.png", 80vh);
   margin-top: 9vh;
-
   .row {
     height: 100%;
     .col-sm-7 {
@@ -151,7 +176,7 @@ $shadow: 0px 3px 6px #00000015;
 }
 
 #directorMessage {
-  @include border(red);
+  // @include border(red);
   padding-left: 2rem;
   padding-right: 2rem;
   .row .col-sm-6 {
@@ -170,8 +195,9 @@ $shadow: 0px 3px 6px #00000015;
   }
 }
 
-#announcement {
-  @include border(blue);
+#announcement,
+#testimonials {
+  // @include border(blue);
   h2.title {
     color: $headerColor;
     font-weight: bold;
@@ -182,10 +208,51 @@ $shadow: 0px 3px 6px #00000015;
     padding-top: 0px;
     #bar {
       max-width: 20%;
+      margin-top: 0.8rem;
+      margin-bottom: 3rem;
     }
   }
   .container-fluid {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+#announcement {
+  .container-fluid {
+    @include bgImage("announcementBlob.png", 100%);
+    background-size: contain;
+  }
+}
+#testimonials {
+  .container-fluid {
+    @include bgImage("testimonialBlob.png", 100%);
+    background-size: contain;
+  }
+}
+
+#footer {
+  // @include border(orange);
+  height: 300px;
+  background-color: $headerColor;
+  color: $backgroundColor;
+  padding: 2rem;
+  .container-fluid .row {
+    .col-sm-3 {
+      br {
+        line-height: 2rem;
+        @include border(yellow);
+      }
+      a.footerlink {
+        color: $backgroundColor;
+        @include transition();
+        line-height: 1.7;
+
+        &:hover {
+          color: $blobColor;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
