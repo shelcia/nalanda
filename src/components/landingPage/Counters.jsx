@@ -4,7 +4,7 @@ const Counters = () => {
   return (
     <React.Fragment>
       <div className="container-fluid mt-5" id="counters">
-        <div className="card-deck border">
+        <div className="card-deck">
           <div className="card" id="tnpsc">
             <h2 className="title">500</h2>
             <p className="desc">Students cleared TNPSC</p>

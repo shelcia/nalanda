@@ -8,7 +8,7 @@ $primaryColor: #404040;
 $backgroundColor: #fff;
 $borderColor: #707070;
 
-$shadow: 0px 3px 6px #00000000;
+$shadow: 0px 3px 6px #00000015;
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -29,6 +29,7 @@ $shadow: 0px 3px 6px #00000000;
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
 }
 body {
+  position: relative;
   overflow-x: hidden;
 }
 @mixin border($color) {
@@ -69,6 +70,7 @@ body {
 }
 
 .navbar {
+  // @include border(blue);
   background-color: $backgroundColor !important;
   box-shadow: $shadow;
   div ul li a {
@@ -94,7 +96,10 @@ body {
 }
 
 .header {
+  // @include border(blue);
+
   @include bgImage("background.png", 80vh);
+  // width: 100%;
   margin-top: 9vh;
   .row {
     height: 100%;
@@ -102,7 +107,6 @@ body {
       padding-left: 5rem;
       @include displaFlex(center, left);
       flex-direction: column;
-      // @include border(cyan);
       h2.title {
         color: $headerColor;
         font-weight: bold;
@@ -143,6 +147,8 @@ body {
 }
 
 #counters {
+  // @include border(blue);
+
   .card-deck {
     // @include border(red);
     padding-left: 2rem;
@@ -233,16 +239,20 @@ body {
 
 #footer {
   // @include border(orange);
-  height: 300px;
+  min-height: 300px;
   background-color: $headerColor;
   color: $backgroundColor;
   padding: 2rem;
   .container-fluid .row {
-    .col-sm-3 {
-      br {
-        line-height: 2rem;
-        @include border(yellow);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    .col-sm-5,
+    .col-sm-4 {
+      p .highlight {
+        color: $blobColor;
       }
+    }
+    .col-sm-3 {
       a.footerlink {
         color: $backgroundColor;
         @include transition();
