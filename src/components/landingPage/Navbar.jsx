@@ -1,13 +1,14 @@
 import React from "react";
 import Logo from "../../assets/nalanda_logo.png";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-md bg-light navbar-light fixed-top">
-        <a className="navbar-brand" href="/">
+        <NavLink className="navbar-brand" to="/">
           <img src={Logo} alt="" height="30px" />
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,34 +20,34 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/">
                 About Us
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/">
                 Courses
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/faculty">
                 Faculty
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/">
                 Gallery
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/">
                 Contact Us
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link login" href="/">
+              <NavLink className="nav-link login" to="/login">
                 Login
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>

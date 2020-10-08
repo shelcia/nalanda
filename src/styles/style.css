@@ -61,7 +61,20 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
   margin-left: 1rem;
+}
+
+.navbar div ul .login:hover {
+  background-color: #19a2cc;
+}
+
+.navbar div ul .login:active, .navbar div ul .login:focus {
+  background-color: #19a2cc;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  outline: none;
 }
 
 .header {
@@ -138,6 +151,19 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.modal-dialog .modal-content .modal-footer button.button:hover {
+  background-color: #19a2cc;
+}
+
+.modal-dialog .modal-content .modal-footer button.button:active, .modal-dialog .modal-content .modal-footer button.button:focus {
+  background-color: #19a2cc;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  outline: none;
 }
 
 #counters .card-deck {
@@ -278,5 +304,60 @@ body {
 #footer .container-fluid .row .col-sm-3 a.footerlink:hover {
   color: #fff500;
   text-decoration: none;
+}
+
+#login .container-fluid .row .col-sm-7 {
+  background-color: #fff500;
+}
+
+#login .container-fluid .row .col-sm-5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#login .container-fluid .row .col-sm-5 h2.title {
+  color: #022f93;
+  margin-bottom: 2rem;
+}
+
+#login .container-fluid .row .col-sm-5 form {
+  width: 100%;
+}
+
+#login .container-fluid .row .col-sm-5 form div input {
+  border-color: #00b5eb;
+}
+
+#login .container-fluid .row .col-sm-5 button {
+  color: #fff !important;
+  background-color: #00b5eb;
+  border-radius: 50em;
+  cursor: pointer;
+  padding: 0.4rem 2.2rem !important;
+  border: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+#login .container-fluid .row .col-sm-5 button:hover {
+  background-color: #19a2cc;
+}
+
+#login .container-fluid .row .col-sm-5 button:active, #login .container-fluid .row .col-sm-5 button:focus {
+  background-color: #19a2cc;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

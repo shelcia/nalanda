@@ -43,6 +43,16 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
+  transition: all 0.2s ease-in;
+  &:hover {
+    background-color: #19a2cc;
+  }
+  &:active,
+  &:focus {
+    background-color: #19a2cc;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    outline: none;
+  }
 }
 
 @mixin displaFlex($justify, $align) {
@@ -262,6 +272,40 @@ body {
           color: $blobColor;
           text-decoration: none;
         }
+      }
+    }
+  }
+}
+
+#login {
+  .container-fluid .row {
+    .col-sm-7 {
+      background-color: $blobColor;
+    }
+
+    .col-sm-5 {
+      h2.title {
+        color: $headerColor;
+        margin-bottom: 2rem;
+      }
+      @include displaFlex(center, center);
+      flex-direction: column;
+      form {
+        width: 100%;
+        div input {
+          border-color: $secondaryColor;
+          // border: none;
+          // border-bottom: 1.5px solid $secondaryColor;
+          // border-radius: 0px;
+          // &:focus,
+          // &:active {
+          //   box-shadow: none;
+          //   background-color: #00000000;
+          // }
+        }
+      }
+      button {
+        @include buttonStyle();
       }
     }
   }
