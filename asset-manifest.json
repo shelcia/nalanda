@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/nalanda/static/css/main.33e16f09.chunk.css",
+    "main.js": "/nalanda/static/js/main.923a504c.chunk.js",
+    "main.js.map": "/nalanda/static/js/main.923a504c.chunk.js.map",
+    "runtime-main.js": "/nalanda/static/js/runtime-main.39a848df.js",
+    "runtime-main.js.map": "/nalanda/static/js/runtime-main.39a848df.js.map",
+    "static/css/2.d34346ea.chunk.css": "/nalanda/static/css/2.d34346ea.chunk.css",
+    "static/js/2.9a19058e.chunk.js": "/nalanda/static/js/2.9a19058e.chunk.js",
+    "static/js/2.9a19058e.chunk.js.map": "/nalanda/static/js/2.9a19058e.chunk.js.map",
+    "index.html": "/nalanda/index.html",
+    "precache-manifest.6ea5642cd8cec744897944fee23c5736.js": "/nalanda/precache-manifest.6ea5642cd8cec744897944fee23c5736.js",
+    "service-worker.js": "/nalanda/service-worker.js",
+    "static/css/2.d34346ea.chunk.css.map": "/nalanda/static/css/2.d34346ea.chunk.css.map",
+    "static/css/main.33e16f09.chunk.css.map": "/nalanda/static/css/main.33e16f09.chunk.css.map",
+    "static/js/2.9a19058e.chunk.js.LICENSE.txt": "/nalanda/static/js/2.9a19058e.chunk.js.LICENSE.txt",
+    "static/media/style.css": "/nalanda/static/media/testimonialBlob.cddacb06.png",
+    "static/media/login_illustration.png": "/nalanda/static/media/login_illustration.8ff90905.png",
+    "static/media/nalanda_institute.png": "/nalanda/static/media/nalanda_institute.80b558d4.png",
+    "static/media/nalanda_logo.png": "/nalanda/static/media/nalanda_logo.4d00644e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.39a848df.js",
+    "static/css/2.d34346ea.chunk.css",
+    "static/js/2.9a19058e.chunk.js",
+    "static/css/main.33e16f09.chunk.css",
+    "static/js/main.923a504c.chunk.js"
+  ]
+}
