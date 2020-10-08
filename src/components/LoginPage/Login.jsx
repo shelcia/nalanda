@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import LoginIllustration from "../../assets/login_illustration.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const successNotify = () => toast.success("Login Succesfull");
   const failedNotify = (message) => toast.error(message);
+
+  const history = useHistory();
+  console.log(history);
 
   const headers = {
     "Content-Type": "application/json",
@@ -33,6 +37,7 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response.data);
+        history.push("/admin/dashboard");
         successNotify();
       })
       .catch((error) => {
