@@ -10,12 +10,6 @@ $borderColor: #707070;
 
 $shadow: 0px 3px 6px #00000015;
 
-$fontLarge: 2.5rem;
-$fontLarge: 2.2rem;
-$fontMedium: 1.6rem;
-$fontSmall: 1.3rem;
-$fontSmaller: 1rem;
-
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
@@ -49,7 +43,6 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
-  font-size: $fontSmall;
   transition: all 0.2s ease-in;
   &:hover {
     background-color: #19a2cc;
@@ -87,13 +80,11 @@ body {
 }
 
 .navbar {
-  // @include border(blue);
   background-color: $backgroundColor !important;
   box-shadow: $shadow;
   div ul li a {
     color: $borderColor !important;
     font-weight: 300;
-    font-size: $fontSmall;
     &::after {
       content: "";
       display: block;
@@ -140,6 +131,7 @@ body {
     }
     .col-sm-5 {
       button {
+        font-size: 1.2rem;
         margin-top: 40%;
         transform: rotateZ(270deg);
         position: absolute;
@@ -300,7 +292,8 @@ body {
       flex-direction: column;
       form {
         width: 100%;
-        div input {
+        div input,
+        select {
           border-color: $secondaryColor;
           // border: none;
           // border-bottom: 1.5px solid $secondaryColor;

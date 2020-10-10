@@ -38,7 +38,6 @@ body {
 .navbar div ul li a {
   color: #707070 !important;
   font-weight: 300;
-  font-size: 1.3rem;
 }
 
 .navbar div ul li a::after {
@@ -62,7 +61,6 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
-  font-size: 1.3rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   margin-left: 1rem;
@@ -127,6 +125,7 @@ body {
 }
 
 .header .row .col-sm-5 button {
+  font-size: 1.2rem;
   margin-top: 40%;
   -webkit-transform: rotateZ(270deg);
           transform: rotateZ(270deg);
@@ -153,7 +152,6 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
-  font-size: 1.3rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
@@ -338,7 +336,8 @@ body {
   width: 100%;
 }
 
-#login .container-fluid .row .col-sm-5 form div input {
+#login .container-fluid .row .col-sm-5 form div input,
+#login .container-fluid .row .col-sm-5 form select {
   border-color: #00b5eb;
 }
 
@@ -349,7 +348,6 @@ body {
   cursor: pointer;
   padding: 0.4rem 2.2rem !important;
   border: none;
-  font-size: 1.3rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
