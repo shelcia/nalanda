@@ -311,3 +311,50 @@ body {
     }
   }
 }
+
+#admindashboard {
+  .container-fluid {
+    height: 100vh;
+    #navbar-dashboard {
+      max-width: 20%;
+      background-color: $secondaryColor !important;
+      padding-left: 30px !important;
+      .collapse .navbar-nav {
+        flex-direction: column;
+        .nav-item .nav-link {
+          color: white !important;
+          transition: all 0.2s ease-in;
+          &:hover {
+            color: $blobColor !important;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 770px) {
+  #admindashboard .container-fluid #navbar-dashboard {
+    height: 100vh;
+  }
+}
+@media (max-width: 770px) {
+  #admindashboard .container-fluid #navbar-dashboard {
+    box-shadow: none;
+    background-color: $backgroundColor !important;
+    // padding-left: 10px;
+    .collapse .navbar-nav .nav-item .nav-link {
+      color: $secondaryColor !important;
+    }
+    .navbar-toggler {
+      padding-left: 0px !important;
+      &:focus,
+      &:active {
+        outline: none;
+      }
+      .navbar-toggler-icon {
+        background-image: url("navbar.png");
+      }
+    }
+  }
+}
