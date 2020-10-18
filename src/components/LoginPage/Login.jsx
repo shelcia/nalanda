@@ -18,7 +18,6 @@ const Login = () => {
 
   const userId = useRef();
   const password = useRef();
-  const type = useRef();
 
   const LoginUser = (event) => {
     event.preventDefault();
@@ -37,6 +36,8 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response.data);
+        localStorage.setItem("Nalanda-UserId", userId.current.value);
+        localStorage.setItem("Nalanda-Token", response.data.token);
         history.push("/admin/dashboard");
         successNotify();
       })
@@ -49,54 +50,44 @@ const Login = () => {
   return (
     <React.Fragment>
       <ToastContainer />
-      <div className="h-100" id="login">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-7">
-              <img src={LoginIllustration} alt="login" className="img-fluid" />
+      <div className='h-100' id='login'>
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='col-sm-7'>
+              <img src={LoginIllustration} alt='login' className='img-fluid' />
             </div>
-            <div className="col-sm-5">
-              <h2 className="title">Login</h2>
+            <div className='col-sm-5'>
+              <h2 className='title'>Login</h2>
               <form onSubmit={LoginUser}>
-                <div className="form-group">
-                  <label htmlFor="uname">Admission Id:</label>
+                <div className='form-group'>
+                  <label htmlFor='uname'>Admission Id:</label>
                   <input
-                    type="text"
-                    className="form-control"
-                    id="uname"
-                    placeholder="Enter admission id"
-                    name="uname"
+                    type='text'
+                    className='form-control'
+                    id='uname'
+                    placeholder='Enter admission id'
+                    name='uname'
                     ref={userId}
                     required
                   />
-                  <div className="valid-feedback">Valid.</div>
-                  <div className="invalid-feedback">
+                  <div className='valid-feedback'>Valid.</div>
+                  <div className='invalid-feedback'>
                     Please fill out this field.
                   </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="pwd">Password:</label>
+                <div className='form-group'>
+                  <label htmlFor='pwd'>Password:</label>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="pwd"
-                    placeholder="Enter password"
-                    name="pswd"
+                    type='password'
+                    className='form-control'
+                    placeholder='Enter password'
                     ref={password}
                     required
                   />
-                  <div className="valid-feedback">Valid.</div>
-                  <div className="invalid-feedback">
+                  <div className='valid-feedback'>Valid.</div>
+                  <div className='invalid-feedback'>
                     Please fill out this field.
                   </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="type">Who are You ?</label>
-                  <select name="type" className="custom-select" ref={type}>
-                    <option value="Student">Student</option>
-                    <option value="Faculty">Faculty</option>
-                    <option value="Admin">Admin</option>
-                  </select>
                 </div>
                 {/* <div className="form-group form-check">
                   <label className="form-check-label">
@@ -113,8 +104,8 @@ const Login = () => {
                     </div>
                   </label>
                 </div> */}
-                <div className="text-center pt-5">
-                  <button type="submit">Login</button>
+                <div className='text-center pt-5'>
+                  <button type='submit'>Login</button>
                 </div>
               </form>
             </div>

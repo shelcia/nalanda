@@ -11,10 +11,10 @@ const App = () => {
     <React.Fragment>
       <Router>
         <Switch>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/faculty" exact component={FacultyPage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/admin/dashboard" exact component={AdminDashboard} />
+          <Route path='/' exact component={MainPage} />
+          <Route path='/faculty' exact component={FacultyPage} />
+          <Route path='/login' exact component={LoginPage} />
+          <Route path='/admin/dashboard' exact component={AdminDashboard} />
         </Switch>
       </Router>
     </React.Fragment>

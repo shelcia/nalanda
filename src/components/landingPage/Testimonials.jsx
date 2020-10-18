@@ -17,20 +17,19 @@ const Testimonials = () => {
 
   return (
     <React.Fragment>
-      <div className="mt-5" id="testimonials">
-        <h2 className="title text-center">Here it from our students !</h2>
-        <div className="text-center">
-          <img src={Bar} alt="bar" id="bar" />
+      <div className='mt-5' id='testimonials'>
+        <h2 className='title text-center'>Here it from our students !</h2>
+        <div className='text-center'>
+          <img src={Bar} alt='bar' id='bar' />
         </div>
-        <div className="container-fluid">
-          <div className="card-deck">
+        <div className='container-fluid'>
+          <div className='card-deck'>
             <Carousel itemsToShow={showItems}>
               {testimonials.items.map((item) => (
                 <div
-                  className="card"
+                  className='card'
                   style={{ height: "200px", width: "250px" }}
-                  key={item.id}
-                >
+                  key={item.id}>
                   {item.title}
                 </div>
               ))}
