@@ -4,6 +4,7 @@ import FacultyPage from "./components/Faculty/Faculty";
 import LoginPage from "./components/LoginPage/Login";
 import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
 import AdminUsers from "./components/Dashboard/Admin/Users";
+import AdminFeeDetails from "./components/Dashboard/Admin/AdminFeeDetails";
 import AdminAskDoubts from "./components/Dashboard/Admin/AskDoubts";
 import AdminFeedback from "./components/Dashboard/Admin/FeedBack";
 import AdminResources from "./components/Dashboard/Admin/Resources";
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/login' exact component={LoginPage} />
           <Route path='/admin/dashboard' exact component={AdminDashboard} />
           <Route path='/admin/users' exact component={AdminUsers} />
+          <Route path='/admin/feedetails' exact component={AdminFeeDetails} />
           <Route path='/admin/resources' exact component={AdminResources} />
           <Route path='/admin/askdoubts' exact component={AdminAskDoubts} />
           <Route path='/admin/courses' exact component={OnlineCourses} />

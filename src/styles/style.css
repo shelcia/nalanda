@@ -363,6 +363,18 @@ body {
   outline: none;
 }
 
+.navbar .navbar-toggler {
+  border: none;
+}
+
+.navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("navbar.png") !important;
+}
+
+.navbar .navbar-toggler:focus {
+  outline: none;
+}
+
 #navbar-dashboard {
   max-width: 20%;
   background-color: #00b5eb !important;

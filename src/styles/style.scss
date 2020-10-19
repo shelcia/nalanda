@@ -311,7 +311,17 @@ body {
     }
   }
 }
-
+.navbar {
+  .navbar-toggler {
+    border: none;
+    .navbar-toggler-icon {
+      background-image: url("navbar.png") !important;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
 #navbar-dashboard {
   max-width: 20%;
   background-color: $secondaryColor !important;
