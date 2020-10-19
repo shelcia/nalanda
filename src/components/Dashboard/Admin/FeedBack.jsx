@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-const AdminDashboard = () => {
+const Feedback = () => {
   return (
     <React.Fragment>
       <Navbar />
@@ -12,4 +12,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default Feedback;
