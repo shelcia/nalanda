@@ -19,27 +19,47 @@ const Navbar = () => {
         <div className='collapse navbar-collapse' id='collapsibleNavbar'>
           <ul className='navbar-nav ml-auto'>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/'>
+              <NavLink
+                className='nav-link'
+                to='/aboutus'
+                exact
+                activeClassName='activelink'>
                 About Us
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/'>
+              <NavLink
+                className='nav-link'
+                to='/courses'
+                exact
+                activeClassName='activelink'>
                 Courses
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/faculty'>
+              <NavLink
+                className='nav-link'
+                to='/faculty'
+                exact
+                activeClassName='activelink'>
                 Faculty
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/'>
+              <NavLink
+                className='nav-link'
+                to='/gallery'
+                exact
+                activeClassName='activelink'>
                 Gallery
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/'>
+              <NavLink
+                className='nav-link'
+                to='/contact'
+                exact
+                activeClassName='activelink'>
                 Contact Us
               </NavLink>
             </li>
