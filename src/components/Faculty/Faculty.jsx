@@ -32,6 +32,63 @@ const FacultyPage = () => {
       degree: "M.Sc",
       desc: "desc",
     },
+    {
+      id: "5",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "6",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "7",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc:
+        "Main - Sociology, Geography, Prelims - Zoology, Botany, Constitution Question Analysis, Model Interviews.",
+    },
+    {
+      id: "8",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "9",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "10",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "11",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
+    {
+      id: "12",
+      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: "Duraisamy",
+      degree: "M.Sc",
+      desc: "desc",
+    },
   ];
   return (
     <React.Fragment>
@@ -47,13 +104,12 @@ const FacultyPage = () => {
             Search
           </button>
         </form>
-        <div className='container-fluid mt-4'>
-          <div className='row border'>
+        <div className='container-fluid mt-4 mb-2 pl-0 pr-0'>
+          <div className='row'>
             {facultyDetails.map((faculty) => (
-              <div className='col-sm-6 mt-1'>
+              <div className='col-sm-6 mt-1' key={faculty.id}>
                 <div
                   className='card d-flex flex-row'
-                  key={faculty.id}
                   style={{ height: "180px" }}>
                   <img
                     src={faculty.img}
