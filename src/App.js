@@ -12,6 +12,7 @@ import AdminResources from "./components/Dashboard/Admin/Resources";
 import "./styles/style.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import OnlineCourses from "./components/Dashboard/Admin/Onlinecourses";
+import Gallery from "./components/Gallery/Gallery";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact component={MainPage} />
           <Route path='/faculty' exact component={FacultyPage} />
+          <Route path='/gallery' exact component={Gallery} />
           <Route path='/login' exact component={LoginPage} />
           <Route path='/admin/dashboard' exact component={AdminDashboard} />
           <Route path='/admin/users' exact component={AdminUsers} />
