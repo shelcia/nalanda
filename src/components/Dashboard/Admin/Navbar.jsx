@@ -29,18 +29,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='feedetails'>
-                Fee Details
-              </NavLink>
-            </li>
-            <li className='nav-item'>
               <NavLink className='nav-link' to='resources'>
                 Resources
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='askdoubts'>
-                Ask Doubts
+              <NavLink className='nav-link' to='doubts'>
+                Doubts
               </NavLink>
             </li>
             <li className='nav-item'>
@@ -50,7 +45,7 @@ const Navbar = () => {
             </li>
             <li className='nav-item'>
               <NavLink className='nav-link' to='feedback'>
-                Feedback Corner
+                Feedbacks
               </NavLink>
             </li>
             <li className='nav-item border-left'>

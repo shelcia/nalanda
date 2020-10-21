@@ -75,6 +75,16 @@ body {
   height: $height;
 }
 
+.btn-primary {
+  background-color: $secondaryColor !important;
+  border-color: $secondaryColor;
+  transition: all 0.2s ease-in;
+  &:hover {
+    background-color: #017ea4 !important;
+    border-color: #017ea4 !important;
+  }
+}
+
 #bar {
   max-width: 50%;
 }

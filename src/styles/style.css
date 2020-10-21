@@ -25,6 +25,18 @@ body {
   overflow-x: hidden;
 }
 
+.btn-primary {
+  background-color: #00b5eb !important;
+  border-color: #00b5eb;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.btn-primary:hover {
+  background-color: #017ea4 !important;
+  border-color: #017ea4 !important;
+}
+
 #bar {
   max-width: 50%;
 }
