@@ -3,8 +3,8 @@ import Carousel from "react-elastic-carousel";
 import Bar from "../../assets/bar.png";
 
 const Announcements = () => {
-  console.log(window);
-  console.log(Carousel);
+  // console.log(window);
+  // console.log(Carousel);
   const [itemsToShow, setItemsToShow] = useState(3);
   const announcements = {
     items: [

@@ -42,13 +42,11 @@ const Users = () => {
             </thead>
             <tbody>
               {userDetails.map((user) => (
-                <tr>
+                <tr key={user._id}>
                   <td>
                     <NavLink to={`users/${user._id}`}>{user.userId}</NavLink>{" "}
                   </td>
-                  <td>
-                    {user.fname} {user.lname}
-                  </td>
+                  <td>{user.name}</td>
                   <td>{user.type}</td>
                 </tr>
               ))}
