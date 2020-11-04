@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-elastic-carousel";
 import Bar from "../../assets/bar.png";
+import Quote from "../../assets/quote.svg";
 
 const Testimonials = () => {
   const isMobile = window.innerWidth < 480;
@@ -77,15 +78,20 @@ const Testimonials = () => {
                   </div>
                   <div className='card-body mt-0'>
                     <div className='clearfix'>
-                      <div className='float-left w-25 border'>
+                      <div className='float-left w-25'>
                         <img
                           src={`${item.img}`}
                           alt=''
                           className='rounded-circle img-fluid'></img>
                       </div>
-                      <div className='float-right w-75 h-100 border pl-3'>
-                        <div className='card-title mb-0'>{item.name}</div>
-                        <div className='card-text'>{item.program}</div>
+                      <div className='float-right w-75 pl-3 d-flex align-items-center'>
+                        <div>
+                          <div className='card-title mb-0'>{item.name}</div>
+                          <div className='card-text'>{item.program}</div>
+                        </div>
+                        <div>
+                          <img src={Quote} className='img-fluid' alt='' />
+                        </div>
                       </div>
                     </div>
                   </div>
