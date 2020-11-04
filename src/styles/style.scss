@@ -387,3 +387,12 @@ body {
 .ikyGAt {
   box-shadow: 0 0 1px 3px $secondaryColor !important;
 }
+
+.card {
+  .card-body {
+    .card-title {
+      color: $headerColor;
+      font-weight: 700 !important;
+    }
+  }
+}

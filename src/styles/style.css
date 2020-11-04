@@ -482,4 +482,9 @@ body {
   -webkit-box-shadow: 0 0 1px 3px #00b5eb !important;
           box-shadow: 0 0 1px 3px #00b5eb !important;
 }
+
+.card .card-body .card-title {
+  color: #022f93;
+  font-weight: 700 !important;
+}
 /*# sourceMappingURL=style.css.map */
