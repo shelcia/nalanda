@@ -362,3 +362,28 @@ body {
     margin-top: 10vh;
   }
 }
+
+.chowzb {
+  background-color: $secondaryColor !important;
+  box-shadow: 0 0 2px 0px $secondaryColor !important;
+  color: $backgroundColor !important;
+  &:focus {
+    outline: none;
+  }
+}
+.hCVuYx {
+  background-color: $backgroundColor !important;
+  box-shadow: 0 0 2px 0px $secondaryColor !important;
+  color: $secondaryColor !important;
+}
+.brcpxa {
+  background-color: $secondaryColor !important;
+  box-shadow: 0 0 1px 3px $secondaryColor !important;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 1px 3px $secondaryColor !important;
+  }
+}
+.ikyGAt {
+  box-shadow: 0 0 1px 3px $secondaryColor !important;
+}
