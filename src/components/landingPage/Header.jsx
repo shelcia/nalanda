@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <React.Fragment>
-      <div className="header" style={{ marginTop: "10vh" }}>
-        <div className="row h-100 pl-3">
+      <div className="header mr-0" style={{ marginTop: "10vh" }}>
+        <div className="row h-100 pl-3 mr-0">
           <div className="col-sm-7 px-5 d-flex justify-content-center align-items-left flex-column">
             <h2 className="title font-weight-bold color-darkBlue">
               Nalanda Coaching Centre
@@ -13,15 +13,17 @@ const Header = () => {
             <p className="catchline color-white pt-4">
               Nalanda, the Institute that ensure your Success <br />
               Ancient Nalanda is Known for learning your Art <br />
-              <b className="highlight color-yellow text-uppercase">
-                Kanchi Nalanda
-              </b>{" "}
-              is known for coaching in competitive exam
+              <b className="color-yellow text-uppercase">Kanchi Nalanda</b> is
+              known for coaching in competitive exam
             </p>
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-5 pr-0 d-flex">
             <div className="sideline">
-              <button data-toggle="modal" data-target="#admissionModal">
+              <button
+                data-toggle="modal"
+                data-target="#admissionModal"
+                className="btn btn-primary"
+              >
                 Admission Enquiry
               </button>
             </div>

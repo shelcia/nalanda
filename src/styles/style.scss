@@ -19,13 +19,6 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-@mixin border($color) {
-  border: 1.2px solid $color;
-}
-
-@mixin transition() {
-  transition: all 0.2s ease-in-out;
-}
 
 @mixin bgImage($url, $height) {
   position: relative;
@@ -124,18 +117,14 @@ body {
       }
     }
     .col-sm-5 {
+      justify-content: flex-end;
       button {
-        font-size: 1.2rem;
-        margin-top: 40%;
         transform: rotateZ(270deg);
-        position: absolute;
-        padding: 0.5rem;
-        right: -40px;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-        background-color: $secondaryColor;
-        border: none;
-        color: $backgroundColor;
+        transform-origin: bottom right;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
       }
     }
   }
@@ -198,7 +187,7 @@ body {
     .col-sm-3 {
       a.footerlink {
         color: $backgroundColor;
-        @include transition();
+        transition: all 0.2s ease-in;
         line-height: 1.7;
 
         &:hover {
@@ -243,13 +232,6 @@ body {
         text-decoration: none;
       }
     }
-  }
-}
-
-#admindashboard {
-  .container {
-    height: 100vh;
-    margin-top: 10vh;
   }
 }
 
