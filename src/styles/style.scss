@@ -111,30 +111,22 @@ body {
   }
   div ul .login {
     @include buttonStyle();
-    // border-left: 1px solid $borderColor;
     margin-left: 1rem;
   }
 }
 
 .header {
-  // @include border(blue);
-
   @include bgImage("background.png", 80vh);
-  // width: 100%;
-  margin-top: 9vh;
   .row {
-    height: 100%;
     .col-sm-7 {
-      padding-left: 5rem;
-      @include displaFlex(center, left);
-      flex-direction: column;
       h2.title {
         color: $headerColor;
-        font-weight: bold;
+        font-size: 2.8rem;
       }
       p.catchline {
         padding-top: 2rem;
         color: $backgroundColor;
+        font-size: 1.4rem;
         .highlight {
           color: $blobColor;
           text-transform: uppercase;
@@ -169,10 +161,7 @@ body {
 }
 
 #counters {
-  // @include border(blue);
-
   .card-deck {
-    // @include border(red);
     padding-left: 2rem;
     padding-right: 2rem;
     .card {

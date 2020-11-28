@@ -101,38 +101,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;
-  margin-top: 9vh;
-}
-
-.header .row {
-  height: 100%;
-}
-
-.header .row .col-sm-7 {
-  padding-left: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .header .row .col-sm-7 h2.title {
   color: #022f93;
-  font-weight: bold;
+  font-size: 2.8rem;
 }
 
 .header .row .col-sm-7 p.catchline {
   padding-top: 2rem;
   color: #fff;
+  font-size: 1.4rem;
 }
 
 .header .row .col-sm-7 p.catchline .highlight {

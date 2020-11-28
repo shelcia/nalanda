@@ -5,66 +5,75 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-md bg-light navbar-light fixed-top'>
-        <NavLink className='navbar-brand' to='/'>
-          <img src={Logo} alt='' height='30px' />
+      <nav
+        className="navbar navbar-expand-md bg-light navbar-light fixed-top"
+        style={{ height: "10vh" }}
+      >
+        <NavLink className="navbar-brand" to="/">
+          <img src={Logo} alt="" height="30px" />
         </NavLink>
         <button
-          className='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#collapsibleNavbar'>
-          <span className='navbar-toggler-icon'></span>
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavbar"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div className='collapse navbar-collapse' id='collapsibleNavbar'>
-          <ul className='navbar-nav ml-auto'>
-            <li className='nav-item'>
+        <div className="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <NavLink
-                className='nav-link'
-                to='/aboutus'
+                className="nav-link"
+                to="/aboutus"
                 exact
-                activeClassName='activelink'>
+                activeClassName="activelink"
+              >
                 About Us
               </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <NavLink
-                className='nav-link'
-                to='/courses'
+                className="nav-link"
+                to="/courses"
                 exact
-                activeClassName='activelink'>
+                activeClassName="activelink"
+              >
                 Courses
               </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <NavLink
-                className='nav-link'
-                to='/faculty'
+                className="nav-link"
+                to="/faculty"
                 exact
-                activeClassName='activelink'>
+                activeClassName="activelink"
+              >
                 Faculty
               </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <NavLink
-                className='nav-link'
-                to='/gallery'
+                className="nav-link"
+                to="/gallery"
                 exact
-                activeClassName='activelink'>
+                activeClassName="activelink"
+              >
                 Gallery
               </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <NavLink
-                className='nav-link'
-                to='/contact'
+                className="nav-link"
+                to="/contact"
                 exact
-                activeClassName='activelink'>
+                activeClassName="activelink"
+              >
                 Contact Us
               </NavLink>
             </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link login' to='/login'>
+            <li className="nav-item">
+              <NavLink className="nav-link login" to="/login">
                 Login
               </NavLink>
             </li>
