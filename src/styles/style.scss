@@ -75,6 +75,16 @@ body {
   height: $height;
 }
 
+.color-dark {
+  color: $headerColor !important;
+}
+.color-white {
+  color: $backgroundColor !important;
+}
+.color-yellow {
+  color: $blobColor !important;
+}
+
 .btn-primary {
   background-color: $secondaryColor !important;
   border-color: $secondaryColor;
@@ -120,17 +130,10 @@ body {
   .row {
     .col-sm-7 {
       h2.title {
-        color: $headerColor;
         font-size: 2.8rem;
       }
       p.catchline {
-        padding-top: 2rem;
-        color: $backgroundColor;
         font-size: 1.4rem;
-        .highlight {
-          color: $blobColor;
-          text-transform: uppercase;
-        }
       }
     }
     .col-sm-5 {
@@ -162,17 +165,10 @@ body {
 
 #counters {
   .card-deck {
-    padding-left: 2rem;
-    padding-right: 2rem;
     .card {
       height: 200px;
       border: none;
       border-radius: 0px;
-      margin-left: 5px;
-      margin-right: 5px;
-      @include displaFlex(center, center);
-      box-shadow: $shadow;
-      text-align: center;
       h2.title {
         font-size: 4rem;
       }

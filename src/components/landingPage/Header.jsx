@@ -7,12 +7,16 @@ const Header = () => {
       <div className="header" style={{ marginTop: "10vh" }}>
         <div className="row h-100 pl-3">
           <div className="col-sm-7 px-5 d-flex justify-content-center align-items-left flex-column">
-            <h2 className="title font-weight-bold">Nalanda Coaching Centre</h2>
-            <p className="catchline">
+            <h2 className="title font-weight-bold color-dark">
+              Nalanda Coaching Centre
+            </h2>
+            <p className="catchline color-white pt-4">
               Nalanda, the Institute that ensure your Success <br />
               Ancient Nalanda is Known for learning your Art <br />
-              <b className="highlight">Kanchi Nalanda</b> is known for coaching
-              in competitive exam
+              <b className="highlight color-yellow text-uppercase">
+                Kanchi Nalanda
+              </b>{" "}
+              is known for coaching in competitive exam
             </p>
           </div>
           <div className="col-sm-5">
