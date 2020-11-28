@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
 }
 
-.color-dark {
+.color-darkBlue {
   color: #022f93 !important;
 }
 
@@ -35,6 +35,26 @@ body {
 
 .color-yellow {
   color: #fff500 !important;
+}
+
+.color-primary {
+  color: #404040 !important;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.bg-yellow {
+  background-color: #fff500 !important;
+}
+
+.bg-blue {
+  background-color: #00b5eb !important;
+}
+
+.bg-darkBlue {
+  background-color: #022f93 !important;
 }
 
 .btn-primary {
@@ -55,12 +75,6 @@ body {
 
 .nav-link.activelink {
   color: #404040 !important;
-}
-
-.navbar {
-  background-color: #fff !important;
-  -webkit-box-shadow: 0px 3px 6px #00000015;
-          box-shadow: 0px 3px 6px #00000015;
 }
 
 .navbar div ul li a {
@@ -176,51 +190,11 @@ body {
   font-size: 4rem;
 }
 
-#counters .card-deck #tnpsc {
-  background-color: #00b5eb;
-  color: #fff;
-}
-
-#counters .card-deck #tneb {
-  background-color: #fff500;
-  color: #022f93;
-}
-
-#counters .card-deck #trb {
-  background-color: #022f93;
-  color: #fff500;
-}
-
-#directorMessage {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-#directorMessage .row .col-sm-6 h2.title {
-  color: #022f93;
-  font-weight: bold;
-  margin-bottom: 0px;
-}
-
 #directorMessage .row .col-sm-6 p.content {
-  margin-top: 1rem;
   font-family: "Poppins", sans-serif;
   color: #404040;
   font-weight: 400;
   letter-spacing: 1px;
-}
-
-#announcement h2.title,
-#testimonials h2.title {
-  color: #022f93;
-  font-weight: bold;
-  margin-bottom: 0px;
-}
-
-#announcement .text-center,
-#testimonials .text-center {
-  margin-top: 0px;
-  padding-top: 0px;
 }
 
 #announcement .text-center #bar,
@@ -228,12 +202,6 @@ body {
   max-width: 20%;
   margin-top: 0.8rem;
   margin-bottom: 3rem;
-}
-
-#announcement .container-fluid,
-#testimonials .container-fluid {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 #announcement .container-fluid {
@@ -263,11 +231,6 @@ body {
   background-color: #022f93;
   color: #fff;
   padding: 2rem;
-}
-
-#footer .container-fluid .row {
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
 
 #footer .container-fluid .row .col-sm-5 p .highlight,

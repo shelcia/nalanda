@@ -1,0 +1,17 @@
+$headerColor: #022f93;
+$secondaryColor: #00b5eb;
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background: $secondaryColor;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $headerColor;
+}

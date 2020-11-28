@@ -10,20 +10,7 @@ $borderColor: #707070;
 
 $shadow: 0px 3px 6px #00000015;
 
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
-}
-::-webkit-scrollbar-thumb {
-  background: $secondaryColor;
-  border-radius: 0.25rem;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: $headerColor;
-}
+@import "scrollbar.scss";
 
 * {
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
@@ -75,7 +62,7 @@ body {
   height: $height;
 }
 
-.color-dark {
+.color-darkBlue {
   color: $headerColor !important;
 }
 .color-white {
@@ -83,6 +70,21 @@ body {
 }
 .color-yellow {
   color: $blobColor !important;
+}
+.color-primary {
+  color: $primaryColor !important;
+}
+.bg-white {
+  background-color: $backgroundColor !important;
+}
+.bg-yellow {
+  background-color: $blobColor !important;
+}
+.bg-blue {
+  background-color: $secondaryColor !important;
+}
+.bg-darkBlue {
+  background-color: $headerColor !important;
 }
 
 .btn-primary {
@@ -102,8 +104,6 @@ body {
   color: $primaryColor !important;
 }
 .navbar {
-  background-color: $backgroundColor !important;
-  box-shadow: $shadow;
   div ul li a {
     color: $borderColor !important;
     font-weight: 300;
@@ -173,32 +173,13 @@ body {
         font-size: 4rem;
       }
     }
-    #tnpsc {
-      background-color: $secondaryColor;
-      color: $backgroundColor;
-    }
-    #tneb {
-      background-color: $blobColor;
-      color: $headerColor;
-    }
-    #trb {
-      background-color: $headerColor;
-      color: $blobColor;
-    }
   }
 }
 
 #directorMessage {
-  padding-left: 2rem;
-  padding-right: 2rem;
   .row .col-sm-6 {
-    h2.title {
-      color: $headerColor;
-      font-weight: bold;
-      margin-bottom: 0px;
-    }
     p.content {
-      margin-top: 1rem;
+      // margin-top: 1rem;
       font-family: $secondaryFont;
       color: $primaryColor;
       font-weight: 400;
@@ -209,24 +190,12 @@ body {
 
 #announcement,
 #testimonials {
-  // @include border(blue);
-  h2.title {
-    color: $headerColor;
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
   .text-center {
-    margin-top: 0px;
-    padding-top: 0px;
     #bar {
       max-width: 20%;
       margin-top: 0.8rem;
       margin-bottom: 3rem;
     }
-  }
-  .container-fluid {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 }
 
@@ -244,14 +213,11 @@ body {
 }
 
 #footer {
-  // @include border(orange);
   min-height: 300px;
   background-color: $headerColor;
   color: $backgroundColor;
   padding: 2rem;
   .container-fluid .row {
-    padding-left: 3rem;
-    padding-right: 3rem;
     .col-sm-5,
     .col-sm-4 {
       p .highlight {

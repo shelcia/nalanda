@@ -57,40 +57,44 @@ const Testimonials = () => {
 
   return (
     <React.Fragment>
-      <div className='mt-5' id='testimonials'>
-        <h2 className='title text-center'>Here it from our students !</h2>
-        <div className='text-center'>
-          <img src={Bar} alt='bar' id='bar' />
+      <div className="mt-5" id="testimonials">
+        <h2 className="text-center mb-0 font-weight-bold color-darkBlue pb-0">
+          Here it from our students !
+        </h2>
+        <div className="text-center mb-0 pb-0">
+          <img src={Bar} alt="bar" id="bar" />
         </div>
-        <div className='container-fluid'>
-          <div className='card-deck'>
+        <div className="container-fluid px-4">
+          <div className="card-deck">
             <Carousel itemsToShow={showItems}>
               {testimonials.map((item) => (
                 <div
-                  className='card shadow border-0 my-3 rounded-lg'
+                  className="card shadow border-0 my-3 rounded-lg"
                   style={{ minHeight: "250px", width: "250px" }}
-                  key={item.id}>
-                  <div className='card-body'>
-                    <div className='card-title'>{item.title}</div>
-                    <div className='card-text border-bottom pb-4'>
+                  key={item.id}
+                >
+                  <div className="card-body">
+                    <div className="card-title">{item.title}</div>
+                    <div className="card-text border-bottom pb-4">
                       {item.content}
                     </div>
                   </div>
-                  <div className='card-body mt-0'>
-                    <div className='clearfix'>
-                      <div className='float-left w-25'>
+                  <div className="card-body mt-0">
+                    <div className="clearfix">
+                      <div className="float-left w-25">
                         <img
                           src={`${item.img}`}
-                          alt=''
-                          className='rounded-circle img-fluid'></img>
+                          alt=""
+                          className="rounded-circle img-fluid"
+                        ></img>
                       </div>
-                      <div className='float-right w-75 pl-3 d-flex align-items-center'>
+                      <div className="float-right w-75 pl-3 d-flex align-items-center">
                         <div>
-                          <div className='card-title mb-0'>{item.name}</div>
-                          <div className='card-text'>{item.program}</div>
+                          <div className="card-title mb-0">{item.name}</div>
+                          <div className="card-text">{item.program}</div>
                         </div>
                         <div>
-                          <img src={Quote} className='img-fluid' alt='' />
+                          <img src={Quote} className="img-fluid" alt="" />
                         </div>
                       </div>
                     </div>

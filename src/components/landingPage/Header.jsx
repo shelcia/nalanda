@@ -7,7 +7,7 @@ const Header = () => {
       <div className="header" style={{ marginTop: "10vh" }}>
         <div className="row h-100 pl-3">
           <div className="col-sm-7 px-5 d-flex justify-content-center align-items-left flex-column">
-            <h2 className="title font-weight-bold color-dark">
+            <h2 className="title font-weight-bold color-darkBlue">
               Nalanda Coaching Centre
             </h2>
             <p className="catchline color-white pt-4">

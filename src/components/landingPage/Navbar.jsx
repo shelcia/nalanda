@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav
-        className="navbar navbar-expand-md bg-light navbar-light fixed-top"
+        className="navbar navbar-expand-md bg-light navbar-light fixed-top shadow-sm bg-white"
         style={{ height: "10vh" }}
       >
         <NavLink className="navbar-brand" to="/">

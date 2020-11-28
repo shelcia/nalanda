@@ -56,23 +56,26 @@ const Announcements = () => {
 
   return (
     <React.Fragment>
-      <div className='mt-5' id='announcement'>
-        <h2 className='title text-center'>Announcements</h2>
-        <div className='text-center'>
-          <img src={Bar} alt='bar' id='bar' />
+      <div className="mt-5" id="announcement">
+        <h2 className="text-center mb-0 font-weight-bold color-darkBlue pb-0">
+          Announcements
+        </h2>
+        <div className="text-center mb-0 pb-0">
+          <img src={Bar} alt="bar" id="bar" />
         </div>
-        <div className='container-fluid'>
-          <div className='card-deck py-4'>
+        <div className="container-fluid px-4">
+          <div className="card-deck py-4">
             <Carousel itemsToShow={itemsToShow}>
               {announcements.map((item) => (
                 <div
-                  className='card shadow border-0 my-3'
+                  className="card shadow border-0 my-3"
                   style={{ minHeight: "200px", width: "250px" }}
-                  key={item.id}>
-                  <div className='card-body'>
-                    <div className='card-title'>{item.title}</div>
-                    <div className='card-text'>{item.content}</div>
-                    <div className='mt-2 text-muted'>{item.date}</div>
+                  key={item.id}
+                >
+                  <div className="card-body">
+                    <div className="card-title">{item.title}</div>
+                    <div className="card-text">{item.content}</div>
+                    <div className="mt-2 text-muted">{item.date}</div>
                   </div>
                 </div>
               ))}
