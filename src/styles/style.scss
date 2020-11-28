@@ -23,25 +23,6 @@ body {
   border: 1.2px solid $color;
 }
 
-@mixin buttonStyle {
-  color: $backgroundColor !important;
-  background-color: $secondaryColor;
-  border-radius: 50em;
-  cursor: pointer;
-  padding: 0.4rem 2.2rem !important;
-  border: none;
-  transition: all 0.2s ease-in;
-  &:hover {
-    background-color: #19a2cc;
-  }
-  &:active,
-  &:focus {
-    background-color: #19a2cc;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-    outline: none;
-  }
-}
-
 @mixin transition() {
   transition: all 0.2s ease-in-out;
 }
@@ -59,6 +40,18 @@ body {
   border-radius: 50em;
   padding: 0.4rem 2.2rem !important;
   transition: all 0.2s ease-in;
+}
+.btn-primary {
+  color: $backgroundColor !important;
+  background-color: $secondaryColor !important;
+  &:hover {
+    background-color: #19a2cc;
+  }
+  &:active,
+  &:focus {
+    background-color: #19a2cc;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  }
 }
 
 .color-darkBlue {
@@ -104,7 +97,6 @@ body {
 }
 .navbar {
   div ul li a {
-    color: $borderColor !important;
     font-weight: 300;
     &::after {
       content: "";
@@ -117,10 +109,6 @@ body {
     &:hover::after {
       width: 100%;
     }
-  }
-  div ul .login {
-    @include buttonStyle();
-    margin-left: 1rem;
   }
 }
 
@@ -158,10 +146,6 @@ body {
   }
 }
 
-.modal-dialog .modal-content .modal-footer button.button {
-  @include buttonStyle();
-}
-
 #counters {
   .card-deck {
     .card {
@@ -178,9 +162,7 @@ body {
 #directorMessage {
   .row .col-sm-6 {
     p.content {
-      // margin-top: 1rem;
       font-family: $secondaryFont;
-      color: $primaryColor;
       font-weight: 400;
       letter-spacing: 1px;
     }
@@ -234,16 +216,6 @@ body {
     overflow-y: scroll;
     @include bgImage("facultyBlob.png", 100%);
     background-size: contain;
-  }
-}
-
-#login {
-  .container-fluid .row {
-    .col-sm-5 {
-      button {
-        @include buttonStyle();
-      }
-    }
   }
 }
 .navbar {

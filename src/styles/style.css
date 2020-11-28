@@ -32,6 +32,21 @@ body {
   transition: all 0.2s ease-in;
 }
 
+.btn-primary {
+  color: #fff !important;
+  background-color: #00b5eb !important;
+}
+
+.btn-primary:hover {
+  background-color: #19a2cc;
+}
+
+.btn-primary:active, .btn-primary:focus {
+  background-color: #19a2cc;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
 .color-darkBlue {
   color: #022f93 !important;
 }
@@ -85,7 +100,6 @@ body {
 }
 
 .navbar div ul li a {
-  color: #707070 !important;
   font-weight: 300;
 }
 
@@ -101,29 +115,6 @@ body {
 
 .navbar div ul li a:hover::after {
   width: 100%;
-}
-
-.navbar div ul .login {
-  color: #fff !important;
-  background-color: #00b5eb;
-  border-radius: 50em;
-  cursor: pointer;
-  padding: 0.4rem 2.2rem !important;
-  border: none;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  margin-left: 1rem;
-}
-
-.navbar div ul .login:hover {
-  background-color: #19a2cc;
-}
-
-.navbar div ul .login:active, .navbar div ul .login:focus {
-  background-color: #19a2cc;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-  outline: none;
 }
 
 .header {
@@ -165,28 +156,6 @@ body {
   }
 }
 
-.modal-dialog .modal-content .modal-footer button.button {
-  color: #fff !important;
-  background-color: #00b5eb;
-  border-radius: 50em;
-  cursor: pointer;
-  padding: 0.4rem 2.2rem !important;
-  border: none;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-.modal-dialog .modal-content .modal-footer button.button:hover {
-  background-color: #19a2cc;
-}
-
-.modal-dialog .modal-content .modal-footer button.button:active, .modal-dialog .modal-content .modal-footer button.button:focus {
-  background-color: #19a2cc;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-  outline: none;
-}
-
 #counters .card-deck .card {
   height: 200px;
   border: none;
@@ -199,7 +168,6 @@ body {
 
 #directorMessage .row .col-sm-6 p.content {
   font-family: "Poppins", sans-serif;
-  color: #404040;
   font-weight: 400;
   letter-spacing: 1px;
 }
@@ -256,28 +224,6 @@ body {
   background-size: cover;
   height: 100%;
   background-size: contain;
-}
-
-#login .container-fluid .row .col-sm-5 button {
-  color: #fff !important;
-  background-color: #00b5eb;
-  border-radius: 50em;
-  cursor: pointer;
-  padding: 0.4rem 2.2rem !important;
-  border: none;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-#login .container-fluid .row .col-sm-5 button:hover {
-  background-color: #19a2cc;
-}
-
-#login .container-fluid .row .col-sm-5 button:active, #login .container-fluid .row .col-sm-5 button:focus {
-  background-color: #19a2cc;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-  outline: none;
 }
 
 .navbar .navbar-toggler {

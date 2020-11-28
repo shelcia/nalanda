@@ -105,7 +105,9 @@ const Login = () => {
                   </label>
                 </div> */}
                 <div className="text-center pt-5">
-                  <button type="submit">Login</button>
+                  <button type="submit" className="btn btn-primary">
+                    Login
+                  </button>
                 </div>
               </form>
             </div>
