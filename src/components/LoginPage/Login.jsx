@@ -50,42 +50,42 @@ const Login = () => {
   return (
     <React.Fragment>
       <ToastContainer />
-      <div className='h-100' id='login'>
-        <div className='container-fluid'>
-          <div className='row'>
-            <div className='col-sm-7'>
-              <img src={LoginIllustration} alt='login' className='img-fluid' />
+      <div className="h-100" id="login">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-7 bg-yellow">
+              <img src={LoginIllustration} alt="login" className="img-fluid" />
             </div>
-            <div className='col-sm-5'>
-              <h2 className='title'>Login</h2>
-              <form onSubmit={LoginUser}>
-                <div className='form-group'>
-                  <label htmlFor='uname'>Admission Id:</label>
+            <div className="col-sm-5 d-flex justify-content-center align-items-center flex-column">
+              <h2 className="mb-2 color-darkBlue">Login</h2>
+              <form onSubmit={LoginUser} className="w-100">
+                <div className="form-group ">
+                  <label htmlFor="uname">Admission Id:</label>
                   <input
-                    type='text'
-                    className='form-control'
-                    id='uname'
-                    placeholder='Enter admission id'
-                    name='uname'
+                    type="text"
+                    className="form-control"
+                    id="uname"
+                    placeholder="Enter admission id"
+                    name="uname"
                     ref={userId}
                     required
                   />
-                  <div className='valid-feedback'>Valid.</div>
-                  <div className='invalid-feedback'>
+                  <div className="valid-feedback">Valid.</div>
+                  <div className="invalid-feedback">
                     Please fill out this field.
                   </div>
                 </div>
-                <div className='form-group'>
-                  <label htmlFor='pwd'>Password:</label>
+                <div className="form-group">
+                  <label htmlFor="pwd">Password:</label>
                   <input
-                    type='password'
-                    className='form-control'
-                    placeholder='Enter password'
+                    type="password"
+                    className="form-control"
+                    placeholder="Enter password"
                     ref={password}
                     required
                   />
-                  <div className='valid-feedback'>Valid.</div>
-                  <div className='invalid-feedback'>
+                  <div className="valid-feedback">Valid.</div>
+                  <div className="invalid-feedback">
                     Please fill out this field.
                   </div>
                 </div>
@@ -104,8 +104,8 @@ const Login = () => {
                     </div>
                   </label>
                 </div> */}
-                <div className='text-center pt-5'>
-                  <button type='submit'>Login</button>
+                <div className="text-center pt-5">
+                  <button type="submit">Login</button>
                 </div>
               </form>
             </div>

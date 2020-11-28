@@ -42,12 +42,6 @@ body {
   }
 }
 
-@mixin displaFlex($justify, $align) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
-
 @mixin transition() {
   transition: all 0.2s ease-in-out;
 }
@@ -60,6 +54,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: $height;
+}
+.btn {
+  border-radius: 50em;
+  padding: 0.4rem 2.2rem !important;
+  transition: all 0.2s ease-in;
 }
 
 .color-darkBlue {
@@ -213,17 +212,7 @@ body {
 }
 
 #footer {
-  min-height: 300px;
-  background-color: $headerColor;
-  color: $backgroundColor;
-  padding: 2rem;
   .container-fluid .row {
-    .col-sm-5,
-    .col-sm-4 {
-      p .highlight {
-        color: $blobColor;
-      }
-    }
     .col-sm-3 {
       a.footerlink {
         color: $backgroundColor;
@@ -240,38 +229,17 @@ body {
 }
 
 #faculty {
-  margin-top: 14vh;
   .container-fluid .row {
     height: 72vh !important;
     overflow-y: scroll;
     @include bgImage("facultyBlob.png", 100%);
     background-size: contain;
-    .col-sm-6 .card {
-      padding: 0.75rem;
-      @include displaFlex(left, center);
-      box-shadow: $shadow;
-      border: none;
-      border-radius: 0.5rem;
-    }
   }
 }
 
 #login {
   .container-fluid .row {
-    .col-sm-7 {
-      background-color: $blobColor;
-    }
-
     .col-sm-5 {
-      h2.title {
-        color: $headerColor;
-        margin-bottom: 2rem;
-      }
-      @include displaFlex(center, center);
-      flex-direction: column;
-      form {
-        width: 100%;
-      }
       button {
         @include buttonStyle();
       }
