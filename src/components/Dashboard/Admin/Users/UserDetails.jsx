@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const UserDetail = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -12,10 +13,25 @@ const UserDetail = ({ match }) => {
     date: "",
   });
 
+  const history = useHistory();
+
   const headers = {
     // "auth-token": token,
     "Content-Type": "application/json",
     Accept: "application/json",
+  };
+
+  const convertDate = (date) => {
+    const dates = new Date(date);
+    const formattedDate = Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    }).format(dates);
+    return formattedDate;
   };
 
   const deleteUser = async (event, id) => {
@@ -55,19 +71,20 @@ const UserDetail = ({ match }) => {
   return (
     <React.Fragment>
       <Navbar />
-      <div id='admindashboard'>
-        <div className='container'>
+      <div id="admindashboard">
+        <div className="container">
           <table
-            className='table table-hover table-borderless'
-            style={{ marginTop: "15vh" }}>
+            className="table table-hover table-borderless"
+            style={{ marginTop: "15vh" }}
+          >
             <tbody>
               <tr>
                 <th>User Id:</th>
                 <td>
                   {isEdit ? (
                     <input
-                      placeholder='enter User Id'
-                      className='form-control'
+                      placeholder="enter User Id"
+                      className="form-control"
                     />
                   ) : (
                     user.userId
@@ -78,7 +95,7 @@ const UserDetail = ({ match }) => {
                 <th>Name:</th>
                 <td>
                   {isEdit ? (
-                    <input placeholder='enter name' className='form-control' />
+                    <input placeholder="enter name" className="form-control" />
                   ) : (
                     user.name
                   )}
@@ -90,51 +107,65 @@ const UserDetail = ({ match }) => {
               </tr>
               <tr>
                 <th>Joined at:</th>
-                <td>{user.date ? Date(user.date).toString() : user.date}</td>
+                <td>{user.date ? convertDate(user.date) : ""}</td>
               </tr>
             </tbody>
           </table>
-          <div className='d-flex align-items-center justify-content-center flex-wrap'>
+          <div className="d-flex align-items-center justify-content-center flex-wrap">
             {isEdit ? (
               <button
-                type='button'
-                className='btn btn-primary'
+                type="button"
+                className="btn btn-primary"
                 onClick={(event) => {
                   event.preventDefault();
                   setIsEdit(!isEdit);
-                }}>
-                Back
+                }}
+              >
+                Cancel Edit
               </button>
             ) : (
               <button
-                type='button'
-                className='btn btn-primary'
-                onClick={(event) => deleteUser(event)}>
+                type="button"
+                className="btn btn-primary"
+                onClick={(event) => deleteUser(event)}
+              >
                 Delete User
               </button>
             )}
 
             {isEdit ? (
               <button
-                type='button'
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
                   editUser(user._id);
                 }}
-                className='ml-3 btn btn-primary'>
+                className="ml-3 btn btn-primary"
+              >
                 Confirm Edit
               </button>
             ) : (
               <button
-                type='button'
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsEdit(!isEdit);
                 }}
-                className='ml-3 btn btn-primary'>
+                className="ml-3 btn btn-primary"
+              >
                 Edit User
               </button>
             )}
+            <button
+              type="button"
+              className="btn btn-primary ml-3"
+              onClick={(event) => {
+                event.preventDefault();
+                history.push("/admin/dashboard/users");
+              }}
+            >
+              Back
+            </button>
           </div>
         </div>
       </div>

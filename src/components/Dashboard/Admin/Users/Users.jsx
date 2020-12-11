@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import axios from "axios";
 
 const Users = () => {
@@ -25,14 +25,16 @@ const Users = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <div id='admindashboard'>
-        <div className='container'>
+      <div id="admindashboard">
+        <div className="container">
           <button
-            className='btn btn-primary w-100 mt-5'
-            onClick={() => history.push("myblogs/newblog")}>
+            className="btn btn-primary w-100"
+            onClick={() => history.push("/admin/dashboard/users/adduser")}
+            style={{ marginTop: "15vh" }}
+          >
             Add New User
           </button>
-          <table className='table table-hover mt-2'>
+          <table className="table table-hover mt-2">
             <thead>
               <tr>
                 <th>ID</th>
