@@ -44,7 +44,7 @@ const Modal = () => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h4 className="modal-title">Modal Heading</h4>
+            <h4 className="modal-title">Admission Enquiry</h4>
             <button type="button" className="close" data-dismiss="modal">
               &times;
             </button>
