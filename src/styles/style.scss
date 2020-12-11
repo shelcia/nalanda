@@ -11,7 +11,7 @@ $borderColor: #707070;
 $shadow: 0px 3px 6px #00000015;
 
 @import "scrollbar.scss";
-
+@import "helper.scss";
 * {
   font-family: "Futura", "Mulish", "Poppins", sans-serif;
 }
@@ -47,31 +47,6 @@ body {
   }
 }
 
-.color-darkBlue {
-  color: $headerColor !important;
-}
-.color-white {
-  color: $backgroundColor !important;
-}
-.color-yellow {
-  color: $blobColor !important;
-}
-.color-primary {
-  color: $primaryColor !important;
-}
-.bg-white {
-  background-color: $backgroundColor !important;
-}
-.bg-yellow {
-  background-color: $blobColor !important;
-}
-.bg-blue {
-  background-color: $secondaryColor !important;
-}
-.bg-darkBlue {
-  background-color: $headerColor !important;
-}
-
 .btn-primary {
   background-color: $secondaryColor !important;
   border-color: $secondaryColor;
@@ -82,15 +57,10 @@ body {
   }
 }
 
-#bar {
-  max-width: 50%;
-}
-.nav-link.activelink {
-  color: $primaryColor !important;
-}
 .navbar {
   div ul li a {
     font-weight: 300;
+    background-color: $backgroundColor !important;
     &::after {
       content: "";
       display: block;
@@ -267,4 +237,10 @@ body {
       font-weight: 700 !important;
     }
   }
+}
+
+.nav-link,
+.nav-item,
+.navbar-nav {
+  background-color: $backgroundColor !important;
 }

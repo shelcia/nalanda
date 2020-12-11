@@ -31,16 +31,16 @@ const App = () => {
           <Route path="/contact" exact component={ContactUs} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/admin/dashboard" exact component={AdminDashboard} />
+          <Route
+            path="/admin/dashboard/users/adduser"
+            exact
+            component={AddUser}
+          />
           <Route path="/admin/dashboard/users" exact component={AdminUsers} />
           <Route
             path="/admin/dashboard/users/:id"
             exact
             component={AdminUserDetails}
-          />
-          <Route
-            path="/admin/dashboard/users/adduser"
-            exact
-            component={AddUser}
           />
           <Route
             path="/admin/dashboard/resources"
