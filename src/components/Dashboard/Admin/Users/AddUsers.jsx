@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Navbar from "../Navbar";
+import axios from "axios";
 
 const AddUser = () => {
   const history = useHistory();
+  const userId = useRef("");
+  const name = useRef("");
+  const type = useRef("");
+  const password = useRef("");
+
+  const headers = {
+    // "auth-token": token,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+
+  const addUser = async () => {
+    const url = `${process.env.REACT_APP_API_LINK}admin/login`;
+
+    const body = {
+      userId: userId.current.value,
+      name: name.current.value,
+      type: type.current.value,
+      password: password.current.value,
+    };
+
+    console.log(body);
+
+    axios.post(url, {
+      headers,
+      body: body,
+    });
+  };
 
   return (
     <React.Fragment>
@@ -18,20 +47,44 @@ const AddUser = () => {
               <tr>
                 <th>User Id:</th>
                 <td>
-                  <input placeholder="enter User Id" className="form-control" />
+                  <input
+                    placeholder="enter User Id"
+                    ref={userId}
+                    className="form-control"
+                  />
                 </td>
               </tr>
               <tr>
                 <th>Name:</th>
                 <td>
-                  <input placeholder="enter name" className="form-control" />
+                  <input
+                    placeholder="enter name"
+                    ref={name}
+                    className="form-control"
+                  />
                 </td>
               </tr>
               <tr>
                 <th>Type:</th>
                 <td>
-                  {" "}
-                  <input placeholder="enter type" className="form-control" />
+                  <div className="form-group">
+                    <select className="form-control" ref={type} id="type">
+                      <option>Admin</option>
+                      <option>Faculty</option>
+                      <option>Student</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Password:</th>
+                <td>
+                  <input
+                    placeholder="enter password"
+                    ref={password}
+                    type="password"
+                    className="form-control"
+                  />
                 </td>
               </tr>
             </tbody>
@@ -51,6 +104,7 @@ const AddUser = () => {
               className="btn btn-primary ml-3"
               onClick={(event) => {
                 event.preventDefault();
+                addUser();
               }}
             >
               Add User

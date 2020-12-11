@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import Navbar from "../Navbar";
 import axios from "axios";
+import ReactLoader from "../../../subcomponents/Loader";
 
 const Users = () => {
   const history = useHistory();
 
   const [userDetails, setUserDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users`;
@@ -16,8 +18,12 @@ const Users = () => {
         .then((res) => {
           console.log(res);
           setUserDetails(res.data);
+          setIsLoading(false);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
     };
     getUsers();
   }, []);
@@ -34,26 +40,30 @@ const Users = () => {
           >
             Add New User
           </button>
-          <table className="table table-hover mt-2">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userDetails.map((user) => (
-                <tr key={user._id}>
-                  <td>
-                    <NavLink to={`users/${user._id}`}>{user.userId}</NavLink>{" "}
-                  </td>
-                  <td>{user.name}</td>
-                  <td>{user.type}</td>
+          {isLoading ? (
+            <ReactLoader size="200px" text="loading users" />
+          ) : (
+            <table className="table table-hover mt-2">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Type</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {userDetails.map((user) => (
+                  <tr key={user._id}>
+                    <td>
+                      <NavLink to={`users/${user._id}`}>{user.userId}</NavLink>{" "}
+                    </td>
+                    <td>{user.name}</td>
+                    <td>{user.type}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </React.Fragment>
