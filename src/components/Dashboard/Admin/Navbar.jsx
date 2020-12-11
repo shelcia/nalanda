@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
           <ul className="navbar-nav ml-auto">
             {TopBarLinks.map((link) => (
-              <li className="nav-item">
+              <li className="nav-item" key={link.link}>
                 <NavLink
                   className="nav-link"
                   to={link.link}
