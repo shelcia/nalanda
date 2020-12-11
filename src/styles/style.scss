@@ -58,9 +58,8 @@ body {
 }
 
 .navbar {
-  div ul li a {
+  div .navbar-nav .nav-item .nav-link {
     font-weight: 300;
-    background-color: $backgroundColor !important;
     &::after {
       content: "";
       display: block;
@@ -71,6 +70,22 @@ body {
     }
     &:hover::after {
       width: 100%;
+    }
+  }
+}
+@media (max-width: 766px) {
+  .navbar-collapse {
+    background-color: $backgroundColor !important;
+    width: 100%;
+    box-shadow: $shadow;
+    .navbar-nav .nav-item {
+      padding: 0rem 1rem;
+      .nav-link {
+        display: inline-block;
+        &:hover::after {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -239,8 +254,8 @@ body {
   }
 }
 
-.nav-link,
-.nav-item,
-.navbar-nav {
-  background-color: $backgroundColor !important;
-}
+// .nav-link,
+// .nav-item,
+// .navbar-nav {
+//   background-color: $backgroundColor !important;
+// }
