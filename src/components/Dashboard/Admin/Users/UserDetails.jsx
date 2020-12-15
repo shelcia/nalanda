@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const UserDetail = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -67,6 +68,8 @@ const UserDetail = ({ match }) => {
       })
       .catch((error) => console.log(error));
   }, [match.params.id]);
+
+  console.log(user);
 
   return (
     <React.Fragment>
