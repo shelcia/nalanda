@@ -13,8 +13,8 @@ const FacultyPage = () => {
       .get(url)
       .then((res) => {
         console.log(res);
+        setFacultyDetails(res.data.message);
         setIsLoading(false);
-        setFacultyDetails(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -44,19 +44,17 @@ const FacultyPage = () => {
               facultyDetails.map((faculty) => (
                 <div className="col-sm-6 mt-1" key={faculty._id}>
                   <div
-                    className="card d-flex align-items-center justify-content-center flex-row p-3 shadow-sm rounded-lg border border-0"
+                    className="card d-flex align-items-center  flex-row p-3 shadow-sm rounded-lg border border-0"
                     style={{ height: "180px" }}
                   >
                     <img
                       src={faculty.image}
-                      alt={faculty.fname}
+                      alt={faculty.name}
                       style={{ borderRadius: "50ex" }}
                       height="80px"
                     />
                     <div className="flex-row pl-2">
-                      <h4>
-                        {faculty.fname} {faculty.lname}
-                      </h4>
+                      <h4>{faculty.name}</h4>
                       <h6>{faculty.degree}</h6>
                       <p>{faculty.desc}</p>
                     </div>

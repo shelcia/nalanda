@@ -6,11 +6,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const successNotify = () => toast.success("Login Succesfull");
+  // const successNotify = () => toast.success("Login Succesfull");
   const failedNotify = (message) => toast.error(message);
 
   const history = useHistory();
-  console.log(history);
+  // console.log(history);
 
   const headers = {
     "Content-Type": "application/json",
@@ -36,10 +36,15 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("Nalanda-UserId", userId.current.value);
-        localStorage.setItem("Nalanda-Token", response.data.token);
-        history.push("/admin/dashboard");
-        successNotify();
+        if (response.data.status === "400") {
+          failedNotify(response.data.message);
+        } else if (response.data.status === "500") {
+          failedNotify("Server gal is not facing her issues!!");
+        } else if (response.data.status === "200") {
+          localStorage.setItem("Nalanda-UserId", userId.current.value);
+          localStorage.setItem("Nalanda-Token", response.data.message);
+          history.push("/admin/dashboard");
+        }
       })
       .catch((error) => {
         console.log(error);

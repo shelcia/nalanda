@@ -14,13 +14,19 @@ const UserDetail = ({ match }) => {
     date: "",
   });
 
-  const history = useHistory();
+  const inputChange = (event) => {
+    console.log(event.target.value, event.target.name);
 
-  const headers = {
-    // "auth-token": token,
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    const newUser = {
+      ...user,
+      [event.target.name]: event.target.value,
+    };
+    console.log(newUser.name);
+    setUser(newUser);
   };
+
+  const history = useHistory();
+  const token = localStorage.getItem("Nalanda-Token");
 
   const convertDate = (date) => {
     const dates = new Date(date);
@@ -39,6 +45,12 @@ const UserDetail = ({ match }) => {
     event.preventDefault();
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users`;
 
+    const headers = {
+      "auth-token": token,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
     axios.delete(url, {
       headers,
       body: {
@@ -49,27 +61,49 @@ const UserDetail = ({ match }) => {
 
   const editUser = async (id) => {
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${id}`;
-
-    axios.put(url, {
-      headers,
-      body: {
-        _id: id,
-      },
-    });
+    const headers = {
+      "auth-token": token,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+    const body = {
+      _id: id,
+    };
+    console.log(headers);
+    try {
+      const response = await axios.put(url, body, {
+        headers: headers,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${match.params.id}`;
     console.log(url);
-    axios
-      .get(url)
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, [match.params.id]);
 
-  console.log(user);
+    const headers = {
+      "auth-token": token,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
+    axios
+      .get(url, {
+        headers: headers,
+      })
+      .then((response) => {
+        console.log(response);
+        setUser(response.data.message);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [match.params.id, token]);
+
+  // console.log(user);
 
   return (
     <React.Fragment>
@@ -88,6 +122,9 @@ const UserDetail = ({ match }) => {
                     <input
                       placeholder="enter User Id"
                       className="form-control"
+                      value={user.userId}
+                      name="userId"
+                      onChange={(event) => inputChange(event)}
                     />
                   ) : (
                     user.userId
@@ -98,7 +135,13 @@ const UserDetail = ({ match }) => {
                 <th>Name:</th>
                 <td>
                   {isEdit ? (
-                    <input placeholder="enter name" className="form-control" />
+                    <input
+                      placeholder="enter name"
+                      value={user.name}
+                      name="name"
+                      onChange={(event) => inputChange(event)}
+                      className="form-control"
+                    />
                   ) : (
                     user.name
                   )}
