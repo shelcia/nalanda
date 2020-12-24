@@ -1,9 +1,10 @@
 import React from "react";
 
 import Logo from "../../../assets/nalanda_logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  const history = useHistory();
   const TopBarLinks = [
     {
       name: "Users",
@@ -35,6 +36,7 @@ const Navbar = () => {
     event.preventDefault();
     localStorage.removeItem("Nalanda-UserId");
     localStorage.removeItem("Nalanda-Token");
+    history.push("/");
   };
 
   return (

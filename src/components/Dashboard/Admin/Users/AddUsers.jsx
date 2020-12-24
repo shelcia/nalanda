@@ -12,8 +12,10 @@ const AddUser = () => {
   const type = useRef("");
   const password = useRef("");
 
+  const token = localStorage.getItem("Nalanda-Token");
+
   const headers = {
-    // "auth-token": token,
+    "auth-token": token,
     "Content-Type": "application/json",
   };
 
