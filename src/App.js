@@ -10,7 +10,12 @@ import AdminFeedback from "./components/Dashboard/Admin/FeedBack";
 import AdminResources from "./components/Dashboard/Admin/Resources";
 
 import "./styles/style.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import OnlineCourses from "./components/Dashboard/Admin/Onlinecourses";
 import Gallery from "./components/Gallery/Gallery";
 import Course from "./components/Courses/Course";
@@ -19,6 +24,19 @@ import AboutUs from "./components/AboutUs/Aboutus";
 import AddUser from "./components/Dashboard/Admin/Users/AddUsers";
 
 const App = () => {
+  const isAuthenticated = () => {
+    return localStorage.getItem("Nalanda-Token") ? true : false;
+  };
+
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated() ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
+  );
+
   return (
     <React.Fragment>
       <Router>
@@ -30,34 +48,42 @@ const App = () => {
           <Route path="/courses" exact component={Course} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/login" exact component={LoginPage} />
-          <Route path="/admin/dashboard" exact component={AdminDashboard} />
-          <Route
+          <PrivateRoute
+            path="/admin/dashboard"
+            exact
+            component={AdminDashboard}
+          />
+          <PrivateRoute
             path="/admin/dashboard/users/adduser"
             exact
             component={AddUser}
           />
-          <Route path="/admin/dashboard/users" exact component={AdminUsers} />
-          <Route
+          <PrivateRoute
+            path="/admin/dashboard/users"
+            exact
+            component={AdminUsers}
+          />
+          <PrivateRoute
             path="/admin/dashboard/users/:id"
             exact
             component={AdminUserDetails}
           />
-          <Route
+          <PrivateRoute
             path="/admin/dashboard/resources"
             exact
             component={AdminResources}
           />
-          <Route
+          <PrivateRoute
             path="/admin/dashboard/doubts"
             exact
             component={AdminAskDoubts}
           />
-          <Route
+          <PrivateRoute
             path="/admin/dashboard/courses"
             exact
             component={OnlineCourses}
           />
-          <Route
+          <PrivateRoute
             path="/admin/dashboard/feedback"
             exact
             component={AdminFeedback}

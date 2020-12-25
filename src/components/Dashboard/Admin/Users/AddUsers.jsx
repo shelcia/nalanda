@@ -46,6 +46,9 @@ const AddUser = () => {
           successNotify(response.data.message);
         else if (response.data.status === "400")
           failedNotify(response.data.message);
+        else if (response.data.status === "500") {
+          failedNotify("Server girl got some issues");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -71,6 +74,7 @@ const AddUser = () => {
                     placeholder="enter User Id"
                     ref={userId}
                     className="form-control"
+                    required
                   />
                 </td>
               </tr>
@@ -81,6 +85,7 @@ const AddUser = () => {
                     placeholder="enter name"
                     ref={name}
                     className="form-control"
+                    required
                   />
                 </td>
               </tr>
@@ -104,6 +109,7 @@ const AddUser = () => {
                     ref={password}
                     type="password"
                     className="form-control"
+                    required
                   />
                 </td>
               </tr>
