@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-// import Loader from "react-loader-spinner";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserDetail = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -14,14 +15,17 @@ const UserDetail = ({ match }) => {
     date: "",
   });
 
+  const successNotify = (message) => toast.success(message);
+  const failedNotify = (message) => toast.error(message);
+
   const inputChange = (event) => {
-    console.log(event.target.value, event.target.name);
+    // console.log(event.target.value, event.target.name);
 
     const newUser = {
       ...user,
       [event.target.name]: event.target.value,
     };
-    console.log(newUser.name);
+    // console.log(newUser.name);
     setUser(newUser);
   };
 
@@ -59,30 +63,37 @@ const UserDetail = ({ match }) => {
     });
   };
 
-  const editUser = async (id) => {
+  const editUser = (id) => {
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${id}`;
     const headers = {
       "auth-token": token,
       "Content-Type": "application/json",
       Accept: "application/json",
     };
-    const body = {
-      _id: id,
-    };
-    console.log(headers);
-    try {
-      const response = await axios.put(url, body, {
+    const body = user;
+    axios
+      .put(url, body, {
         headers: headers,
+      })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.status === "200")
+          successNotify(response.data.message);
+        else if (response.data.status === "400")
+          failedNotify(response.data.message);
+        else if (response.data.status === "500") {
+          failedNotify("Server girl got some issues");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        failedNotify(error);
       });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${match.params.id}`;
-    console.log(url);
+    // console.log(url);
 
     const headers = {
       "auth-token": token,
@@ -95,7 +106,7 @@ const UserDetail = ({ match }) => {
         headers: headers,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setUser(response.data.message);
       })
       .catch((error) => {
@@ -108,6 +119,7 @@ const UserDetail = ({ match }) => {
   return (
     <React.Fragment>
       <Navbar />
+      <ToastContainer />
       <div id="admindashboard">
         <div className="container">
           <table

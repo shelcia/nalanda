@@ -5,21 +5,19 @@ import axios from "axios";
 import ReactLoader from "../../../subcomponents/Loader";
 import { toast, ToastContainer } from "react-toastify";
 
-const Users = () => {
+const Faculty = () => {
   const history = useHistory();
 
   const [userDetails, setUserDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const token = localStorage.getItem("Nalanda-Token");
 
   const failedNotify = (message) => {
     toast.error(message);
   };
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users`;
+    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/faculty`;
     const headers = {
-      "auth-token": token,
       "Content-Type": "application/json",
       Accept: "application/json",
     };
@@ -43,7 +41,7 @@ const Users = () => {
         });
     };
     getUsers();
-  }, [token]);
+  }, []);
 
   return (
     <React.Fragment>
@@ -53,10 +51,12 @@ const Users = () => {
         <div className="container">
           <button
             className="btn btn-primary w-100"
-            onClick={() => history.push("/admin/dashboard/users/adduser")}
+            onClick={() =>
+              history.push("/admin/dashboard/webpage-edits/faculty/addfaculty")
+            }
             style={{ marginTop: "15vh" }}
           >
-            Add New User
+            Add Faculty
           </button>
           {isLoading ? (
             <ReactLoader size="200px" text="loading users" />
@@ -66,17 +66,19 @@ const Users = () => {
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Degree</th>
                 </tr>
               </thead>
               <tbody>
                 {userDetails.map((user) => (
                   <tr key={user._id}>
                     <td>
-                      <NavLink to={`users/${user._id}`}>{user.userId}</NavLink>{" "}
+                      <NavLink to={`webpage-edits/faculty/${user._id}`}>
+                        {user.facId}
+                      </NavLink>
                     </td>
                     <td>{user.name}</td>
-                    <td>{user.type}</td>
+                    <td>{user.degree}</td>
                   </tr>
                 ))}
               </tbody>
@@ -88,4 +90,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Faculty;

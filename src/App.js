@@ -22,6 +22,9 @@ import Course from "./components/Courses/Course";
 import ContactUs from "./components/Contact Us/ContactUs";
 import AboutUs from "./components/AboutUs/Aboutus";
 import AddUser from "./components/Dashboard/Admin/Users/AddUsers";
+import WebEdit from "./components/Dashboard/Admin/WebEdits/WebEdit";
+import FacultyDetails from "./components/Dashboard/Admin/WebEdits/FaculyDetails";
+import AddFaculty from "./components/Dashboard/Admin/WebEdits/AddFaculty";
 
 const App = () => {
   const isAuthenticated = () => {
@@ -87,6 +90,21 @@ const App = () => {
             path="/admin/dashboard/feedback"
             exact
             component={AdminFeedback}
+          />
+          <PrivateRoute
+            path="/admin/dashboard/webpage-edits"
+            exact
+            component={WebEdit}
+          />
+          <PrivateRoute
+            path="/admin/dashboard/webpage-edits/faculty/addfaculty"
+            exact
+            component={AddFaculty}
+          />
+          <PrivateRoute
+            path="/admin/dashboard/webpage-edits/faculty/:id"
+            exact
+            component={FacultyDetails}
           />
         </Switch>
       </Router>
