@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../partials/Navbar";
 
 const AskDoubts = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <div id='admindashboard'>
-        <div className='container'></div>
+      <div id="admindashboard">
+        <div className="container"></div>
       </div>
     </React.Fragment>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Navbar from "../Navbar";
+import Navbar from "../../partials/Navbar";
 import axios from "axios";
 
 const AddFaculty = () => {

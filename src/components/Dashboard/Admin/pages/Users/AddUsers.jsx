@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../Navbar";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../../partials/Navbar";
 
 const AddUser = () => {
   const history = useHistory();

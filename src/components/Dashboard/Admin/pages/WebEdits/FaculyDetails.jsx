@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../Navbar";
+import Navbar from "../../partials/Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const UserDetail = ({ match }) => {
+const FacultyDetail = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const [user, setUser] = useState({
-    _id: "",
-    userId: "",
+  const [faculty, setFaculty] = useState({
+    facId: "",
+    image: "",
     name: "",
-    type: "",
-    date: "",
+    degree: "",
+    desc: "",
   });
 
   const successNotify = (message) => toast.success(message);
   const failedNotify = (message) => toast.error(message);
 
   const inputChange = (event) => {
-    // console.log(event.target.value, event.target.name);
-
-    const newUser = {
-      ...user,
+    const newFaculty = {
+      ...faculty,
       [event.target.name]: event.target.value,
     };
-    // console.log(newUser.name);
-    setUser(newUser);
+    setFaculty(newFaculty);
   };
 
   const history = useHistory();
@@ -64,13 +61,13 @@ const UserDetail = ({ match }) => {
   };
 
   const editUser = (id) => {
-    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${id}`;
+    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/faculty/${id}`;
     const headers = {
       "auth-token": token,
       "Content-Type": "application/json",
       Accept: "application/json",
     };
-    const body = user;
+    const body = faculty;
     axios
       .put(url, body, {
         headers: headers,
@@ -92,8 +89,7 @@ const UserDetail = ({ match }) => {
   };
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/users/${match.params.id}`;
-    // console.log(url);
+    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/faculty/${match.params.id}`;
 
     const headers = {
       "auth-token": token,
@@ -106,8 +102,8 @@ const UserDetail = ({ match }) => {
         headers: headers,
       })
       .then((response) => {
-        // console.log(response);
-        setUser(response.data.message);
+        console.log(response);
+        setFaculty(response.data.message);
       })
       .catch((error) => {
         console.log(error);
@@ -128,18 +124,18 @@ const UserDetail = ({ match }) => {
           >
             <tbody>
               <tr>
-                <th>User Id:</th>
+                <th>Faculty Id:</th>
                 <td>
                   {isEdit ? (
                     <input
                       placeholder="enter User Id"
                       className="form-control"
-                      value={user.userId}
-                      name="userId"
+                      value={faculty.facId}
+                      name="facId"
                       onChange={(event) => inputChange(event)}
                     />
                   ) : (
-                    user.userId
+                    faculty.facId
                   )}
                 </td>
               </tr>
@@ -149,23 +145,51 @@ const UserDetail = ({ match }) => {
                   {isEdit ? (
                     <input
                       placeholder="enter name"
-                      value={user.name}
+                      value={faculty.name}
                       name="name"
                       onChange={(event) => inputChange(event)}
                       className="form-control"
                     />
                   ) : (
-                    user.name
+                    faculty.name
                   )}
                 </td>
               </tr>
               <tr>
-                <th>Type:</th>
-                <td>{user.type}</td>
+                <th>Degree:</th>
+                <td>
+                  {isEdit ? (
+                    <input
+                      placeholder="enter degree"
+                      value={faculty.degree}
+                      name="degree"
+                      onChange={(event) => inputChange(event)}
+                      className="form-control"
+                    />
+                  ) : (
+                    faculty.degree
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>Description:</th>
+                <td>
+                  {isEdit ? (
+                    <input
+                      placeholder="enter description"
+                      value={faculty.desc}
+                      name="description"
+                      onChange={(event) => inputChange(event)}
+                      className="form-control"
+                    />
+                  ) : (
+                    faculty.desc
+                  )}
+                </td>
               </tr>
               <tr>
                 <th>Joined at:</th>
-                <td>{user.date ? convertDate(user.date) : ""}</td>
+                <td>{faculty.date ? convertDate(faculty.date) : ""}</td>
               </tr>
             </tbody>
           </table>
@@ -196,7 +220,7 @@ const UserDetail = ({ match }) => {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  editUser(user._id);
+                  editUser(faculty._id);
                 }}
                 className="ml-3 btn btn-primary"
               >
@@ -219,7 +243,7 @@ const UserDetail = ({ match }) => {
               className="btn btn-primary ml-3"
               onClick={(event) => {
                 event.preventDefault();
-                history.push("/admin/dashboard/users");
+                history.push("/admin/dashboard/webpage-edits");
               }}
             >
               Back
@@ -231,4 +255,4 @@ const UserDetail = ({ match }) => {
   );
 };
 
-export default UserDetail;
+export default FacultyDetail;
