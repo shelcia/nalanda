@@ -12,8 +12,8 @@ $borderColor: #707070;
 
 $shadow: 0px 3px 6px #00000015;
 
-@import "scrollbar.scss";
-@import "helper.scss";
+@import "./components/helper";
+@import "./components/scrollbar";
 * {
   font-family: $primaryFont;
 }
@@ -96,7 +96,10 @@ body {
 }
 
 .header {
-  @include bgImage("background.png", 80vh);
+  @include bgImage(
+    "https://cdn.discordapp.com/attachments/787025267636830249/796361628378595348/background.png",
+    80vh
+  );
   .row {
     .col-sm-7 {
       h2.title {
@@ -162,13 +165,19 @@ body {
 
 #announcement {
   .container-fluid {
-    @include bgImage("announcementBlob.png", 100%);
+    @include bgImage(
+      "https://cdn.discordapp.com/attachments/787025267636830249/796361618413060106/announcementBlob.png",
+      100%
+    );
     background-size: contain;
   }
 }
 #testimonials {
   .container-fluid {
-    @include bgImage("testimonialBlob.png", 100%);
+    @include bgImage(
+      "https://cdn.discordapp.com/attachments/787025267636830249/796361629939662908/testimonialBlob.png",
+      100%
+    );
     background-size: contain;
   }
 }
@@ -194,7 +203,10 @@ body {
   .container-fluid .row {
     height: 72vh !important;
     overflow-y: scroll;
-    @include bgImage("facultyBlob.png", 100%);
+    @include bgImage(
+      "https://cdn.discordapp.com/attachments/787025267636830249/796361626369785906/facultyBlob.png",
+      100%
+    );
     background-size: contain;
   }
 }
@@ -265,3 +277,29 @@ body {
 // .navbar-nav {
 //   background-color: $backgroundColor !important;
 // }
+
+.awssld {
+  width: 80%;
+  max-width: 80%;
+  margin: auto;
+}
+
+nav.awssld__bullets button {
+  background: #00b5eb !important;
+}
+
+.aws-btn {
+  --slider-height-percentage: 60%;
+  --slider-transition-duration: 465ms;
+  --organic-arrow-thickness: 4px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 40px;
+  --organic-arrow-color: #fff500;
+  --control-button-width: 10%;
+  --control-button-height: 25%;
+  --control-button-background: transparent;
+  --control-bullet-color: #00b5eb;
+  --control-bullet-active-color: #fff500;
+  --loader-bar-color: #00b5eb !important;
+  --loader-bar-height: 6px;
+}

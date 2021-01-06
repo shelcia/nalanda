@@ -1,22 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00b5eb;
-  border-radius: 0.25rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #022f93;
-}
-
 .color-darkBlue {
   color: #022f93 !important;
 }
@@ -55,6 +37,24 @@
 
 .nav-link.activelink {
   color: #404040 !important;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00b5eb;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #022f93;
 }
 
 * {
@@ -142,7 +142,7 @@ body {
 
 .header {
   position: relative;
-  background-image: url("background.png");
+  background-image: url("https://cdn.discordapp.com/attachments/787025267636830249/796361628378595348/background.png");
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -206,7 +206,7 @@ body {
 
 #announcement .container-fluid {
   position: relative;
-  background-image: url("announcementBlob.png");
+  background-image: url("https://cdn.discordapp.com/attachments/787025267636830249/796361618413060106/announcementBlob.png");
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -217,7 +217,7 @@ body {
 
 #testimonials .container-fluid {
   position: relative;
-  background-image: url("testimonialBlob.png");
+  background-image: url("https://cdn.discordapp.com/attachments/787025267636830249/796361629939662908/testimonialBlob.png");
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -242,7 +242,7 @@ body {
   height: 72vh !important;
   overflow-y: scroll;
   position: relative;
-  background-image: url("facultyBlob.png");
+  background-image: url("https://cdn.discordapp.com/attachments/787025267636830249/796361626369785906/facultyBlob.png");
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -324,5 +324,31 @@ body {
 .card .card-body .card-title {
   color: #022f93;
   font-weight: 700 !important;
+}
+
+.awssld {
+  width: 80%;
+  max-width: 80%;
+  margin: auto;
+}
+
+nav.awssld__bullets button {
+  background: #00b5eb !important;
+}
+
+.aws-btn {
+  --slider-height-percentage: 60%;
+  --slider-transition-duration: 465ms;
+  --organic-arrow-thickness: 4px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 40px;
+  --organic-arrow-color: #fff500;
+  --control-button-width: 10%;
+  --control-button-height: 25%;
+  --control-button-background: transparent;
+  --control-bullet-color: #00b5eb;
+  --control-bullet-active-color: #fff500;
+  --loader-bar-color: #00b5eb !important;
+  --loader-bar-height: 6px;
 }
 /*# sourceMappingURL=style.css.map */

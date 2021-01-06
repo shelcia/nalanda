@@ -6,7 +6,7 @@ $secondaryColor: #00b5eb;
   height: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: $secondaryColor;
