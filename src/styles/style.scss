@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 $primaryFont: "Fira Sans", "Futura", "Mulish", "Poppins", sans-serif;
-$secondaryFont: "Poppins", sans-serif;
 
 $headerColor: #022f93;
 $blobColor: #fff500;
@@ -14,6 +13,9 @@ $shadow: 0px 3px 6px #00000015;
 
 @import "./components/helper";
 @import "./components/scrollbar";
+@import "./components/imageCarousal";
+@import "./components/carousalCards";
+
 * {
   font-family: $primaryFont;
 }
@@ -78,22 +80,6 @@ body {
     }
   }
 }
-@media (max-width: 766px) {
-  .navbar-collapse {
-    background-color: $backgroundColor !important;
-    width: 100%;
-    box-shadow: $shadow;
-    .navbar-nav .nav-item {
-      padding: 0rem 1rem;
-      .nav-link {
-        display: inline-block;
-        &:hover::after {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
 
 .header {
   @include bgImage(
@@ -122,30 +108,10 @@ body {
     }
   }
 }
-@media (max-width: 766px) {
-  .header .row .col-sm-5 button {
-    display: none;
-  }
-}
-
-#counters {
-  .card-deck {
-    .card {
-      height: 200px;
-      border: none;
-      border-radius: 0px;
-      h2.title {
-        font-size: 4rem;
-      }
-    }
-  }
-}
 
 #directorMessage {
   .row .col-sm-6 {
     p.content {
-      // font-family: $secondaryFont;
-      font-family: $primaryFont;
       font-weight: 400;
       letter-spacing: 1px;
     }
@@ -238,31 +204,6 @@ body {
   }
 }
 
-.chowzb {
-  background-color: $secondaryColor !important;
-  box-shadow: 0 0 2px 0px $secondaryColor !important;
-  color: $backgroundColor !important;
-  &:focus {
-    outline: none;
-  }
-}
-.hCVuYx {
-  background-color: $backgroundColor !important;
-  box-shadow: 0 0 2px 0px $secondaryColor !important;
-  color: $secondaryColor !important;
-}
-.brcpxa {
-  background-color: $secondaryColor !important;
-  box-shadow: 0 0 1px 3px $secondaryColor !important;
-  &:hover,
-  &:focus {
-    box-shadow: 0 0 1px 3px $secondaryColor !important;
-  }
-}
-.ikyGAt {
-  box-shadow: 0 0 1px 3px $secondaryColor !important;
-}
-
 .card {
   .card-body {
     .card-title {
@@ -272,54 +213,4 @@ body {
   }
 }
 
-// .nav-link,
-// .nav-item,
-// .navbar-nav {
-//   background-color: $backgroundColor !important;
-// }
-
-.awssld {
-  width: 80%;
-  max-width: 80%;
-  margin: auto;
-}
-
-nav.awssld__bullets button {
-  background: #00b5eb !important;
-}
-
-.aws-btn {
-  --slider-height-percentage: 60%;
-  --slider-transition-duration: 465ms;
-  --organic-arrow-thickness: 4px;
-  --organic-arrow-border-radius: 0px;
-  --organic-arrow-height: 40px !important;
-  --organic-arrow-color: #fff500 !important;
-  --control-button-width: 10% !important;
-  --control-button-height: 25% !important;
-  --control-button-background: transparent;
-  --control-bullet-color: #00b5eb !important;
-  --control-bullet-active-color: #fff500 !important;
-  --loader-bar-color: #00b5eb !important;
-  --loader-bar-height: 6px;
-}
-
-.jAmbxV {
-  background-color: transparent !important;
-  color: $secondaryColor !important;
-}
-.jAmbxV:hover:enabled,
-.jAmbxV:focus:enabled {
-  background-color: $secondaryColor !important;
-  color: $secondaryColor !important;
-}
-
-.kzPUbE {
-  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
-  background-color: $secondaryColor !important;
-}
-
-.XwuLX:hover,
-.XwuLX:focus {
-  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
-}
+@import "./components/mediaQueries";
