@@ -4,6 +4,7 @@ import Navbar from "../../partials/Navbar";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import ReactLoader from "../../../../subcomponents/Loader";
+import Header from "../../partials/Header";
 
 const Users = () => {
   const history = useHistory();
@@ -47,7 +48,52 @@ const Users = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <ToastContainer />
+      <div className="d-flex" style={{ overflow: "hidden", height: "100vh" }}>
+        <Navbar />
+        <div className="w-100 border" style={{ height: "100vh" }}>
+          <Header />
+          <div
+            className="container-fluid py-4"
+            style={{ overflowY: "scroll", height: "90vh" }}
+          >
+            {isLoading ? (
+              <ReactLoader size="200px" text="loading users" />
+            ) : (
+              <table className="table table-hover mt-2">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userDetails.map((user) => (
+                    <tr key={user._id}>
+                      <td>
+                        <NavLink to={`users/${user._id}`}>
+                          {user.userId}
+                        </NavLink>{" "}
+                      </td>
+                      <td>{user.name}</td>
+                      <td>{user.type}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+            <button
+              className="btn btn-primary"
+              onClick={() => history.push("/admin/dashboard/users/adduser")}
+              style={{ marginTop: "15vh" }}
+            >
+              Add New User
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* <Navbar />
       <ToastContainer />
       <div id="admindashboard">
         <div className="container">
@@ -83,7 +129,7 @@ const Users = () => {
             </table>
           )}
         </div>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };

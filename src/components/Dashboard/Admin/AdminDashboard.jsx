@@ -9,6 +9,12 @@ const AdminDashboard = () => {
         <Navbar />
         <div className="w-100 border" style={{ height: "100vh" }}>
           <Header />
+          <div
+            className="container-fluid py-4"
+            style={{ overflowY: "scroll", height: "90vh" }}
+          >
+            <h1>Hello User</h1>
+          </div>
         </div>
       </div>
     </React.Fragment>

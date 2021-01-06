@@ -37,30 +37,23 @@ body {
   height: $height;
 }
 .btn {
-  border-radius: 50em;
   padding: 0.4rem 2.2rem !important;
   transition: all 0.2s ease-in;
-}
-.btn-primary {
-  color: $backgroundColor !important;
-  background-color: $secondaryColor !important;
-  &:hover {
-    background-color: #19a2cc;
-  }
-  &:active,
-  &:focus {
-    background-color: #19a2cc;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-  }
 }
 
 .btn-primary {
   background-color: $secondaryColor !important;
   border-color: $secondaryColor;
   transition: all 0.2s ease-in;
+  box-shadow: 0 0.255rem 0.55rem rgba(0, 0, 0, 0.075) !important;
   &:hover {
     background-color: #017ea4 !important;
     border-color: #017ea4 !important;
+  }
+  &:active,
+  &:focus {
+    background-color: #19a2cc;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
   }
 }
 
@@ -88,11 +81,19 @@ nav.nav {
   }
 }
 
+.display-none {
+  display: none;
+}
+
 .navbar-toggler {
   border: none;
   color: $secondaryColor;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: all 0.2s ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
   &:focus {
     outline: none;
   }

@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Logo from "../../../../assets/nalanda_logo.png";
 import { NavLink, useHistory } from "react-router-dom";
 import { ResponsiveContext } from "../../../Context/Responsive";
 
 const Navbar = () => {
+  const [classname, setClassname] = useState("");
   const history = useHistory();
   const TopBarLinks = [
     {
@@ -34,7 +35,11 @@ const Navbar = () => {
   ];
 
   const [responsive] = useContext(ResponsiveContext);
-  console.log(responsive);
+
+  useEffect(() => {
+    setClassname(responsive ? "" : "display-none");
+  }, [responsive]);
+
   const logout = (event) => {
     event.preventDefault();
     localStorage.removeItem("Nalanda-UserId");
@@ -45,7 +50,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav
-        className="nav  px-5 py-4 bg-blue flex-column shadow-lg"
+        className={`nav px-5 py-4 bg-blue flex-column shadow-lg ${classname}`}
         style={{ height: "100vh" }}
       >
         <NavLink className="navbar-brand pb-5" to="/">

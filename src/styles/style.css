@@ -150,25 +150,9 @@ body {
 }
 
 .btn {
-  border-radius: 50em;
   padding: 0.4rem 2.2rem !important;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-}
-
-.btn-primary {
-  color: #fff !important;
-  background-color: #00b5eb !important;
-}
-
-.btn-primary:hover {
-  background-color: #19a2cc;
-}
-
-.btn-primary:active, .btn-primary:focus {
-  background-color: #19a2cc;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
 .btn-primary {
@@ -176,11 +160,19 @@ body {
   border-color: #00b5eb;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  -webkit-box-shadow: 0 0.255rem 0.55rem rgba(0, 0, 0, 0.075) !important;
+          box-shadow: 0 0.255rem 0.55rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .btn-primary:hover {
   background-color: #017ea4 !important;
   border-color: #017ea4 !important;
+}
+
+.btn-primary:active, .btn-primary:focus {
+  background-color: #19a2cc;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
 nav.nav {
@@ -211,11 +203,22 @@ nav.nav .nav-item .nav-link.activelink {
   font-weight: bold;
 }
 
+.display-none {
+  display: none;
+}
+
 .navbar-toggler {
   border: none;
   color: #00b5eb;
   font-size: 1.8rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.navbar-toggler:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .navbar-toggler:focus {

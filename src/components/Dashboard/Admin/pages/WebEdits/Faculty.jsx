@@ -45,7 +45,6 @@ const Faculty = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
       <ToastContainer />
       <div id="admindashboard">
         <div className="container">
