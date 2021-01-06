@@ -341,13 +341,13 @@ nav.awssld__bullets button {
   --slider-transition-duration: 465ms;
   --organic-arrow-thickness: 4px;
   --organic-arrow-border-radius: 0px;
-  --organic-arrow-height: 40px;
-  --organic-arrow-color: #fff500;
-  --control-button-width: 10%;
-  --control-button-height: 25%;
+  --organic-arrow-height: 40px !important;
+  --organic-arrow-color: #fff500 !important;
+  --control-button-width: 10% !important;
+  --control-button-height: 25% !important;
   --control-button-background: transparent;
-  --control-bullet-color: #00b5eb;
-  --control-bullet-active-color: #fff500;
+  --control-bullet-color: #00b5eb !important;
+  --control-bullet-active-color: #fff500 !important;
   --loader-bar-color: #00b5eb !important;
   --loader-bar-height: 6px;
 }
