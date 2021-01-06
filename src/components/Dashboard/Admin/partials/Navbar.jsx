@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Logo from "../../../../assets/nalanda_logo.png";
 import { NavLink, useHistory } from "react-router-dom";
+import { ResponsiveContext } from "../../../Context/Responsive";
 
 const Navbar = () => {
   const history = useHistory();
@@ -32,6 +33,8 @@ const Navbar = () => {
     },
   ];
 
+  const [responsive] = useContext(ResponsiveContext);
+  console.log(responsive);
   const logout = (event) => {
     event.preventDefault();
     localStorage.removeItem("Nalanda-UserId");
@@ -42,7 +45,37 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav
-        className="navbar navbar-expand-md bg-light navbar-light fixed-top shadow-sm bg-white"
+        className="nav  px-5 py-4 bg-blue flex-column shadow-lg"
+        style={{ height: "100vh" }}
+      >
+        <NavLink className="navbar-brand pb-5" to="/">
+          <img src={Logo} alt="" height="30px" />
+        </NavLink>
+        {TopBarLinks.map((link) => (
+          <li className="nav-item py-1" key={link.link}>
+            <NavLink
+              className="nav-link"
+              to={link.link}
+              exact
+              activeClassName="activelink"
+            >
+              {link.name}
+            </NavLink>
+          </li>
+        ))}
+        <li className="nav-item py-1">
+          <NavLink
+            className="nav-link"
+            to="/"
+            onClick={(event) => logout(event)}
+          >
+            Logout
+          </NavLink>
+        </li>
+      </nav>
+
+      {/* <nav
+        className="navbar navbar-expand-md bg-light navbar-light fixed-top  shadow-sm bg-white"
         style={{ height: "10vh" }}
       >
         <NavLink className="navbar-brand" to="/">
@@ -81,7 +114,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */}
     </React.Fragment>
   );
 };

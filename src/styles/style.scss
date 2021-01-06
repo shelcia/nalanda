@@ -64,20 +64,37 @@ body {
   }
 }
 
-.navbar {
-  div .navbar-nav .nav-item .nav-link {
-    font-weight: 300;
-    &::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 1.8px;
-      background: $secondaryColor;
-      transition: width 0.3s;
+nav.nav {
+  transition: all 0.2s ease-in;
+  .nav-item {
+    .nav-link {
+      color: $backgroundColor;
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 1.8px;
+        background: $backgroundColor;
+        transition: width 0.3s;
+      }
+      &:hover::after {
+        width: 100%;
+      }
     }
-    &:hover::after {
-      width: 100%;
+    .nav-link.activelink {
+      color: $headerColor !important;
+      font-weight: bold;
     }
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  color: $secondaryColor;
+  font-size: 1.8rem;
+  cursor: pointer;
+  &:focus {
+    outline: none;
   }
 }
 
@@ -176,17 +193,7 @@ body {
     background-size: contain;
   }
 }
-.navbar {
-  .navbar-toggler {
-    border: none;
-    .navbar-toggler-icon {
-      background-image: url("navbar.png") !important;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-}
+
 #navbar-dashboard {
   max-width: 20%;
   background-color: $secondaryColor !important;

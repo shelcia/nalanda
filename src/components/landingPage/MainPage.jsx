@@ -4,7 +4,7 @@ import Counter from "./Counters";
 import DirectorMessage from "./DirectorsMessage";
 import Announcements from "./Announcements";
 import Testimonials from "./Testimonials";
-import Footer from "./Footer";
+import Footer from "../subcomponents/Footer";
 
 const MainPage = () => {
   return (

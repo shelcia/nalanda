@@ -183,22 +183,43 @@ body {
   border-color: #017ea4 !important;
 }
 
-.navbar div .navbar-nav .nav-item .nav-link {
-  font-weight: 300;
+nav.nav {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
-.navbar div .navbar-nav .nav-item .nav-link::after {
+nav.nav .nav-item .nav-link {
+  color: #fff;
+}
+
+nav.nav .nav-item .nav-link::after {
   content: "";
   display: block;
   width: 0;
   height: 1.8px;
-  background: #00b5eb;
+  background: #fff;
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
 }
 
-.navbar div .navbar-nav .nav-item .nav-link:hover::after {
+nav.nav .nav-item .nav-link:hover::after {
   width: 100%;
+}
+
+nav.nav .nav-item .nav-link.activelink {
+  color: #022f93 !important;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border: none;
+  color: #00b5eb;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.navbar-toggler:focus {
+  outline: none;
 }
 
 .header {
@@ -293,18 +314,6 @@ body {
   background-size: cover;
   height: 100%;
   background-size: contain;
-}
-
-.navbar .navbar-toggler {
-  border: none;
-}
-
-.navbar .navbar-toggler .navbar-toggler-icon {
-  background-image: url("navbar.png") !important;
-}
-
-.navbar .navbar-toggler:focus {
-  outline: none;
 }
 
 #navbar-dashboard {
