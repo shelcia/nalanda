@@ -4,6 +4,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../../partials/Navbar";
+import Header from "../../partials/Header";
+import Title from "../../partials/Title";
 
 const AddUser = () => {
   const history = useHistory();
@@ -58,82 +60,89 @@ const AddUser = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
       <ToastContainer />
-      <div id="admindashboard">
-        <div className="container">
-          <table
-            className="table table-hover table-borderless"
-            style={{ marginTop: "15vh" }}
+      <div className="d-flex" style={{ overflow: "hidden", height: "100vh" }}>
+        <Navbar />
+        <div className="w-100 border" style={{ height: "100vh" }}>
+          <Header />
+          <div
+            className="container-fluid py-4"
+            style={{ overflowY: "scroll", height: "90vh" }}
           >
-            <tbody>
-              <tr>
-                <th>User Id:</th>
-                <td>
-                  <input
-                    placeholder="enter User Id"
-                    ref={userId}
-                    className="form-control"
-                    required
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>Name:</th>
-                <td>
-                  <input
-                    placeholder="enter name"
-                    ref={name}
-                    className="form-control"
-                    required
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>Type:</th>
-                <td>
-                  <div className="form-group">
-                    <select className="form-control" ref={type} id="type">
-                      <option>Admin</option>
-                      <option>Faculty</option>
-                      <option>Student</option>
-                    </select>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th>Password:</th>
-                <td>
-                  <input
-                    placeholder="enter password"
-                    ref={password}
-                    type="password"
-                    className="form-control"
-                    required
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="d-flex align-items-center justify-content-center flex-wrap">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => {
-                history.push("/admin/dashboard/users");
-              }}
-            >
-              Back
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary ml-3"
-              onClick={(event) => {
-                addUser(event);
-              }}
-            >
-              Add User
-            </button>
+            <Title title="Add User" />
+
+            <div className="container">
+              <table className="table table-hover table-borderless mt-4">
+                <tbody>
+                  <tr>
+                    <th>User Id:</th>
+                    <td>
+                      <input
+                        placeholder="enter User Id"
+                        ref={userId}
+                        className="form-control"
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Name:</th>
+                    <td>
+                      <input
+                        placeholder="enter name"
+                        ref={name}
+                        className="form-control"
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Type:</th>
+                    <td>
+                      <div className="form-group">
+                        <select className="form-control" ref={type} id="type">
+                          <option>Admin</option>
+                          <option>Faculty</option>
+                          <option>Student</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Password:</th>
+                    <td>
+                      <input
+                        placeholder="enter password"
+                        ref={password}
+                        type="password"
+                        className="form-control"
+                        required
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="d-flex align-items-center justify-content-center flex-wrap">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    history.push("/admin/dashboard/users");
+                  }}
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary ml-3"
+                  onClick={(event) => {
+                    addUser(event);
+                  }}
+                >
+                  Add User
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

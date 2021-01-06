@@ -66,7 +66,7 @@ const App = () => {
               component={AdminDashboard}
             />
             <PrivateRoute
-              path="/admin/dashboard/users/adduser"
+              path="/admin/dashboard/adduser"
               exact
               component={AddUser}
             />

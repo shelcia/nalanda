@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
-import Navbar from "../../partials/Navbar";
+// import Navbar from "../../partials/Navbar";
 import axios from "axios";
 import ReactLoader from "../../../../subcomponents/Loader";
 import { toast, ToastContainer } from "react-toastify";

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../partials/Header";
 import Navbar from "../../partials/Navbar";
-import Faculty from "./Faculty";
+// import Faculty from "./Faculty";
 
 const WebEdit = () => {
   return (

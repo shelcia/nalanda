@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import ReactLoader from "../../../../subcomponents/Loader";
 import Header from "../../partials/Header";
+import Title from "../../partials/Title";
 
 const Users = () => {
   const history = useHistory();
@@ -57,10 +58,18 @@ const Users = () => {
             className="container-fluid py-4"
             style={{ overflowY: "scroll", height: "90vh" }}
           >
+            <Title title="All Users">
+              <button
+                className="btn btn-primary"
+                onClick={() => history.push("/admin/dashboard/adduser")}
+              >
+                Add New User
+              </button>
+            </Title>
             {isLoading ? (
               <ReactLoader size="200px" text="loading users" />
             ) : (
-              <table className="table table-hover mt-2">
+              <table className="table table-hover table-striped mt-2">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -74,7 +83,7 @@ const Users = () => {
                       <td>
                         <NavLink to={`users/${user._id}`}>
                           {user.userId}
-                        </NavLink>{" "}
+                        </NavLink>
                       </td>
                       <td>{user.name}</td>
                       <td>{user.type}</td>
@@ -83,53 +92,9 @@ const Users = () => {
                 </tbody>
               </table>
             )}
-            <button
-              className="btn btn-primary"
-              onClick={() => history.push("/admin/dashboard/users/adduser")}
-              style={{ marginTop: "15vh" }}
-            >
-              Add New User
-            </button>
           </div>
         </div>
       </div>
-      {/* <Navbar />
-      <ToastContainer />
-      <div id="admindashboard">
-        <div className="container">
-          <button
-            className="btn btn-primary w-100"
-            onClick={() => history.push("/admin/dashboard/users/adduser")}
-            style={{ marginTop: "15vh" }}
-          >
-            Add New User
-          </button>
-          {isLoading ? (
-            <ReactLoader size="200px" text="loading users" />
-          ) : (
-            <table className="table table-hover mt-2">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                {userDetails.map((user) => (
-                  <tr key={user._id}>
-                    <td>
-                      <NavLink to={`users/${user._id}`}>{user.userId}</NavLink>{" "}
-                    </td>
-                    <td>{user.name}</td>
-                    <td>{user.type}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </div> */}
     </React.Fragment>
   );
 };

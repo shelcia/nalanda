@@ -4,6 +4,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../../partials/Header";
+import Title from "../../partials/Title";
 
 const UserDetail = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -118,7 +120,120 @@ const UserDetail = ({ match }) => {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <ToastContainer />
+      <div className="d-flex" style={{ overflow: "hidden", height: "100vh" }}>
+        <Navbar />
+        <div className="w-100 border" style={{ height: "100vh" }}>
+          <Header />
+          <div
+            className="container-fluid py-4"
+            style={{ overflowY: "scroll", height: "90vh" }}
+          >
+            <Title title="User Details" />
+            <table className="table table-hover table-striped table-borderless mt-2">
+              <tbody>
+                <tr>
+                  <th>User Id:</th>
+                  <td>
+                    {isEdit ? (
+                      <input
+                        placeholder="enter User Id"
+                        className="form-control"
+                        value={user.userId}
+                        name="userId"
+                        onChange={(event) => inputChange(event)}
+                      />
+                    ) : (
+                      user.userId
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Name:</th>
+                  <td>
+                    {isEdit ? (
+                      <input
+                        placeholder="enter name"
+                        value={user.name}
+                        name="name"
+                        onChange={(event) => inputChange(event)}
+                        className="form-control"
+                      />
+                    ) : (
+                      user.name
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Type:</th>
+                  <td>{user.type}</td>
+                </tr>
+                <tr>
+                  <th>Joined at:</th>
+                  <td>{user.date ? convertDate(user.date) : ""}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="d-flex align-items-center justify-content-center flex-wrap">
+              {isEdit ? (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setIsEdit(!isEdit);
+                  }}
+                >
+                  Cancel Edit
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={(event) => deleteUser(event)}
+                >
+                  Delete User
+                </button>
+              )}
+
+              {isEdit ? (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    editUser(user._id);
+                  }}
+                  className="ml-3 btn btn-primary"
+                >
+                  Confirm Edit
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsEdit(!isEdit);
+                  }}
+                  className="ml-3 btn btn-primary"
+                >
+                  Edit User
+                </button>
+              )}
+              <button
+                type="button"
+                className="btn btn-primary ml-3"
+                onClick={(event) => {
+                  event.preventDefault();
+                  history.push("/admin/dashboard/users");
+                }}
+              >
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <Navbar />
       <ToastContainer />
       <div id="admindashboard">
         <div className="container">
@@ -226,7 +341,7 @@ const UserDetail = ({ match }) => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };
