@@ -303,3 +303,23 @@ nav.awssld__bullets button {
   --loader-bar-color: #00b5eb !important;
   --loader-bar-height: 6px;
 }
+
+.jAmbxV {
+  background-color: transparent !important;
+  color: $secondaryColor !important;
+}
+.jAmbxV:hover:enabled,
+.jAmbxV:focus:enabled {
+  background-color: $secondaryColor !important;
+  color: $secondaryColor !important;
+}
+
+.kzPUbE {
+  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
+  background-color: $secondaryColor !important;
+}
+
+.XwuLX:hover,
+.XwuLX:focus {
+  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
+}
