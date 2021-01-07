@@ -337,6 +337,34 @@ nav.nav .nav-item .nav-link.activelink {
   font-weight: 700 !important;
 }
 
+.upload-section > div {
+  width: 50%;
+}
+
+.drop-zone {
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #707070;
+  cursor: pointer;
+}
+
+.drop-zone:focus {
+  outline: none;
+}
+
+.preview-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5%;
+}
+
 @media (max-width: 766px) {
   .header .row .col-sm-5 button {
     display: none;

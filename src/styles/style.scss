@@ -213,4 +213,27 @@ nav.nav {
   }
 }
 
+.upload-section {
+  & > div {
+    width: 50%;
+  }
+}
+
+.drop-zone {
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed $borderColor;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+.preview-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+}
+
 @import "./components/mediaQueries";
