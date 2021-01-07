@@ -9,26 +9,32 @@ const Navbar = () => {
   const history = useHistory();
   const TopBarLinks = [
     {
+      icon: "fas fa-users",
       name: "Users",
       link: "/admin/dashboard/users",
     },
     {
+      icon: "fas fa-photo-video",
       name: "Resources",
       link: "/admin/dashboard/resources",
     },
     {
+      icon: "fas fa-lightbulb",
       name: "Doubts",
       link: "/admin/dashboard/doubts",
     },
     {
+      icon: "fas fa-graduation-cap",
       name: "Courses",
       link: "/admin/dashboard/courses",
     },
     {
+      icon: "fas fa-edit",
       name: "WebPage Edits",
       link: "/admin/dashboard/webpage-edits",
     },
     {
+      icon: "fas fa-comments",
       name: "Feedback",
       link: "/admin/dashboard/feedback",
     },
@@ -50,21 +56,26 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav
-        className={`nav px-5 py-4 bg-blue flex-column shadow-lg ${classname}`}
+        className={`nav px-4 py-4 bg-blue flex-column shadow-lg ${classname}`}
         style={{ height: "100vh" }}
       >
         <NavLink className="navbar-brand pb-5" to="/">
           <img src={Logo} alt="" height="30px" />
         </NavLink>
         {TopBarLinks.map((link) => (
-          <li className="nav-item py-1" key={link.link}>
+          <li className="nav-item py-2" key={link.link}>
             <NavLink
               className="nav-link"
               to={link.link}
               exact
               activeClassName="activelink"
             >
-              {link.name}
+              <div style={{ width: "180px" }} className="d-flex">
+                <div style={{ width: "30px" }}>
+                  <i className={`mr-3 ${link.icon}`} />
+                </div>
+                {link.name}
+              </div>
             </NavLink>
           </li>
         ))}
@@ -74,52 +85,15 @@ const Navbar = () => {
             to="/"
             onClick={(event) => logout(event)}
           >
-            Logout
+            <div style={{ width: "180px" }} className="d-flex">
+              <div style={{ width: "30px" }}>
+                <i className="fas fa-sign-out-alt mr-3" />
+              </div>
+              Logout
+            </div>
           </NavLink>
         </li>
       </nav>
-
-      {/* <nav
-        className="navbar navbar-expand-md bg-light navbar-light fixed-top  shadow-sm bg-white"
-        style={{ height: "10vh" }}
-      >
-        <NavLink className="navbar-brand" to="/">
-          <img src={Logo} alt="" height="30px" />
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavbar"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul className="navbar-nav ml-auto">
-            {TopBarLinks.map((link) => (
-              <li className="nav-item" key={link.link}>
-                <NavLink
-                  className="nav-link"
-                  to={link.link}
-                  exact
-                  activeClassName="activelink"
-                >
-                  {link.name}
-                </NavLink>
-              </li>
-            ))}
-            <li className="nav-item border-left">
-              <NavLink
-                className="nav-link btn btn-primary ml-2"
-                to="/"
-                onClick={(event) => logout(event)}
-              >
-                Logout
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav> */}
     </React.Fragment>
   );
 };

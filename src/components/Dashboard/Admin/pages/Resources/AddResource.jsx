@@ -3,7 +3,7 @@ import Header from "../../partials/Header";
 import Navbar from "../../partials/Navbar";
 import Title from "../../partials/Title";
 
-const Feedback = () => {
+const AddResource = () => {
   return (
     <React.Fragment>
       <div className="d-flex" style={{ overflow: "hidden", height: "100vh" }}>
@@ -14,7 +14,7 @@ const Feedback = () => {
             className="container-fluid py-4"
             style={{ overflowY: "scroll", height: "90vh" }}
           >
-            <Title title="Feedback"></Title>
+            <Title title="Add Resources" />
           </div>
         </div>
       </div>
@@ -22,4 +22,4 @@ const Feedback = () => {
   );
 };
 
-export default Feedback;
+export default AddResource;

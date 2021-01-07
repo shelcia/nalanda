@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../partials/Header";
 import Navbar from "../../partials/Navbar";
+import Title from "../../partials/Title";
 // import Faculty from "./Faculty";
 
 const WebEdit = () => {
@@ -14,8 +15,7 @@ const WebEdit = () => {
             className="container-fluid py-4"
             style={{ overflowY: "scroll", height: "90vh" }}
           >
-            Hwllo user
-            {/* <Faculty /> */}
+            <Title title="Web Edits"></Title>
           </div>
         </div>
       </div>

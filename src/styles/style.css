@@ -184,23 +184,12 @@ nav.nav .nav-item .nav-link {
   color: #fff;
 }
 
-nav.nav .nav-item .nav-link::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 1.8px;
-  background: #fff;
-  -webkit-transition: width 0.3s;
-  transition: width 0.3s;
-}
-
-nav.nav .nav-item .nav-link:hover::after {
-  width: 100%;
+nav.nav .nav-item .nav-link:hover {
+  text-shadow: 5px 5px 10px #00000015;
 }
 
 nav.nav .nav-item .nav-link.activelink {
   color: #022f93 !important;
-  font-weight: bold;
 }
 
 .display-none {

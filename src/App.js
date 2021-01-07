@@ -30,6 +30,7 @@ import WebEdit from "./components/Dashboard/Admin/pages/WebEdits/WebEdit";
 
 import AdminAskDoubts from "./components/Dashboard/Admin/pages/Doubts/AskDoubts";
 import AdminFeedback from "./components/Dashboard/Admin/pages/Feedbacks/FeedBack";
+import AdminAddResources from "./components/Dashboard/Admin/pages/Resources/AddResource";
 import AdminResources from "./components/Dashboard/Admin/pages/Resources/Resources";
 import AdminOnlineCourses from "./components/Dashboard/Admin/pages/OnlineCourses/Onlinecourses";
 import { ResponsiveProvider } from "./components/Context/Responsive";
@@ -79,6 +80,11 @@ const App = () => {
               path="/admin/dashboard/users/:id"
               exact
               component={AdminUserDetails}
+            />
+            <PrivateRoute
+              path="/admin/dashboard/addresource"
+              exact
+              component={AdminAddResources}
             />
             <PrivateRoute
               path="/admin/dashboard/resources"
