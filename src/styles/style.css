@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 .color-darkBlue {
   color: #022f93 !important;
 }
@@ -37,6 +37,10 @@
 
 .nav-link.activelink {
   color: #404040 !important;
+}
+
+.border-top {
+  border-top-width: 5px !important;
 }
 
 ::-webkit-scrollbar {
@@ -137,11 +141,7 @@ nav.awssld__bullets button {
 }
 
 * {
-  font-family: "Mulish", sans-serif;
-}
-
-p {
-  font-style: italic;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 body {
@@ -344,7 +344,7 @@ nav.nav .nav-item .nav-link.activelink {
 .drop-zone {
   padding: 40px 10px;
   height: inherit;
-  border: 2px dashed #707070;
+  border: 2px dashed #70707085;
   cursor: pointer;
 }
 

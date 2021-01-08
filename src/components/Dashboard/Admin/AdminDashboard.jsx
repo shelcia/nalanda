@@ -13,7 +13,7 @@ const AdminDashboard = () => {
             className="container-fluid py-4"
             style={{ overflowY: "scroll", height: "90vh" }}
           >
-            <h1>Hello User</h1>
+            <h1>Hello Admin User</h1>
           </div>
         </div>
       </div>

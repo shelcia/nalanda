@@ -1,16 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import LoginIllustration from "../../assets/login_illustration.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactLoader from "../subcomponents/Loader";
 
 const Login = () => {
-  // const successNotify = () => toast.success("Login Succesfull");
   const failedNotify = (message) => toast.error(message);
+  const [loading, setLoading] = useState(false);
 
   const history = useHistory();
-  // console.log(history);
 
   const headers = {
     "Content-Type": "application/json",
@@ -21,6 +21,7 @@ const Login = () => {
 
   const LoginUser = (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const response = {
       userId: userId.current.value,
@@ -37,8 +38,10 @@ const Login = () => {
       .then((response) => {
         console.log(response.data);
         if (response.data.status === "400") {
+          setLoading(false);
           failedNotify(response.data.message);
         } else if (response.data.status === "500") {
+          setLoading(false);
           failedNotify("Server gal is not facing her issues!!");
         } else if (response.data.status === "200") {
           localStorage.setItem("Nalanda-UserId", userId.current.value);
@@ -94,26 +97,20 @@ const Login = () => {
                     Please fill out this field.
                   </div>
                 </div>
-                {/* <div className="form-group form-check">
-                  <label className="form-check-label">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name="remember"
-                      required
-                    />
-                    I agree on blabla.
-                    <div className="valid-feedback">Valid.</div>
-                    <div className="invalid-feedback">
-                      Check this checkbox to continue.
-                    </div>
-                  </label>
-                </div> */}
-                <div className="text-center pt-5">
-                  <button type="submit" className="btn btn-primary">
-                    Login
-                  </button>
-                </div>
+                {loading ? (
+                  // <p>Loggin you in !!! Please wait ...</p>
+                  <ReactLoader
+                    title="Loggin you in !!! Please wait ..."
+                    height="100px"
+                    width="100px"
+                  />
+                ) : (
+                  <div className="text-center pt-5">
+                    <button type="submit" className="btn btn-primary">
+                      Login
+                    </button>
+                  </div>
+                )}
               </form>
             </div>
           </div>

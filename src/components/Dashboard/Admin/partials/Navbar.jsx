@@ -9,6 +9,11 @@ const Navbar = () => {
   const history = useHistory();
   const TopBarLinks = [
     {
+      icon: "fas fa-chart-area",
+      name: "Dashboard",
+      link: "/admin/dashboard",
+    },
+    {
       icon: "fas fa-users",
       name: "Users",
       link: "/admin/dashboard/users",

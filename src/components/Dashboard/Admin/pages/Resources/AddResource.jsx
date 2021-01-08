@@ -9,12 +9,11 @@ const AddResource = () => {
   const desc = useRef("");
   const [file, setFile] = useState(null); // state for storing actual image
   const [previewSrc, setPreviewSrc] = useState(""); // state for storing previewImage
-  //   const [state, setState] = useState({
-  //     title: "",
-  //     description: "",
-  //   });
-  //   const [errorMsg, setErrorMsg] = useState("");
   const [isPreviewAvailable, setIsPreviewAvailable] = useState(false); // state to show preview only for images
+
+  const addResource = (event) => {
+    event.preventDefault();
+  };
 
   const dropRef = useRef();
   const onDrop = (files) => {
@@ -123,6 +122,17 @@ const AddResource = () => {
                   <p>Image preview will be shown here after selection</p>
                 </div>
               )}
+            </div>
+            <div className="text-center mx-auto mt-5">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={(event) => {
+                  addResource(event);
+                }}
+              >
+                Add Resource
+              </button>
             </div>
           </div>
         </div>

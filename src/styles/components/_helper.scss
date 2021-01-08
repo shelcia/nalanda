@@ -1,5 +1,4 @@
-$primaryFont: "Mulish", sans-serif;
-$secondaryFont: "Poppins", sans-serif;
+$primaryFont: "Josefin Sans", sans-serif;
 
 $headerColor: #022f93;
 $blobColor: #fff500;
@@ -40,4 +39,8 @@ $shadow: 0px 3px 6px #00000015;
 }
 .nav-link.activelink {
   color: $primaryColor !important;
+}
+
+.border-top {
+  border-top-width: 5px !important;
 }
