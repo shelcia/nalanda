@@ -59,7 +59,10 @@ const Navbar = () => {
               </li>
             ))}
             <li className="nav-item border-left">
-              <NavLink className="nav-link btn btn-primary ml-2 " to="/login">
+              <NavLink
+                className="nav-link btn btn-primary ml-2 text-light"
+                to="/login"
+              >
                 Login
               </NavLink>
             </li>
