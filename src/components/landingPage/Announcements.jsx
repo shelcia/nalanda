@@ -1,48 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 import Bar from "../../assets/bar.png";
+import axios from "axios";
+import ReactLoader from "../subcomponents/Loader";
 
 const Announcements = () => {
-  // console.log(window);
-  // console.log(Carousel);
   const [itemsToShow, setItemsToShow] = useState(3);
-  const [announcements] = useState([
-    {
-      id: 1,
-      title: "item #1",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      date: "27 Aug 2020",
-    },
-    {
-      id: 2,
-      title: "item #2",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      date: "27 Aug 2020",
-    },
-    {
-      id: 3,
-      title: "item #3",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      date: "27 Aug 2020",
-    },
-    {
-      id: 4,
-      title: "item #4",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020 ",
-      date: "27 Aug 2020",
-    },
-    {
-      id: 5,
-      title: "item #5",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      date: "27 Aug 2020",
-    },
-  ]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
     const size = window.innerWidth;
@@ -53,6 +19,38 @@ const Announcements = () => {
       setItemsToShow(1);
     }
   }, [itemsToShow]);
+
+  const url = `${process.env.REACT_APP_API_LINK}common/announcements`;
+
+  useEffect(() => {
+    const fetchResult = () => {
+      axios
+        .get(url)
+        .then((res) => {
+          console.log(res);
+          setAnnouncements(res.data.message);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
+    };
+    fetchResult();
+  }, [url]);
+
+  const convertDate = (date) => {
+    const dates = new Date(date);
+    const formattedDate = Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    }).format(dates);
+    return formattedDate;
+  };
 
   return (
     <React.Fragment>
@@ -65,21 +63,27 @@ const Announcements = () => {
         </div>
         <div className="container-fluid px-4">
           <div className="card-deck py-4">
-            <Carousel itemsToShow={itemsToShow}>
-              {announcements.map((item) => (
-                <div
-                  className="card shadow border-0 my-3"
-                  style={{ minHeight: "200px", width: "250px" }}
-                  key={item.id}
-                >
-                  <div className="card-body">
-                    <div className="card-title">{item.title}</div>
-                    <div className="card-text">{item.content}</div>
-                    <div className="mt-2 text-muted">{item.date}</div>
+            {isLoading ? (
+              <ReactLoader size="200px" text="loading Annoucements" />
+            ) : (
+              <Carousel itemsToShow={itemsToShow}>
+                {announcements.map((item) => (
+                  <div
+                    className="card shadow border-0 my-3"
+                    style={{ minHeight: "200px", width: "250px" }}
+                    key={item._id}
+                  >
+                    <div className="card-body">
+                      <div className="card-title mt-2">{item.title}</div>
+                      <div className="card-text">{item.desc}</div>
+                      <div className="mt-2 text-muted">
+                        {item.date ? convertDate(item.date) : ""}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
+                ))}
+              </Carousel>
+            )}
           </div>
         </div>
       </div>
