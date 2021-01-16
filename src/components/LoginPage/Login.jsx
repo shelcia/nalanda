@@ -98,7 +98,6 @@ const Login = () => {
                   </div>
                 </div>
                 {loading ? (
-                  // <p>Loggin you in !!! Please wait ...</p>
                   <ReactLoader
                     title="Loggin you in !!! Please wait ..."
                     height="100px"

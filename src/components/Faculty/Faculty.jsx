@@ -6,9 +6,9 @@ import ReactLoader from "../subcomponents/Loader";
 const FacultyPage = () => {
   const [facultyDetails, setFacultyDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const url = `${process.env.REACT_APP_API_LINK}common/faculty`;
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API_LINK}admin/dashboard/faculty`;
     axios
       .get(url)
       .then((res) => {
@@ -20,7 +20,7 @@ const FacultyPage = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, []);
+  }, [url]);
 
   return (
     <React.Fragment>
@@ -48,13 +48,14 @@ const FacultyPage = () => {
                     style={{ height: "180px" }}
                   >
                     <img
-                      src={faculty.image}
+                      src={`${url}/${faculty._id}`}
                       alt={faculty.name}
                       style={{ borderRadius: "50ex" }}
                       height="80px"
+                      className="mr-4"
                     />
                     <div className="flex-row pl-2">
-                      <h4>{faculty.name}</h4>
+                      <h2 className="color-darkBlue">{faculty.name}</h2>
                       <h6>{faculty.degree}</h6>
                       <p>{faculty.desc}</p>
                     </div>

@@ -1,59 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 import Bar from "../../assets/bar.png";
 import Quote from "../../assets/quote.svg";
+import axios from "axios";
+import ReactLoader from "../subcomponents/Loader";
 
 const Testimonials = () => {
   const isMobile = window.innerWidth < 480;
   const showItems = isMobile ? 1 : 3;
-  const [testimonials] = useState([
-    {
-      id: 1,
-      title: "item #1",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "John Doe",
-      program: "Classroom Program",
-    },
-    {
-      id: 2,
-      title: "item #2",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "John Doe",
-      program: "Classroom Program",
-    },
-    {
-      id: 3,
-      title: "item #3",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      date: "27 May 2020",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "John Doe",
-      program: "Classroom Program",
-    },
-    {
-      id: 4,
-      title: "item #4",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "John Doe",
-      program: "Classroom Program",
-    },
-    {
-      id: 5,
-      title: "item #5",
-      content:
-        "Course - 1. Online cum regular Classroom Coaching. Batch 2. Only Online class - Started - August 15, 2020",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
-      name: "John Doe",
-      program: "Classroom Program",
-    },
-  ]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [testimonials, setTestimonials] = useState([]);
+
+  const url = `${process.env.REACT_APP_API_LINK}common/testimonials`;
+
+  useEffect(() => {
+    const fetchResult = () => {
+      axios
+        .get(url)
+        .then((res) => {
+          console.log(res);
+          setTestimonials(res.data.message);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
+    };
+    fetchResult();
+  }, [url]);
 
   return (
     <React.Fragment>
@@ -65,44 +40,48 @@ const Testimonials = () => {
           <img src={Bar} alt="bar" id="bar" />
         </div>
         <div className="container-fluid px-4">
-          <div className="card-deck">
-            <Carousel itemsToShow={showItems}>
-              {testimonials.map((item) => (
-                <div
-                  className="card shadow border-0 my-3 rounded-lg"
-                  style={{ minHeight: "250px", width: "250px" }}
-                  key={item.id}
-                >
-                  <div className="card-body">
-                    <div className="card-title">{item.title}</div>
-                    <div className="card-text border-bottom pb-4">
-                      {item.content}
-                    </div>
-                  </div>
-                  <div className="card-body mt-0">
-                    <div className="clearfix">
-                      <div className="float-left w-25">
-                        <img
-                          src={`${item.img}`}
-                          alt=""
-                          className="rounded-circle img-fluid"
-                        ></img>
-                      </div>
-                      <div className="float-right w-75 pl-3 d-flex align-items-center">
-                        <div>
-                          <div className="card-title mb-0">{item.name}</div>
-                          <div className="card-text">{item.program}</div>
-                        </div>
-                        <div>
-                          <img src={Quote} className="img-fluid" alt="" />
-                        </div>
+          {isLoading ? (
+            <ReactLoader size="200px" text="loading Testimonials" />
+          ) : (
+            <div className="card-deck">
+              <Carousel itemsToShow={showItems}>
+                {testimonials.map((item) => (
+                  <div
+                    className="card shadow border-0 my-3 rounded-lg"
+                    style={{ minHeight: "250px", width: "250px" }}
+                    key={item._id}
+                  >
+                    <div className="card-body">
+                      <div className="card-title">{item.title}</div>
+                      <div className="card-text border-bottom pb-4">
+                        {item.desc}
                       </div>
                     </div>
+                    <div className="card-body mt-0">
+                      <div className="clearfix">
+                        <div className="float-left w-25">
+                          <img
+                            src={`${url}/${item._id}`}
+                            alt=""
+                            className="rounded-circle img-fluid"
+                          ></img>
+                        </div>
+                        <div className="float-right w-75 pl-3 d-flex align-items-center">
+                          <div>
+                            <div className="card-title mb-0">{item.name}</div>
+                            <div className="card-text">{item.program}</div>
+                          </div>
+                          <div>
+                            <img src={Quote} className="img-fluid" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
-          </div>
+                ))}
+              </Carousel>
+            </div>
+          )}
         </div>
       </div>
     </React.Fragment>
