@@ -76,19 +76,19 @@ nav.nav {
   display: none;
 }
 
-.navbar-toggler {
-  border: none;
-  color: $secondaryColor;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:focus {
-    outline: none;
-  }
-}
+// .navbar-toggler {
+//   border: none;
+//   color: $secondaryColor;
+//   font-size: 1.8rem;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in;
+//   &:hover {
+//     transform: scale(1.1);
+//   }
+//   &:focus {
+//     outline: none;
+//   }
+// }
 
 .header {
   @include bgImage(
@@ -186,22 +186,22 @@ nav.nav {
   }
 }
 
-#navbar-dashboard {
-  max-width: 20%;
-  background-color: $secondaryColor !important;
-  padding-left: 30px !important;
-  .collapse .navbar-nav {
-    flex-direction: column;
-    .nav-item .nav-link {
-      color: white !important;
-      transition: all 0.2s ease-in;
-      &:hover {
-        color: $blobColor !important;
-        text-decoration: none;
-      }
-    }
-  }
-}
+// #navbar-dashboard {
+//   max-width: 20%;
+//   background-color: $secondaryColor !important;
+//   padding-left: 30px !important;
+//   .collapse .navbar-nav {
+//     flex-direction: column;
+//     .nav-item .nav-link {
+//       color: white !important;
+//       transition: all 0.2s ease-in;
+//       &:hover {
+//         color: $blobColor !important;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
 
 .card {
   .card-body {
@@ -212,27 +212,27 @@ nav.nav {
   }
 }
 
-.upload-section {
-  & > div {
-    width: 50%;
-  }
-}
+// .upload-section {
+//   & > div {
+//     width: 50%;
+//   }
+// }
 
-.drop-zone {
-  padding: 40px 10px;
-  height: inherit;
-  border: 2px dashed #70707085;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-}
+// .drop-zone {
+//   padding: 40px 10px;
+//   height: inherit;
+//   border: 2px dashed #70707085;
+//   cursor: pointer;
+//   &:focus {
+//     outline: none;
+//   }
+// }
 
-.preview-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5%;
-}
+// .preview-message {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-left: 5%;
+// }
 
 @import "./components/mediaQueries";
