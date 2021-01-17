@@ -140,6 +140,17 @@ nav.awssld__bullets button {
           box-shadow: inset 0 0 1px 1px lightgrey;
 }
 
+.kzPUbE {
+  background-color: #00b5eb;
+  -webkit-box-shadow: #00b5eb 0px 0px 1px 3px !important;
+          box-shadow: #00b5eb 0px 0px 1px 3px !important;
+}
+
+.XwuLX {
+  -webkit-box-shadow: #00b5eb 0px 0px 1px 3px !important;
+          box-shadow: #00b5eb 0px 0px 1px 3px !important;
+}
+
 * {
   font-family: "Josefin Sans", sans-serif;
 }
@@ -173,6 +184,7 @@ body {
   background-color: #19a2cc;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  border-color: #19a2cc !important;
 }
 
 nav.nav {
