@@ -9,6 +9,7 @@ const FacultyPage = () => {
   const url = `${process.env.REACT_APP_API_LINK}common/faculty`;
 
   useEffect(() => {
+    const ac = new AbortController();
     axios
       .get(url)
       .then((res) => {
@@ -20,6 +21,7 @@ const FacultyPage = () => {
         console.log(error);
         setIsLoading(false);
       });
+    return () => ac.abort();
   }, [url]);
 
   return (

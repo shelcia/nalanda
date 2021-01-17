@@ -23,6 +23,7 @@ const Announcements = () => {
   const url = `${process.env.REACT_APP_API_LINK}common/announcements`;
 
   useEffect(() => {
+    const ac = new AbortController();
     const fetchResult = () => {
       axios
         .get(url)
@@ -37,6 +38,7 @@ const Announcements = () => {
         });
     };
     fetchResult();
+    return () => ac.abort();
   }, [url]);
 
   const convertDate = (date) => {

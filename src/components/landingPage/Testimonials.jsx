@@ -14,6 +14,7 @@ const Testimonials = () => {
   const url = `${process.env.REACT_APP_API_LINK}common/testimonials`;
 
   useEffect(() => {
+    const ac = new AbortController();
     const fetchResult = () => {
       axios
         .get(url)
@@ -28,6 +29,7 @@ const Testimonials = () => {
         });
     };
     fetchResult();
+    return () => ac.abort();
   }, [url]);
 
   return (
