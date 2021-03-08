@@ -141,7 +141,7 @@ nav.awssld__bullets button {
 }
 
 .kzPUbE {
-  background-color: #00b5eb;
+  background-color: #00b5eb !important;
   -webkit-box-shadow: #00b5eb 0px 0px 1px 3px !important;
           box-shadow: #00b5eb 0px 0px 1px 3px !important;
 }
