@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-$primaryFont: "Josefin Sans", sans-serif;
+$primaryFont: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 $headerColor: #022f93;
 $blobColor: #fff500;
@@ -10,188 +9,20 @@ $borderColor: #707070;
 
 $shadow: 0px 3px 6px #00000015;
 
-@import "./components/helper";
-@import "./components/scrollbar";
-@import "./components/imageCarousal";
+@import "./components/functions";
+@import "./components/homepage";
 @import "./components/carousalCards";
+@import "./components/utils";
 
 * {
-  font-family: $primaryFont;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 body {
   position: relative;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #fff;
 }
 
-@mixin bgImage($url, $height) {
-  position: relative;
-  background-image: url($url);
-  background-color: $backgroundColor;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: $height;
-}
-.btn {
-  padding: 0.4rem 2.2rem !important;
-  transition: all 0.2s ease-in;
-}
-
-.btn-primary {
-  background-color: $secondaryColor !important;
-  border-color: $secondaryColor;
-  transition: all 0.2s ease-in;
-  box-shadow: 0 0.255rem 0.55rem rgba(0, 0, 0, 0.075) !important;
-  &:hover {
-    background-color: #017ea4 !important;
-    border-color: #017ea4 !important;
-  }
-  &:active,
-  &:focus {
-    background-color: #19a2cc;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-    border-color: #19a2cc !important;
-  }
-}
-
-nav.nav {
-  transition: all 0.2s ease-in;
-  .nav-item {
-    .nav-link {
-      color: $backgroundColor;
-      &:hover {
-        text-shadow: 5px 5px 10px #00000015;
-      }
-    }
-    .nav-link.activelink {
-      color: $headerColor !important;
-      // font-weight: bold;
-    }
-  }
-}
-
-.display-none {
-  display: none;
-}
-
-// .navbar-toggler {
-//   border: none;
-//   color: $secondaryColor;
-//   font-size: 1.8rem;
-//   cursor: pointer;
-//   transition: all 0.2s ease-in;
-//   &:hover {
-//     transform: scale(1.1);
-//   }
-//   &:focus {
-//     outline: none;
-//   }
-// }
-
-.header {
-  @include bgImage(
-    "https://cdn.discordapp.com/attachments/787025267636830249/796361628378595348/background.png",
-    80vh
-  );
-  .row {
-    .col-sm-7 {
-      h2.title {
-        font-size: 2.8rem;
-      }
-      p.catchline {
-        font-size: 1.4rem;
-      }
-    }
-    .col-sm-5 {
-      justify-content: flex-end;
-      button {
-        transform: rotateZ(270deg);
-        transform-origin: bottom right;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
-      }
-    }
-  }
-}
-
-#directorMessage {
-  .row .col-sm-6 {
-    p.content {
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-  }
-}
-
-#announcement,
-#testimonials {
-  .text-center {
-    #bar {
-      max-width: 20%;
-      margin-top: 0.8rem;
-      margin-bottom: 3rem;
-    }
-  }
-}
-
-#announcement {
-  .container-fluid {
-    @include bgImage(
-      "https://cdn.discordapp.com/attachments/787025267636830249/796361618413060106/announcementBlob.png",
-      100%
-    );
-    background-size: contain;
-  }
-}
-#testimonials {
-  .container-fluid {
-    @include bgImage(
-      "https://cdn.discordapp.com/attachments/787025267636830249/796361629939662908/testimonialBlob.png",
-      100%
-    );
-    background-size: contain;
-  }
-}
-
-#footer {
-  .container-fluid .row {
-    .col-sm-3 {
-      a.footerlink {
-        color: $backgroundColor;
-        transition: all 0.2s ease-in;
-        line-height: 1.7;
-
-        &:hover {
-          color: $blobColor;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-#faculty {
-  .container-fluid .row {
-    height: 72vh !important;
-    overflow-y: scroll;
-    @include bgImage(
-      "https://cdn.discordapp.com/attachments/787025267636830249/796361626369785906/facultyBlob.png",
-      100%
-    );
-    background-size: contain;
-  }
-}
-
-.card {
-  .card-body {
-    .card-title {
-      color: $headerColor;
-      font-weight: 700 !important;
-    }
-  }
-}
-
-@import "./components/mediaQueries";
+// @import "./components/mediaQueries";

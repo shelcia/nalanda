@@ -1,30 +1,44 @@
 import React from "react";
+
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { StyledEngineProvider } from "@mui/material/styles";
+
+import { useRoutes } from "react-router-dom";
+import { nalandaTheme } from "./theme";
+import routes from "./routes";
+
+import { Toaster } from "react-hot-toast";
+
+import "./styles/bootstrap-grid.css";
+import "./styles/bootstrap-utils.css";
 import "./styles/style.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-// LANDING PAGE
-
-import MainPage from "./components/landingPage/MainPage";
-import FacultyPage from "./components/Faculty/Faculty";
-import AboutUs from "./components/AboutUs/Aboutus";
-import Course from "./components/Courses/Course";
-import Gallery from "./components/Gallery/Gallery";
-import ContactUs from "./components/Contact Us/ContactUs";
 
 const App = () => {
+  const appTheme = nalandaTheme({
+    theme: "light",
+    direction: "ltr",
+  });
+
+  const allPages = useRoutes(routes);
+
+  window.onbeforeunload = function () {
+    localStorage.removeItem("HRT-Verify");
+  };
+  const toasterOptions = {
+    style: {
+      fontWeight: 500,
+      fontFamily: "'Montserrat', sans-serif",
+    },
+  };
   return (
     <React.Fragment>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/aboutus" exact component={AboutUs} />
-          <Route path="/faculty" exact component={FacultyPage} />
-          <Route path="/gallery" exact component={Gallery} />
-          <Route path="/courses" exact component={Course} />
-          <Route path="/contactus" exact component={ContactUs} />
-          {/* <Route path="/login" exact component={LoginPage} /> */}
-        </Switch>
-      </Router>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={appTheme}>
+          <CssBaseline />
+          <Toaster toastOptions={toasterOptions} />
+          {allPages}
+        </ThemeProvider>
+      </StyledEngineProvider>
     </React.Fragment>
   );
 };

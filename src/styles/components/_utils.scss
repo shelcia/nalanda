@@ -1,0 +1,50 @@
+$primaryFont: "Josefin Sans", sans-serif;
+
+$headerColor: #022f93;
+$blobColor: #fff500;
+$secondaryColor: #00b5eb;
+$primaryColor: #404040;
+$backgroundColor: #fff;
+$borderColor: #707070;
+
+$shadow: 0px 3px 6px #00000015;
+
+.color-darkBlue {
+  color: $headerColor !important;
+}
+.color-white {
+  color: $backgroundColor !important;
+}
+.color-yellow {
+  color: $blobColor !important;
+}
+.color-primary {
+  color: $primaryColor !important;
+}
+.color-blue {
+  color: $secondaryColor !important;
+}
+
+.bg-white {
+  background-color: $backgroundColor !important;
+}
+.bg-yellow {
+  background-color: $blobColor !important;
+}
+.bg-blue {
+  background-color: $secondaryColor !important;
+}
+.bg-darkBlue {
+  background-color: $headerColor !important;
+}
+
+#bar {
+  max-width: 50%;
+}
+.nav-link.activelink {
+  color: $primaryColor !important;
+}
+
+.border-top {
+  border-top-width: 5px !important;
+}

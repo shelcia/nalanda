@@ -4,53 +4,16 @@ $secondaryColor: #00b5eb;
 $primaryColor: #404040;
 $backgroundColor: #fff;
 
-.chowzb {
+.react-multi-carousel-track {
+  margin-bottom: 2rem !important;
+}
+
+.react-multi-carousel-dot button {
+  border-color: $secondaryColor !important;
+  width: 18px;
+  height: 18px;
+}
+
+.react-multi-carousel-dot--active button {
   background-color: $secondaryColor !important;
-  box-shadow: 0 0 2px 0px $secondaryColor !important;
-  color: $backgroundColor !important;
-  &:focus {
-    outline: none;
-  }
-}
-.hCVuYx {
-  background-color: $backgroundColor !important;
-  box-shadow: 0 0 2px 0px $secondaryColor !important;
-  color: $secondaryColor !important;
-}
-.brcpxa {
-  background-color: $secondaryColor !important;
-  box-shadow: 0 0 1px 3px $secondaryColor !important;
-  &:hover,
-  &:focus {
-    box-shadow: 0 0 1px 3px $secondaryColor !important;
-  }
-}
-.ikyGAt {
-  box-shadow: 0 0 1px 3px $secondaryColor !important;
-}
-
-/* square buttons */
-.rec.rec-arrow {
-  border-radius: 50%;
-
-  &:hover {
-    border-radius: 50%;
-  }
-  &:disabled {
-    visibility: hidden;
-  }
-}
-
-.rec-carousel-item:focus {
-  outline: none;
-  box-shadow: inset 0 0 1px 1px lightgrey;
-}
-
-.kzPUbE {
-  background-color: $secondaryColor !important;
-  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
-}
-
-.XwuLX {
-  box-shadow: $secondaryColor 0px 0px 1px 3px !important;
 }

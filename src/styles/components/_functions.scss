@@ -1,0 +1,11 @@
+$backgroundColor: #fff;
+
+@mixin bgImage($url, $height) {
+  position: relative;
+  background-image: url($url);
+  background-color: $backgroundColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: $height;
+}
