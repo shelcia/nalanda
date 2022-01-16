@@ -1,18 +1,49 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import LoginIllustration from "../../assets/illustrations/login_illustration.png";
 import LightTextField from "../../components/CustomLightTextField";
 import { H1, Paragraph, Tiny } from "../../components/CustomTypography";
+import { apiAuth } from "../../services/models/AuthModel";
 
 const Login = () => {
   const [values, setValues] = useState({
-    email: "",
+    userId: "",
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const navigate = useNavigate();
+
+  const [error, setError] = useState("");
+
+  //nalanda_admin
+  //password
+
+  const LoginUser = (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    apiAuth.post(values, "login").then((res) => {
+      console.log(res);
+      if (res.status !== "200") {
+        setError(res.message);
+        return;
+      }
+      localStorage.setItem("Nalanda-UserId", values.userId);
+      localStorage.setItem("Nalanda-Token", res.message.token);
+      localStorage.setItem("Nalanda-Type", res.message.type);
+      if (res.message.type === "admin") {
+        navigate("/admin_dashboard");
+      }
+    });
+
+    setLoading(false);
   };
 
   return (
@@ -29,18 +60,20 @@ const Login = () => {
                 NOTE: This login is for users who are already authorised to
                 access the portal
               </Tiny>
+
+              <Tiny className="text-danger">{error}</Tiny>
+
               <div className="container">
                 <LightTextField
                   size="small"
                   fullWidth
-                  name="email"
-                  type="email"
+                  name="userId"
                   onChange={handleChange}
-                  value={values.email || ""}
-                  error={values.email === ""}
+                  value={values.userId || ""}
+                  error={values.userId === ""}
                   helperText={
-                    values.email === ""
-                      ? "Email should be valid and not empty"
+                    values.userId === ""
+                      ? "User Id should be valid and not empty"
                       : ""
                   }
                   className="mb-3"
@@ -60,9 +93,19 @@ const Login = () => {
                 />
               </div>
               <div className="text-center mt-3">
-                <Button color="primary" variant="contained">
-                  Login
-                </Button>
+                {loading ? (
+                  <Button disabled fullWidth variant="contained">
+                    Login
+                  </Button>
+                ) : (
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={LoginUser}
+                  >
+                    Login
+                  </Button>
+                )}
                 <Paragraph className="mt-3">
                   Go to{"  "}
                   <NavLink to="/" className="color-blue">

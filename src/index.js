@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import TitleContextProvider from "./contexts/TitleContext";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <TitleContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </TitleContextProvider>,
   document.getElementById("root")
 );

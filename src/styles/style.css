@@ -182,4 +182,8 @@ body {
   scroll-behavior: smooth;
   background-color: #fff;
 }
+
+.fa, .far, .fas {
+  font-family: "Font Awesome 5 Free" !important;
+}
 /*# sourceMappingURL=style.css.map */

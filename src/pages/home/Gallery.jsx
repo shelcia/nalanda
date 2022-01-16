@@ -2,7 +2,6 @@ import React from "react";
 
 import Topbar from "./components/Topbar";
 
-import "../../../node_modules/react-awesome-slider/dist/styles.css";
 import PhotoGallery from "./components/PhotoGallery";
 import { H1 } from "../../components/CustomTypography";
 import Footer from "./components/Footer";

@@ -9,7 +9,8 @@ import {
   Toolbar,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import SearchIcon from "../icons/SearchIcon";
+// import SearchIcon from "../icons/SearchIcon";
+import { Small } from "./CustomTypography";
 
 export const StyledTableBodyRow = styled(TableRow)(({ theme, selected_row }) =>
   selected_row === "select"
@@ -70,12 +71,12 @@ export const StyledSearchInput = styled(InputBase)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-export const StyledSearchIcon = styled(SearchIcon)(({ theme }) => ({
-  fontSize: 16,
-  marginLeft: "0.5rem",
-  marginRight: "0.5rem",
-  color: theme.palette.primary.main,
-}));
+// export const StyledSearchIcon = styled(SearchIcon)(({ theme }) => ({
+//   fontSize: 16,
+//   marginLeft: "0.5rem",
+//   marginRight: "0.5rem",
+//   color: theme.palette.primary.main,
+// }));
 
 // custom styled components for badge
 export const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -112,5 +113,18 @@ export const StyledToolBar = styled(Toolbar)(() => ({
     paddingLeft: 0,
     paddingRight: 0,
     minHeight: "auto",
+  },
+}));
+
+export const CustomMenuList = styled(Small)(({ theme }) => ({
+  display: "block",
+  padding: "5px 1rem",
+  cursor: "pointer",
+  "&:hover": {
+    color: theme.palette.primary.main,
+    backgroundColor:
+      theme.palette.mode === "light"
+        ? theme.palette.secondary.light
+        : theme.palette.divider,
   },
 }));
