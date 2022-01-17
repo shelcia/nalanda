@@ -7,6 +7,7 @@ export const apiAdminDashboardModel = new ApiCore({
   getSingle: true,
   getByParams: true,
   post: true,
+  postFormData: true,
   put: true,
   putById: true,
   patch: true,

@@ -124,6 +124,31 @@
   background-color: #00b5eb !important;
 }
 
+.drag-drop {
+  margin-bottom: 10px;
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #bbbbbb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 300px;
+}
+
+.drag-drop:focus {
+  outline: none;
+}
+
 .color-darkBlue {
   color: #022f93 !important;
 }
@@ -183,7 +208,9 @@ body {
   background-color: #fff;
 }
 
-.fa, .far, .fas {
+.fa,
+.far,
+.fas {
   font-family: "Font Awesome 5 Free" !important;
 }
 /*# sourceMappingURL=style.css.map */

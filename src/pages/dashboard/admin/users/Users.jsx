@@ -1,6 +1,7 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { TableCell, TableRow } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { TableLoaders } from "../../../../common/Loaders";
+import CustomTable from "../../../../components/CustomTable";
 import { convertDate } from "../../../../helper/convertDate";
 import useTitle from "../../../../hooks/useTitle";
 import { apiAdminDashboardModel } from "../../../../services/models/AdminDashboardModel";
@@ -19,42 +20,31 @@ const Users = () => {
     apiAdminDashboardModel
       .getSingle("users", ac.signal, undefined, true)
       .then((res) => {
-        // console.log(res);
-        const rows = res.message.map((row) => {
-          const { _id, ...rest } = row;
-          return { id: _id, ...rest };
-        });
-        const drows = rows.map((row) => {
-          const { date, ...rest } = row;
-          return { date: convertDate(date), ...rest };
-        });
-        setUsers(drows);
+        setUsers(res.message);
       });
     setIsLoading(false);
 
     return () => ac.abort();
   }, []);
 
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Name", width: 200 },
-    { field: "userId", headerName: "User Id", width: 130 },
-    { field: "type", headerName: "Type", width: 130 },
-    { field: "date", headerName: "Joined On", width: 130 },
-  ];
+  const columns = ["Sno", "Name", "UserId", "Type", "Joined On"];
 
   return isLoading ? (
     <TableLoaders />
   ) : (
     <React.Fragment>
-      <div className="container" style={{ marginTop: "10vh" }}></div>
-      <div style={{ width: "100%", height: 500 }}>
-        <DataGrid
-          rows={users}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[10]}
-        />
+      <div className="container" style={{ marginTop: "10vh" }}>
+        <CustomTable headers={columns} rows={users}>
+          {users.map((user, index) => (
+            <TableRow key={user._id}>
+              <TableCell>{index + 1}</TableCell>
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.userId}</TableCell>
+              <TableCell>{user.type}</TableCell>
+              <TableCell>{user.date ? convertDate(user.date) : ""}</TableCell>
+            </TableRow>
+          ))}
+        </CustomTable>
       </div>
     </React.Fragment>
   );

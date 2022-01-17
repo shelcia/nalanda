@@ -12,6 +12,7 @@ $shadow: 0px 3px 6px #00000015;
 @import "./components/functions";
 @import "./components/homepage";
 @import "./components/carousalCards";
+@import "./components/dropzone";
 @import "./components/utils";
 
 * {
@@ -25,7 +26,9 @@ body {
   background-color: #fff;
 }
 
-.fa, .far, .fas {
+.fa,
+.far,
+.fas {
   font-family: "Font Awesome 5 Free" !important;
 }
 

@@ -128,9 +128,11 @@ const postFormData = async (
   const headers = isAuthorized
     ? {
         "Content-Type": "multipart/form-data",
-        "auth-token": `Bearer ${token}`,
+        "auth-token": `${token}`,
       }
     : { "Content-Type": "multipart/form-data" };
+
+  console.log({ headers });
 
   try {
     let response;

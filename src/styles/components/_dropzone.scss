@@ -1,0 +1,16 @@
+.drag-drop {
+  margin-bottom: 10px;
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //cursor: pointer;
+  height: 300px;
+
+  &:focus {
+    outline: none;
+  }
+}
