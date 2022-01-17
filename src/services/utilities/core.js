@@ -99,11 +99,10 @@ export class ApiCore {
     }
 
     if (options.remove) {
-      this.remove = (id, signal, additionalParam, isAuthorized) => {
+      this.remove = (id, additionalParam, isAuthorized) => {
         return apiProvider.remove(
           options.url,
           id,
-          signal,
           additionalParam,
           isAuthorized
         );

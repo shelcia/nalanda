@@ -2,7 +2,7 @@ import React from "react";
 import { Box, List, ListItem, Tooltip, useMediaQuery } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import topMenuList from "./Sidebar"; // root component interface
+import { topMenuList } from "./Sidebar"; // root component interface
 import { H3, Small } from "../../../../components/CustomTypography";
 import CustomAccordion from "../../../../components/CustomAccordian";
 import {
@@ -213,54 +213,3 @@ const initialCategoryMenus = [
   },
 ];
 export default DashboardSideBar;
-
-const topMenuList = [
-  {
-    title: "Dashboard",
-    icon: "far fa-folder",
-    path: "/admin_dashboard",
-  },
-  {
-    title: "Users",
-    icon: "far fa-user",
-    children: [
-      {
-        subTitle: "User list",
-        path: "/admin_dashboard/users",
-      },
-      {
-        subTitle: "Add User",
-        path: "/admin_dashboard/users/add-user",
-      },
-    ],
-  },
-  {
-    title: "Announcements",
-    icon: "far fa-bell",
-    children: [
-      {
-        subTitle: "All Announcement",
-        path: "/admin_dashboard/announcements",
-      },
-      {
-        subTitle: "Add Announcement",
-        path: "/admin_dashboard/announcements/add-announcement",
-      },
-    ],
-  },
-  {
-    title: "Questions Corner",
-    icon: "far fa-comment-dots",
-    path: "/admin_dashboard/questions-corner",
-    children: [
-      {
-        subTitle: "All Questions/Note",
-        path: "/admin_dashboard/questions-corner",
-      },
-      {
-        subTitle: "Add Questions/Note",
-        path: "/admin_dashboard/questions-corner/add-questions-corner",
-      },
-    ],
-  },
-];

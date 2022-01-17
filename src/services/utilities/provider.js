@@ -12,7 +12,7 @@ const BASE_URL = LOCALHOST_URL;
 
 /** @param {string} resource */
 const getAll = async (resource, signal, isAuthorized = false) => {
-  const token = localStorage.getItem("HRT-Token");
+  const token = localStorage.getItem("Nalanda-Token");
 
   const headers = isAuthorized ? { Authorization: `Bearer ${token}` } : {};
 
@@ -37,9 +37,9 @@ const getSingle = async (
   additionalParam = "",
   isAuthorized = false
 ) => {
-  const token = localStorage.getItem("HRT-Token");
+  const token = localStorage.getItem("Nalanda-Token");
 
-  const headers = isAuthorized ? { Authorization: `Bearer ${token}` } : {};
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
 
   try {
     let response;
@@ -67,7 +67,7 @@ const getSingle = async (
 /** @param {string} resource */
 /** @param {string} params */
 const getByParams = async (resource, params, signal, isAuthorized = false) => {
-  const token = localStorage.getItem("HRT-Token");
+  const token = localStorage.getItem("Nalanda-Token");
   try {
     const response = await axios.get(`${BASE_URL}/${resource}?${params}`, {
       signal: signal,
@@ -90,8 +90,8 @@ const post = async (
   isAuthorized = false
 ) => {
   // console.log({ model });
-  const token = localStorage.getItem("HRT-Token");
-  const headers = isAuthorized ? { Authorization: `Bearer ${token}` } : {};
+  const token = localStorage.getItem("Nalanda-Token");
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
 
   try {
     let response;
@@ -123,12 +123,12 @@ const postFormData = async (
   additionalParam,
   isAuthorized = false
 ) => {
-  const token = localStorage.getItem("HRT-Token");
+  const token = localStorage.getItem("Nalanda-Token");
   console.log("invoked");
   const headers = isAuthorized
     ? {
         "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token}`,
+        "auth-token": `Bearer ${token}`,
       }
     : { "Content-Type": "multipart/form-data" };
 
@@ -183,7 +183,7 @@ const putById = async (resource, id, model, signal, isAuthorized = false) => {
 /** @param {string} resource */
 /** @param {object} model */
 const patch = async (resource, model, signal, isAuthorized = false) => {
-  const token = localStorage.getItem("HRT-Token");
+  const token = localStorage.getItem("Nalanda-Token");
   try {
     const response = await axios.patch(`${BASE_URL}/${resource}`, model, {
       signal: signal,
@@ -199,11 +199,24 @@ const patch = async (resource, model, signal, isAuthorized = false) => {
 
 /** @param {string} resource */
 /** @param {string} id */
-const remove = async (resource, id, signal, isAuthorized = false) => {
+const remove = async (resource, id, additionalParam, isAuthorized = false) => {
+  const token = localStorage.getItem("Nalanda-Token");
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
+
   try {
-    const response = await axios.delete(`${BASE_URL}/${resource}`, id, {
-      signal: signal,
-    });
+    let response;
+    if (additionalParam === "") {
+      response = await axios.delete(`${BASE_URL}/${resource}/${id}`, {
+        headers: headers,
+      });
+    } else {
+      response = await axios.delete(
+        `${BASE_URL}/${resource}/${additionalParam}/${id}`,
+        {
+          headers: headers,
+        }
+      );
+    }
     return handleResponse(response);
   } catch (error) {
     return handleError(error);
