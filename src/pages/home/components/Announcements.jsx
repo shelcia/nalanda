@@ -19,7 +19,7 @@ const Announcements = () => {
       .then((res) => {
         console.log(res);
         if (res.message === undefined) return;
-        setAnnouncements(res.message);
+        setAnnouncements(res.message?.reverse());
         setIsLoading(false);
       })
       .catch(() => {

@@ -29,7 +29,7 @@ const Counters = () => {
       <div className="container-fluid mt-5" id="counters">
         <div className="row">
           {countUp.map((count) => (
-            <div className="col-md-4 px-4" key={count.class}>
+            <div className="col-md-4 px-4 mb-1" key={count.class}>
               <div
                 className={`${className} ${count.class}`}
                 style={{ height: "200px" }}
