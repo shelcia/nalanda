@@ -28,7 +28,7 @@ const FacultyPage = () => {
     return () => ac.abort();
   }, []);
 
-  const url = `https://nalanda-backend.herokuapp.com/common/faculty`;
+  const url = `https://nalanda-backend.herokuapp.com/api/common/faculty`;
 
   return (
     <React.Fragment>

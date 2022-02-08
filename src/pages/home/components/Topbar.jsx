@@ -139,7 +139,7 @@ const Topbar = (props) => {
                 {topBarLinks.map((page) => (
                   <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                     <NavLink to={page.link}>
-                      <Typography textAlign="center">{page.link}</Typography>
+                      <Typography textAlign="center">{page.name}</Typography>
                     </NavLink>
                   </MenuItem>
                 ))}

@@ -55,6 +55,12 @@ const AdminNotes = Loadable(
 const AdminAddNotes = Loadable(
   lazy(() => import("./pages/dashboard/admin/notes/AddNote"))
 );
+const AdminGallery = Loadable(
+  lazy(() => import("./pages/dashboard/admin/gallery/Gallery"))
+);
+const AdminAddMedia = Loadable(
+  lazy(() => import("./pages/dashboard/admin/gallery/AddMedia"))
+);
 
 const StudentHome = Loadable(
   lazy(() => import("./pages/dashboard/student/home/Home"))
@@ -134,6 +140,14 @@ const routes = [
       {
         path: "notes/add-note",
         element: <AdminAddNotes />,
+      },
+      {
+        path: "gallery",
+        element: <AdminGallery />,
+      },
+      {
+        path: "gallery/add-media",
+        element: <AdminAddMedia />,
       },
     ],
   },

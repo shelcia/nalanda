@@ -36,7 +36,7 @@ const DashboardLayout = ({ children }) => {
       subTitle: "Quick Links",
       subCategories: [
         {
-          name: "Add Questions/Note",
+          name: "Add Questions",
           path: "/admin_dashboard/questions-corner/add-questions-corner",
         },
       ],

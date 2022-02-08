@@ -77,4 +77,19 @@ export const topMenuList = [
       },
     ],
   },
+  {
+    title: "Gallery",
+    icon: "far fa-images",
+    path: "/admin_dashboard/gallery",
+    children: [
+      {
+        subTitle: "All Photos",
+        path: "/admin_dashboard/gallery",
+      },
+      {
+        subTitle: "Add Photo",
+        path: "/admin_dashboard/gallery/add-media",
+      },
+    ],
+  },
 ];
