@@ -47,4 +47,34 @@ export const topMenuList = [
       },
     ],
   },
+  {
+    title: "Faculty",
+    icon: "far fa-address-book",
+    path: "/admin_dashboard/faculty",
+    children: [
+      {
+        subTitle: "All Faculties",
+        path: "/admin_dashboard/faculty",
+      },
+      {
+        subTitle: "Add Faculty",
+        path: "/admin_dashboard/faculty/add-faculty",
+      },
+    ],
+  },
+  {
+    title: "Notes",
+    icon: "far fa-file-alt",
+    path: "/admin_dashboard/notes",
+    children: [
+      {
+        subTitle: "All Notes",
+        path: "/admin_dashboard/notes",
+      },
+      {
+        subTitle: "Add Notes",
+        path: "/admin_dashboard/notes/add-note",
+      },
+    ],
+  },
 ];

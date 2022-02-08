@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, List, ListItem, Tooltip, useMediaQuery } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { topMenuList } from "./Sidebar"; // root component interface
+import { useNavigate } from "react-router-dom";
+// import { topMenuList } from "../admin/Sidebar"; // root component interface
 import { H3, Small } from "../../../../components/CustomTypography";
 import CustomAccordion from "../../../../components/CustomAccordian";
 import {
@@ -11,7 +11,7 @@ import {
   SecondarySideBar,
   StyledListItemButton,
   SubMenuItem,
-} from "../common/StyledBars";
+} from "./StyledBars";
 
 const DashboardSideBar = ({
   sideBarLocked,
@@ -19,6 +19,8 @@ const DashboardSideBar = ({
   closeMobileSideBar,
   openSecondarySideBar,
   setOpenSecondarySideBar,
+  topMenuList,
+  initialCategoryMenus,
 }) => {
   const navigate = useNavigate();
   const [active, setActive] = useState("Dashboard");
@@ -64,11 +66,9 @@ const DashboardSideBar = ({
       }}
     >
       <StyledListItemButton>
-        <NavLink to="admin_dashboard">
-          <h1 style={{ fontSize: "2rem" }} className="color-blue my-0">
-            N.
-          </h1>
-        </NavLink>
+        <h1 style={{ fontSize: "2rem" }} className="color-blue my-0">
+          N.
+        </h1>
       </StyledListItemButton>
 
       {topMenuList.map((nav, index) => (
@@ -199,17 +199,4 @@ const DashboardSideBar = ({
     </Fragment>
   );
 };
-
-const initialCategoryMenus = [
-  {
-    subTitle: "Quick Links",
-    subCategories: [
-      {
-        name: "Add Questions/Note",
-        path: "/admin_dashboard/questions-corner/add-questions-corner",
-      },
-    ],
-    path: "",
-  },
-];
 export default DashboardSideBar;

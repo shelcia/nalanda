@@ -132,7 +132,7 @@ const postFormData = async (
       }
     : { "Content-Type": "multipart/form-data" };
 
-  console.log({ headers });
+  // console.log({ headers });
 
   try {
     let response;
@@ -149,7 +149,7 @@ const postFormData = async (
         }
       );
     }
-    console.log(await response);
+    // console.log(await response);
     return handleResponse(response);
   } catch (error) {
     return handleError(error);

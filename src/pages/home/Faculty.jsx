@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Topbar from "./components/Topbar";
 import { apiCommon } from "../../services/models/CommonModel";
 import { BoxLoaders } from "../../common/Loaders";
-import { LOCALHOST_URL } from "../../services/api";
-import LightTextField from "../../components/CustomLightTextField";
+// import { LOCALHOST_URL } from "../../services/api";
+// import LightTextField from "../../components/CustomLightTextField";
 import { Avatar } from "@mui/material";
 import { H6, Tiny, H3 } from "../../components/CustomTypography";
 import Footer from "./components/Footer";
@@ -24,37 +24,36 @@ const FacultyPage = () => {
       .catch(() => {
         setIsLoading(false);
       });
-    return () => {
-      return () => ac.abort();
-    };
+
+    return () => ac.abort();
   }, []);
 
-  const url = `${LOCALHOST_URL}/common/faculty`;
+  const url = `https://nalanda-backend.herokuapp.com/common/faculty`;
 
   return (
     <React.Fragment>
       <Topbar />
       <section className="container" id="faculty" style={{ marginTop: "14vh" }}>
-        <LightTextField
+        {/* <LightTextField
           fullWidth
           placeholder="Search any faculty"
           size="small"
-        />
+        /> */}
         <div className="container-fluid mt-4 mb-2 px-0">
           <div className="row">
             {isLoading ? (
               <BoxLoaders />
             ) : (
               facultyDetails.map((faculty) => (
-                <div className="col-md-4 mt-1 mb-1" key={faculty._id}>
+                <div className="col-lg-4 mt-1 mb-1" key={faculty._id}>
                   <div
                     className="d-flex align-items-center flex-row p-3 shadow-sm bg-white"
-                    style={{ height: "100px", borderRadius: "1rem" }}
+                    style={{ height: "140px", borderRadius: "1rem" }}
                   >
                     <Avatar
                       alt={faculty.name}
                       src={`${url}/${faculty._id}`}
-                      style={{ height: "70px", width: "70px" }}
+                      style={{ height: "50px", width: "50px" }}
                     />
                     <div className="flex-row ps-2">
                       <H3 className="color-darkBlue">{faculty.name}</H3>

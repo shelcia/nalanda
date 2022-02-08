@@ -40,6 +40,8 @@ const Login = () => {
       localStorage.setItem("Nalanda-Type", res.message.type);
       if (res.message.type === "admin") {
         navigate("/admin_dashboard");
+      } else if (res.message.type === "student") {
+        navigate("/student_dashboard");
       }
     });
 

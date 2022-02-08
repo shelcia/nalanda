@@ -1,24 +1,23 @@
-import { IconButton, TableCell, TableRow } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { IconButton, TableCell, TableRow } from "@mui/material";
 import toast from "react-hot-toast";
 import { TableLoaders } from "../../../../common/Loaders";
 import CustomTable from "../../../../components/CustomTable";
 import { convertDate } from "../../../../helper/convertDate";
 import useTitle from "../../../../hooks/useTitle";
-import { apiAdminDashboardModel } from "../../../../services/models/AdminDashboardModel";
-// import { apiCommon } from "../../../../services/models/CommonModel";
+import { apiStudentDashboard } from "../../../../services/models/StudentDashboardModel";
 
-const QuestionsCorner = () => {
-  useTitle("Questions Corner");
+const Notes = () => {
+  useTitle("All Notes");
 
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const _getQuestions = (signal) => {
-    apiAdminDashboardModel
-      .getSingle("questions-corner", signal, undefined, true)
+    apiStudentDashboard
+      .getSingle("notes", signal, undefined, true)
       .then((res) => {
-        //   console.log(res);
+        // console.log(res);
         if (res.status !== "200") {
           toast.error("Some Error Occurred. Please try reloading !");
           setIsLoading(false);
@@ -36,27 +35,7 @@ const QuestionsCorner = () => {
     return () => ac.abort();
   }, []);
 
-  const deleteQuestion = (id) => {
-    apiAdminDashboardModel.remove(id, "questions-corner", true).then((res) => {
-      //   console.log(res);
-      if (res.status !== "200") {
-        toast.error(res.message);
-        return;
-      }
-      setIsLoading(true);
-      _getQuestions();
-      toast.success(res.message);
-    });
-  };
-
-  const columns = [
-    "Sno",
-    "Title",
-    "Description",
-    "Posted On",
-    "View",
-    "Delete",
-  ];
+  const columns = ["Sno", "Title", "Description", "Posted On", "View"];
 
   return isLoading ? (
     <TableLoaders />
@@ -72,7 +51,7 @@ const QuestionsCorner = () => {
               <TableCell>{user.date ? convertDate(user.date) : ""}</TableCell>
               <TableCell>
                 <a
-                  href={`https://nalanda-backend.herokuapp.com/api/student/dashboard/questions-corner/${user._id}`}
+                  href={`https://nalanda-backend.herokuapp.com/api/student/dashboard/notes/${user._id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -80,16 +59,6 @@ const QuestionsCorner = () => {
                     <i className="fas fa-eye fa-sm"></i>
                   </IconButton>
                 </a>
-              </TableCell>
-              <TableCell>
-                <IconButton
-                  color="error"
-                  onClick={(event) => {
-                    deleteQuestion(user._id);
-                  }}
-                >
-                  <i className="far fa-trash-alt fa-sm"></i>
-                </IconButton>
               </TableCell>
             </TableRow>
           ))}
@@ -99,4 +68,4 @@ const QuestionsCorner = () => {
   );
 };
 
-export default QuestionsCorner;
+export default Notes;

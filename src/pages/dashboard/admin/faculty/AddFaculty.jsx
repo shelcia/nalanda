@@ -7,11 +7,13 @@ import { H3 } from "../../../../components/CustomTypography";
 import useTitle from "../../../../hooks/useTitle";
 import { apiAdminDashboardModel } from "../../../../services/models/AdminDashboardModel";
 
-const AddQuestion = () => {
-  useTitle("Add Question");
+const AddFaculty = () => {
+  useTitle("Add Faculty");
 
   const [inputs, setInputs] = useState({
-    title: "",
+    facId: "",
+    name: "",
+    degree: "",
     desc: "",
   });
 
@@ -23,29 +25,31 @@ const AddQuestion = () => {
 
   const createQuestion = () => {
     setIsLoading(true);
-    if (inputs.title === "") {
-      toast.error("Enter Title Please!");
+    if (inputs.facId === "" || inputs.name === "" || inputs.degree === "") {
+      toast.error("Enter Mandatory Fields Please!");
       return;
     }
-    if (file === null) {
-      toast.error("Upload File Please !");
-      return;
-    }
+    // if (file === null) {
+    //   toast.error("Upload File Please !");
+    //   return;
+    // }
 
-    const formData = new FormData();
+    let formData = new FormData();
 
-    formData.append("document", file);
-    formData.append("title", inputs.title);
+    formData.append("image", file);
+    formData.append("facId", inputs.facId);
+    formData.append("name", inputs.name);
+    formData.append("degree", inputs.degree);
     formData.append("desc", inputs.desc);
 
     apiAdminDashboardModel
-      .postFormData(formData, "questions-corner", true)
+      .postFormData(formData, "faculty", true)
       .then((res) => {
         if (res.status !== "200") {
-          toast.error(res.message);
+          toast.error("Error occured");
           return;
         }
-        toast.success(res.message);
+        toast.success("Faculty Added");
       });
 
     setIsLoading(false);
@@ -62,21 +66,37 @@ const AddQuestion = () => {
           }}
           className="shadow-sm p-4 border border-0 mt-5"
         >
-          <H3 className="mb-3">Enter Question/Test Details:</H3>
+          <H3 className="mb-3">Enter Faculty Details:</H3>
           <div className="row mt-4" style={{ minHeight: "20vh" }}>
             <div className="col-lg-12 d-flex flex-column justify-content-between">
               {file && <p>You have added {file.name}</p>}
               <CustomDropzone setFile={setFile} />
               <LightTextField
-                label="Title*"
-                name="title"
-                value={inputs.title}
+                label="Faculty Id*"
+                name="facId"
+                value={inputs.facId}
                 onChange={handleInputs}
                 className="pb-2"
                 size="small"
               />
               <LightTextField
-                label="Description*"
+                label="Name*"
+                name="name"
+                value={inputs.name}
+                onChange={handleInputs}
+                className="pb-2"
+                size="small"
+              />
+              <LightTextField
+                label="Degree*"
+                name="degree"
+                value={inputs.degree}
+                onChange={handleInputs}
+                className="pb-2"
+                size="small"
+              />
+              <LightTextField
+                label="Description"
                 name="desc"
                 value={inputs.desc}
                 onChange={handleInputs}
@@ -88,7 +108,7 @@ const AddQuestion = () => {
           <div className="text-end mt-3">
             {isLoading ? (
               <Button color="primary" variant="contained" disabled>
-                Create Question/Test
+                Create Faculty
               </Button>
             ) : (
               <Button
@@ -96,7 +116,7 @@ const AddQuestion = () => {
                 variant="contained"
                 onClick={createQuestion}
               >
-                Create Question/Test
+                Create Faculty
               </Button>
             )}
           </div>
@@ -106,4 +126,4 @@ const AddQuestion = () => {
   );
 };
 
-export default AddQuestion;
+export default AddFaculty;

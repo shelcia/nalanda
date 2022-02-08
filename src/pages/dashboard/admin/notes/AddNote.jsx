@@ -7,8 +7,8 @@ import { H3 } from "../../../../components/CustomTypography";
 import useTitle from "../../../../hooks/useTitle";
 import { apiAdminDashboardModel } from "../../../../services/models/AdminDashboardModel";
 
-const AddQuestion = () => {
-  useTitle("Add Question");
+const AddNote = () => {
+  useTitle("Add Note");
 
   const [inputs, setInputs] = useState({
     title: "",
@@ -21,7 +21,7 @@ const AddQuestion = () => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const createQuestion = () => {
+  const createNote = () => {
     setIsLoading(true);
     if (inputs.title === "") {
       toast.error("Enter Title Please!");
@@ -38,15 +38,13 @@ const AddQuestion = () => {
     formData.append("title", inputs.title);
     formData.append("desc", inputs.desc);
 
-    apiAdminDashboardModel
-      .postFormData(formData, "questions-corner", true)
-      .then((res) => {
-        if (res.status !== "200") {
-          toast.error(res.message);
-          return;
-        }
-        toast.success(res.message);
-      });
+    apiAdminDashboardModel.postFormData(formData, "notes", true).then((res) => {
+      if (res.status !== "200") {
+        toast.error(res.message);
+        return;
+      }
+      toast.success(res.message);
+    });
 
     setIsLoading(false);
   };
@@ -62,7 +60,7 @@ const AddQuestion = () => {
           }}
           className="shadow-sm p-4 border border-0 mt-5"
         >
-          <H3 className="mb-3">Enter Question/Test Details:</H3>
+          <H3 className="mb-3">Enter Note Details:</H3>
           <div className="row mt-4" style={{ minHeight: "20vh" }}>
             <div className="col-lg-12 d-flex flex-column justify-content-between">
               {file && <p>You have added {file.name}</p>}
@@ -88,15 +86,11 @@ const AddQuestion = () => {
           <div className="text-end mt-3">
             {isLoading ? (
               <Button color="primary" variant="contained" disabled>
-                Create Question/Test
+                Create Note
               </Button>
             ) : (
-              <Button
-                color="primary"
-                variant="contained"
-                onClick={createQuestion}
-              >
-                Create Question/Test
+              <Button color="primary" variant="contained" onClick={createNote}>
+                Create Note
               </Button>
             )}
           </div>
@@ -106,4 +100,4 @@ const AddQuestion = () => {
   );
 };
 
-export default AddQuestion;
+export default AddNote;

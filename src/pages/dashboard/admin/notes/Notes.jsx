@@ -8,15 +8,15 @@ import useTitle from "../../../../hooks/useTitle";
 import { apiAdminDashboardModel } from "../../../../services/models/AdminDashboardModel";
 // import { apiCommon } from "../../../../services/models/CommonModel";
 
-const QuestionsCorner = () => {
-  useTitle("Questions Corner");
+const Notes = () => {
+  useTitle("All Notes");
 
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const _getQuestions = (signal) => {
     apiAdminDashboardModel
-      .getSingle("questions-corner", signal, undefined, true)
+      .getSingle("notes", signal, undefined, true)
       .then((res) => {
         //   console.log(res);
         if (res.status !== "200") {
@@ -37,7 +37,7 @@ const QuestionsCorner = () => {
   }, []);
 
   const deleteQuestion = (id) => {
-    apiAdminDashboardModel.remove(id, "questions-corner", true).then((res) => {
+    apiAdminDashboardModel.remove(id, "notes", true).then((res) => {
       //   console.log(res);
       if (res.status !== "200") {
         toast.error(res.message);
@@ -72,7 +72,7 @@ const QuestionsCorner = () => {
               <TableCell>{user.date ? convertDate(user.date) : ""}</TableCell>
               <TableCell>
                 <a
-                  href={`https://nalanda-backend.herokuapp.com/api/student/dashboard/questions-corner/${user._id}`}
+                  href={`https://nalanda-backend.herokuapp.com/api/student/dashboard/notes/${user._id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -99,4 +99,4 @@ const QuestionsCorner = () => {
   );
 };
 
-export default QuestionsCorner;
+export default Notes;

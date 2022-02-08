@@ -26,7 +26,7 @@ const InnerWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const DashboardLayout = ({ children }) => {
+const StudentDashboardLayout = ({ children }) => {
   const [sideBarLocked, setSideBarLocked] = useState(false);
   const [showMobileSideBar, setShowMobileSideBar] = useState(false);
   const [openSecondarySideBar, setOpenSecondarySideBar] = useState(false);
@@ -36,8 +36,12 @@ const DashboardLayout = ({ children }) => {
       subTitle: "Quick Links",
       subCategories: [
         {
-          name: "Add Questions/Note",
-          path: "/admin_dashboard/questions-corner/add-questions-corner",
+          name: "View Questions",
+          path: "/student_dashboard/questions-corner",
+        },
+        {
+          name: "View Notes",
+          path: "/student_dashboard/notes",
         },
       ],
       path: "",
@@ -73,4 +77,4 @@ const DashboardLayout = ({ children }) => {
   );
 };
 
-export default DashboardLayout;
+export default StudentDashboardLayout;

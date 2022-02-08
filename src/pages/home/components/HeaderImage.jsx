@@ -64,7 +64,13 @@ const AdmissionModal = ({ open, setOpen }) => {
       <Fade in={open}>
         <Box sx={style}>
           <H4 className="modal-title">Admission Enquiry</H4>
-          <Paragraph sx={{ mt: 2 }}>Contact Satti</Paragraph>
+          <Paragraph sx={{ mt: 2 }}>
+            Nalanda Coaching centre (Head Office) N0.16, Thiruppurkumaran
+            street, Opposite to Collector Bungalow, Kanchipuram - 631501.
+          </Paragraph>
+          <Paragraph sx={{ mt: 2 }}>
+            Mobile: 9994116924, 9443738311, 9443738311
+          </Paragraph>
         </Box>
       </Fade>
     </Modal>
