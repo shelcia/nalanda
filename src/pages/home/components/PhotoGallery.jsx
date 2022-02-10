@@ -5,9 +5,9 @@ import {
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  Skeleton,
   styled,
 } from "@mui/material";
+import { BoxLoaders } from "../../../common/Loaders";
 
 const CustomImageList = styled(ImageList)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -64,11 +64,7 @@ const PhotoGallery = () => {
   }, []);
 
   return isLoading ? (
-    <div>
-      <Skeleton variant="rectangular" width={210} height={118} />
-      {/* <Skeleton variant="rectangular" width={"33%"} height={118} />
-      <Skeleton variant="rectangular" width={"33%"} height={118} /> */}
-    </div>
+    <BoxLoaders />
   ) : (
     <div className="text-center">
       <CustomImageList cols={5}>

@@ -18,7 +18,7 @@ const QuestionsCorner = () => {
     apiAdminDashboardModel
       .getSingle("questions-corner", signal, undefined, true)
       .then((res) => {
-        //   console.log(res);
+        // console.log(res);
         if (res.status !== "200") {
           toast.error("Some Error Occurred. Please try reloading !");
           setIsLoading(false);
@@ -38,7 +38,7 @@ const QuestionsCorner = () => {
 
   const deleteQuestion = (id) => {
     apiAdminDashboardModel.remove(id, "questions-corner", true).then((res) => {
-      //   console.log(res);
+      // console.log(res);
       if (res.status !== "200") {
         toast.error(res.message);
         return;

@@ -6,7 +6,7 @@ const CustomDropzone = ({ setFile, height = "auto" }) => {
   const onDrop = useCallback(
     (acceptedFiles) => {
       // Do something with the files
-      console.log({ acceptedFiles });
+      // console.log({ acceptedFiles });
       setFile(acceptedFiles[0]);
     },
     [setFile]
@@ -14,7 +14,7 @@ const CustomDropzone = ({ setFile, height = "auto" }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div className="drag-drop">
+    <div className="drag-drop" style={{ height: 150 }}>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         {isDragActive ? (

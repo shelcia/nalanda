@@ -2,7 +2,6 @@ import React from "react";
 import { Box, List, ListItem, Tooltip, useMediaQuery } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { topMenuList } from "../admin/Sidebar"; // root component interface
 import { H3, Small } from "../../../../components/CustomTypography";
 import CustomAccordion from "../../../../components/CustomAccordian";
 import {
@@ -12,6 +11,7 @@ import {
   StyledListItemButton,
   SubMenuItem,
 } from "./StyledBars";
+// import Logo from "../../../../assets/logo/nalanda_logo.png";
 
 const DashboardSideBar = ({
   sideBarLocked,
@@ -66,7 +66,8 @@ const DashboardSideBar = ({
       }}
     >
       <StyledListItemButton>
-        <h1 style={{ fontSize: "2rem" }} className="color-blue my-0">
+        {/* <img src={Logo} alt="" width={30} /> */}
+        <h1 style={{ fontSize: "2rem" }} className="color-darkBlue my-0">
           N.
         </h1>
       </StyledListItemButton>

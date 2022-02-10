@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery, Button } from "@mui/material";
 import { H2 } from "../../../../components/CustomTypography";
 import FlexBox from "../../../../components/CustomFlexbox";
 import { DashboardNavbarRoot, StyledToolBar, ToggleIcon } from "./StyledBars";
 import { TitleContext } from "../../../../contexts/TitleContext";
 import Logo from "../../../../assets/logo/nalanda_logo.png";
+import { useNavigate } from "react-router-dom";
 
 const DashboardNavbar = (props) => {
   const {
@@ -26,6 +27,13 @@ const DashboardNavbar = (props) => {
       setSideBarLocked();
       setOpenSecondarySideBar();
     }
+  };
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate("/login");
+    localStorage.clear();
   };
 
   if (downSm) {
@@ -97,7 +105,11 @@ const DashboardNavbar = (props) => {
           {title}
         </H2>
 
-        <Box flexGrow={1} ml={1} />
+        <Box style={{ marginLeft: "auto" }}>
+          <Button variant="contained" onClick={logout} size="small">
+            Logout
+          </Button>
+        </Box>
       </StyledToolBar>
     </DashboardNavbarRoot>
   );

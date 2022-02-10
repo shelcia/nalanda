@@ -53,6 +53,8 @@ const AddMedia = () => {
 
   const [file, setFile] = useState(null);
 
+  console.log(file);
+
   return (
     <React.Fragment>
       <Box pb={4}>
@@ -60,13 +62,22 @@ const AddMedia = () => {
           sx={{
             padding: "1.5rem 0",
           }}
-          className="shadow-sm p-4 border border-0 mt-5"
+          className="mt-5 border border-0 p-4 shadow-sm"
         >
           <H3 className="mb-3">Enter Photo Details:</H3>
           <div className="row mt-4" style={{ minHeight: "20vh" }}>
             <div className="col-lg-12 d-flex flex-column justify-content-between">
-              {file && <p>You have added {file.name}</p>}
-              <CustomDropzone setFile={setFile} />
+              {file && (
+                <>
+                  <p>You have added {file.name}</p>
+                  <img
+                    src={URL.createObjectURL(file)}
+                    width={200}
+                    alt="Thumb"
+                  />
+                </>
+              )}
+              <CustomDropzone setFile={setFile} accept="image/*" />
               <LightTextField
                 label="Title*"
                 name="title"
