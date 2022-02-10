@@ -48,7 +48,7 @@ const Home = () => {
         <Card variant="outlined">
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="primary.main" gutterBottom>
-              Thirukural of the Day
+              Thirukural
             </Typography>
             <Typography variant="h5" component="div">
               {content.Line1}
