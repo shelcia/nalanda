@@ -11,7 +11,7 @@ const Counters = () => {
     },
     {
       count: 600,
-      desc: "Students cleared TNEB",
+      desc: "Students cleared IBPS",
       class: "bg-yellow color-darkBlue",
     },
     {

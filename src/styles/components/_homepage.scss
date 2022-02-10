@@ -22,6 +22,7 @@ $borderColor: #707070;
     }
     .col-sm-5 {
       justify-content: flex-end;
+      // admission enquiry
       button {
         transform: rotateZ(270deg);
         transform-origin: bottom right;
@@ -29,6 +30,7 @@ $borderColor: #707070;
         border-bottom-right-radius: 0px;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
+        // position: sticky;
       }
     }
   }
@@ -97,5 +99,15 @@ $borderColor: #707070;
   background-size: contain;
   .col-md-6 {
     height: 30vh;
+  }
+}
+
+#login {
+  .container-fluid {
+    @include bgImage(
+      "https://cdn.discordapp.com/attachments/787025267636830249/796361618413060106/announcementBlob.png",
+      100%
+    );
+    background-size: contain;
   }
 }

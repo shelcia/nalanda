@@ -110,6 +110,17 @@
   height: 30vh;
 }
 
+#login .container-fluid {
+  position: relative;
+  background-image: url("https://cdn.discordapp.com/attachments/787025267636830249/796361618413060106/announcementBlob.png");
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-size: contain;
+}
+
 .react-multi-carousel-track {
   margin-bottom: 2rem !important;
 }

@@ -143,6 +143,11 @@ const Topbar = (props) => {
                     </NavLink>
                   </MenuItem>
                 ))}
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink to={"/login"}>
+                    <Typography textAlign="center">Login</Typography>
+                  </NavLink>
+                </MenuItem>
               </Menu>
             </Box>
             <Typography
