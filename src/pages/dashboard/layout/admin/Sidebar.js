@@ -38,11 +38,11 @@ export const topMenuList = [
     path: "/admin_dashboard/questions-corner",
     children: [
       {
-        subTitle: "All Questions/Note",
+        subTitle: "All Questions",
         path: "/admin_dashboard/questions-corner",
       },
       {
-        subTitle: "Add Questions/Note",
+        subTitle: "Add Questions",
         path: "/admin_dashboard/questions-corner/add-questions-corner",
       },
     ],

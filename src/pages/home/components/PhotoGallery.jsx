@@ -1,65 +1,37 @@
-import React, { useState, useCallback, useEffect } from "react";
-
-import Gallery from "react-photo-gallery";
+import React, { useState, useEffect } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { apiCommon } from "../../../services/models/CommonModel";
+import {
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  Skeleton,
+  styled,
+} from "@mui/material";
 
-// const photos = [
-//   {
-//     src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-//     width: 4,
-//     height: 3,
-//   },
-//   {
-//     src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-//     width: 1,
-//     height: 1,
-//   },
-//   {
-//     src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
-//     width: 3,
-//     height: 4,
-//   },
-//   {
-//     src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
-//     width: 3,
-//     height: 4,
-//   },
-//   {
-//     src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
-//     width: 3,
-//     height: 4,
-//   },
-//   {
-//     src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
-//     width: 4,
-//     height: 3,
-//   },
-//   {
-//     src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
-//     width: 3,
-//     height: 4,
-//   },
-//   {
-//     src: "https://source.unsplash.com/PpOHJezOalU/800x599",
-//     width: 4,
-//     height: 3,
-//   },
-//   {
-//     src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-//     width: 4,
-//     height: 3,
-//   },
-// ];
+const CustomImageList = styled(ImageList)(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "100%",
+  },
+}));
 
 const PhotoGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const openLightbox = useCallback((event, { photo, index }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const openLightbox = (index) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
-  }, []);
+  };
 
   const closeLightbox = () => {
     setCurrentImage(0);
@@ -70,16 +42,18 @@ const PhotoGallery = () => {
 
   const _getMedia = (signal) => {
     apiCommon.getSingle("gallery", signal).then((res) => {
-      if (res.message === undefined) return;
+      if (res.message === undefined) {
+        setIsLoading(false);
+        return;
+      }
       const updated = res.message?.map((photo) => {
         return {
           title: photo.title,
           src: `https://nalanda-backend.herokuapp.com/api/common/gallery/${photo._id}`,
-          width: 4,
-          height: 3,
         };
       });
       setPhotos(updated);
+      setIsLoading(false);
     });
   };
 
@@ -89,9 +63,39 @@ const PhotoGallery = () => {
     return () => ac.abort();
   }, []);
 
-  return (
+  return isLoading ? (
     <div>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Skeleton variant="rectangular" width={210} height={118} />
+      {/* <Skeleton variant="rectangular" width={"33%"} height={118} />
+      <Skeleton variant="rectangular" width={"33%"} height={118} /> */}
+    </div>
+  ) : (
+    <div className="text-center">
+      <CustomImageList cols={5}>
+        {photos.map((item, index) => (
+          <ImageListItem key={item.src}>
+            <img
+              // src={item.src}
+              src={`${item.src}?w=248&fit=crop&auto=format`}
+              srcSet={`${item.src}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+              onClick={() => openLightbox(index)}
+            />
+            <ImageListItemBar
+              sx={{
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.7) 0%, " +
+                  "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+              }}
+              title={item.title}
+              position="bottom"
+              actionPosition="left"
+            />
+          </ImageListItem>
+        ))}
+      </CustomImageList>
+
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
